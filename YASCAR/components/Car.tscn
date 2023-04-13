@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://stffa3app6u0"]
+
+[ext_resource type="PackedScene" uid="uid://rrtj7oxtxshx" path="res://assets/models/placeholder_piece.glb" id="1_oxnx8"]
+
+[node name="Car" type="Node3D"]
+
+[node name="placeholder_piece" parent="." instance=ExtResource("1_oxnx8")]
