@@ -5,3 +5,6 @@
 [node name="Main" type="Node3D"]
 
 [node name="Car" parent="." instance=ExtResource("1_665sy")]
+
+[node name="Camera3D" type="Camera3D" parent="Car"]
+transform = Transform3D(-0.0441948, 0, -0.999023, 0, 1, 0, 0.999023, 0, -0.0441948, -2.68093, 1.39471, -0.0422903)
