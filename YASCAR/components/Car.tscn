@@ -1,19 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://stffa3app6u0"]
+[gd_scene load_steps=8 format=3 uid="uid://stffa3app6u0"]
 
 [ext_resource type="PackedScene" uid="uid://dvap54kkh0oga" path="res://assets/models/piece_textured.glb" id="1_sp3ta"]
 [ext_resource type="Script" path="res://scripts/Car.gd" id="1_w25kp"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rtlj2"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_87vul"]
-graph_offset = Vector2(-300.256, 100.688)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_rtlj2")
-nodes/Animation/position = Vector2(0, 200)
-node_connections = [&"output", 0, &"Animation"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_2t0hy"]
-size = Vector3(2.61154, 1.01612, 1.52028)
+size = Vector3(2.60476, 1.01612, 1.52028)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wckui"]
 albedo_color = Color(0.929412, 0.0862745, 0.219608, 1)
@@ -33,13 +24,11 @@ script = ExtResource("1_w25kp")
 [node name="piece_textured" parent="." instance=ExtResource("1_sp3ta")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0.216395, 0)
 
-[node name="Skeleton3D" parent="piece_textured/CarArmature" index="1"]
-bones/2/rotation = Quaternion(-0.50088, -0.499118, 0.500881, 0.499117)
+[node name="Cylinder004" parent="piece_textured/CarArmature" index="3"]
+transform = Transform3D(0.00352597, -0.999994, 0, 0.999994, 0.00352597, 0, 0, 0, 1, 0.672874, 0.0833904, 0.63821)
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendTree_87vul")
-anim_player = NodePath("../piece_textured/AnimationPlayer")
-active = true
+[node name="tire_r_rot" parent="piece_textured/CarArmature/root" index="1"]
+transform = Transform3D(1, 4.02214e-24, 0, -4.02214e-24, 1, 0, 0, 0, 1, 0.7, -0.107201, 0.6)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.508058, 0)
