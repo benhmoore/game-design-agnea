@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://stffa3app6u0"]
+[gd_scene load_steps=11 format=3 uid="uid://stffa3app6u0"]
 
 [ext_resource type="PackedScene" uid="uid://dvap54kkh0oga" path="res://assets/models/piece_textured.glb" id="1_sp3ta"]
 [ext_resource type="Script" path="res://scripts/Car.gd" id="1_w25kp"]
+[ext_resource type="PackedScene" uid="uid://kmdsn1x0r1vv" path="res://assets/models/tire.glb" id="2_at3lg"]
+[ext_resource type="Script" path="res://scripts/Car/TargetDirection.gd" id="3_5namy"]
+[ext_resource type="Script" path="res://scripts/Car/CurrentDirection.gd" id="4_2n306"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2t0hy"]
 size = Vector3(2.60476, 1.01612, 1.52028)
@@ -21,14 +24,14 @@ material = SubResource("StandardMaterial3D_3v8gd")
 [node name="Car" type="CharacterBody3D"]
 script = ExtResource("1_w25kp")
 
-[node name="piece_textured" parent="." instance=ExtResource("1_sp3ta")]
+[node name="tire_left" parent="." instance=ExtResource("2_at3lg")]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, -0.689, 0.299, 0.638214)
+
+[node name="tire_right" parent="." instance=ExtResource("2_at3lg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.688933, 0.298585, -0.631353)
+
+[node name="main" parent="." instance=ExtResource("1_sp3ta")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0.216395, 0)
-
-[node name="Cylinder004" parent="piece_textured/CarArmature" index="3"]
-transform = Transform3D(0.00352597, -0.999994, 0, 0.999994, 0.00352597, 0, 0, 0, 1, 0.672874, 0.0833904, 0.63821)
-
-[node name="tire_r_rot" parent="piece_textured/CarArmature/root" index="1"]
-transform = Transform3D(1, 4.02214e-24, 0, -4.02214e-24, 1, 0, 0, 0, 1, 0.7, -0.107201, 0.6)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.508058, 0)
@@ -36,6 +39,7 @@ shape = SubResource("BoxShape3D_2t0hy")
 
 [node name="TargetDirection" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.08165e-12, 2.08165e-12)
+script = ExtResource("3_5namy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TargetDirection"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.000865698, 0.580752, -0.00270987)
@@ -43,9 +47,14 @@ mesh = SubResource("BoxMesh_pwnkb")
 
 [node name="CurrentDirection" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.08165e-12, 2.08165e-12)
+script = ExtResource("4_2n306")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CurrentDirection"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.228042, 0)
 mesh = SubResource("BoxMesh_apy6n")
 
-[editable path="piece_textured"]
+[node name="ForwardRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+target_position = Vector3(2.08165e-12, 2, 2.08165e-12)
+
+[editable path="main"]

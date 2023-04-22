@@ -9,8 +9,11 @@
 [node name="Car" parent="." instance=ExtResource("1_665sy")]
 
 [node name="Camera3D" type="Camera3D" parent="Car"]
-transform = Transform3D(0.0191102, -0.481345, 0.876323, -8.85251e-17, 0.876483, 0.481432, -0.999817, -0.00920026, 0.0167498, 6.72146, 4.61684, -0.109009)
+transform = Transform3D(0.0279217, -0.790915, 0.611289, -1.06923e-07, 0.611527, 0.791224, -0.99961, -0.0220924, 0.0170748, 2.87804, 6.52071, -0.109009)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(20.544, 0, 0, 0, 2.08165e-12, 0, 0, 0, 20.544, 0, 0, 0)
 mesh = SubResource("TorusMesh_210qv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.858253, 0.513227, 0, -0.513227, 0.858253, 0, 6.02766, 0)

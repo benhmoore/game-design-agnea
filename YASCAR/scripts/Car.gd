@@ -4,11 +4,23 @@ extends CharacterBody3D
 const MAX_SPEED = 10 # Maximum linear speed in m/s
 const ACCELERATION = 4  # How fast the car can accelerate in m/s^2
 const BRAKE_FORCE = 10 # How fast the car can decelerate in m/s^2
-const TURN_SPEED = 2 # How fast the car can turn in rad/s
+@export var turning_speed = 3.5 # How fast the car can turn in rad/s
 
 var linear_velocity = Vector3.ZERO # The current linear velocity of the car
 
+@onready var tire_left:Node3D = $tire_left
+@onready var tire_right:Node3D = $tire_right
+@onready var current_direction: Marker3D = $CurrentDirection
+
+@onready var forward_ray: Node3D = $ForwardRay
+
 func _physics_process(delta):
+	
+	# Set tire rotations
+	forward_ray.look_at(current_direction.global_position)
+	tire_left.rotation.y = forward_ray.rotation.y + deg_to_rad(-270)
+	tire_right.rotation.y = forward_ray.rotation.y + deg_to_rad(-90)
+	
 	# Get the input values from the WASD keys or the controller joystick
 	var input_y = Input.get_axis("ui_up", "ui_down")
 	
