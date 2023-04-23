@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvap54kkh0oga"
-path="res://.godot/imported/piece_textured.glb-7986eaaf87b38d0c23be8cb80267cfd4.scn"
+path="res://.godot/imported/piece_textured.glb-b2a4458c6b0ccfc855b22ad25e4274e4.scn"
 
 [deps]
 
-source_file="res://assets/models/piece_textured.glb"
-dest_files=["res://.godot/imported/piece_textured.glb-7986eaaf87b38d0c23be8cb80267cfd4.scn"]
+source_file="res://assets/models/Car/piece_textured.glb"
+dest_files=["res://.godot/imported/piece_textured.glb-b2a4458c6b0ccfc855b22ad25e4274e4.scn"]
 
 [params]
 
