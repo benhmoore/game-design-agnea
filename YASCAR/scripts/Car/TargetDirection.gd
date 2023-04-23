@@ -17,4 +17,4 @@ func _physics_process(delta):
 	
 	var input_x = Input.get_axis("ui_left", "ui_right")
 	
-	position = init_pos + Vector3(0, 0, -input_x)
+	position = init_pos + Vector3(-input_x, 0, 0)

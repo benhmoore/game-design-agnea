@@ -14,6 +14,11 @@ func _process(delta):
 	
 func _physics_process(delta):
 	
+	var input_x = Input.get_axis("ui_left", "ui_right")
+	
 	var target_position = get_parent().get_node("TargetDirection").position
 	
-	position = lerp(position, target_position, delta * turning_speed)
+	if input_x == 0:
+		position = lerp(position, target_position, delta * (turning_speed / 5))
+	else:
+		position = lerp(position, target_position, delta * turning_speed)

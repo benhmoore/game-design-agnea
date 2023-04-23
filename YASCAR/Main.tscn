@@ -9,7 +9,7 @@
 [node name="Car" parent="." instance=ExtResource("1_665sy")]
 
 [node name="Camera3D" type="Camera3D" parent="Car"]
-transform = Transform3D(0.0279217, -0.790915, 0.611289, -1.06923e-07, 0.611527, 0.791224, -0.99961, -0.0220924, 0.0170748, 2.87804, 6.52071, -0.109009)
+transform = Transform3D(-1, -6.9171e-08, 5.34614e-08, 2.13293e-16, 0.611527, 0.791224, -8.74228e-08, 0.791224, -0.611527, -0.305795, 3.90169, -3.99194)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(20.544, 0, 0, 0, 2.08165e-12, 0, 0, 0, 20.544, 0, 0, 0)
