@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_jijcy"]
+[ext_resource type="Script" path="res://NewGame.gd" id="2_ksxq5"]
+[ext_resource type="Script" path="res://scripts/Options.gd" id="3_o36kn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g1eyj"]
+font_size = 125
+
+[sub_resource type="Theme" id="Theme_wlvqb"]
+default_font_size = 75
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8g7m"]
+bg_color = Color(0, 0, 0, 0.396078)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_200r3"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37rft"]
+bg_color = Color(0, 0, 0, 0.686275)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jijcy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1426.0
+offset_bottom = 844.0
+color = Color(0.266667, 0.0823529, 0.607843, 0.407843)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1150.0
+offset_bottom = 649.0
+theme_override_constants/margin_left = 58
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 73
+theme_override_constants/margin_bottom = 28
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Y.A.S.C.A.R."
+label_settings = SubResource("LabelSettings_g1eyj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_next = NodePath("MarginContainer2/Options")
+focus_previous = NodePath("MarginContainer3/Quit")
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+focus_next = NodePath("../../MarginContainer2/Options")
+focus_previous = NodePath("../../MarginContainer3/Quit")
+focus_mode = 0
+theme = SubResource("Theme_wlvqb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8g7m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_200r3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_37rft")
+text = "New Game
+"
+script = ExtResource("2_ksxq5")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+focus_next = NodePath("../../MarginContainer3/Quit")
+focus_previous = NodePath("../../MarginContainer/NewGame")
+focus_mode = 0
+theme = SubResource("Theme_wlvqb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8g7m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_200r3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_37rft")
+text = "Options
+"
+script = ExtResource("3_o36kn")
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+focus_next = NodePath("../../MarginContainer/NewGame")
+focus_previous = NodePath("../../MarginContainer2/Options")
+theme = SubResource("Theme_wlvqb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8g7m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_200r3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_37rft")
+text = "Quit
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/Quit" to="." method="_on_quit_pressed"]
