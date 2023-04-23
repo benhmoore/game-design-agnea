@@ -2,6 +2,10 @@ extends VehicleBody3D
 
 enum ControlScheme { ARROWS, WASD }
 
+# Audio players
+@onready var engine_player: AudioStreamPlayer = $EngineAudioPlayer
+@onready var sound_effect_player: AudioStreamPlayer = $SoundEffectAudioPlayer
+
 # Car color
 @export var car_color: Color = Color(1, 0, 0)
 @onready var car_mesh: MeshInstance3D = $CarBody/body
@@ -28,6 +32,7 @@ enum ControlScheme { ARROWS, WASD }
 
 func _ready():
 	set_car_color(car_color)  # Set the car's color to red
+	engine_player.play()
 
 func set_car_color(color: Color):
 	var newMaterial = StandardMaterial3D.new() 

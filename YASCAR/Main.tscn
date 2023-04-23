@@ -56,7 +56,6 @@ shadow_blur = 0.452
 transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -0.615286, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_tw5cu")
 skeleton = NodePath("../..")
 
