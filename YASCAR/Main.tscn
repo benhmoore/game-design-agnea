@@ -1,19 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmg43rg7702cy"]
+[gd_scene load_steps=4 format=3 uid="uid://cmg43rg7702cy"]
 
 [ext_resource type="PackedScene" uid="uid://stffa3app6u0" path="res://components/Car.tscn" id="1_665sy"]
 
-[sub_resource type="TorusMesh" id="TorusMesh_210qv"]
+[sub_resource type="BoxMesh" id="BoxMesh_tw5cu"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1nklo"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Main" type="Node3D"]
 
 [node name="Car" parent="." instance=ExtResource("1_665sy")]
 
 [node name="Camera3D" type="Camera3D" parent="Car"]
-transform = Transform3D(-1, -6.9171e-08, 5.34614e-08, 2.13293e-16, 0.611527, 0.791224, -8.74228e-08, 0.791224, -0.611527, -0.305795, 3.90169, -3.99194)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(20.544, 0, 0, 0, 2.08165e-12, 0, 0, 0, 20.544, 0, 0, 0)
-mesh = SubResource("TorusMesh_210qv")
+transform = Transform3D(1, -7.17198e-15, 2.3397e-15, 2.53463e-15, 0.611527, 0.791224, -7.10543e-15, -0.791224, 0.611527, -0.305795, 7.51218, 2.49752)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.858253, 0.513227, 0, -0.513227, 0.858253, 0, 6.02766, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -0.615286, 0)
+mesh = SubResource("BoxMesh_tw5cu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1nklo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -1.36187, -15.6323)
+mesh = SubResource("BoxMesh_tw5cu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1nklo")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -2.09468, -30.9834)
+mesh = SubResource("BoxMesh_tw5cu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1nklo")

@@ -1,6 +1,6 @@
 extends Marker3D
 
-@onready var turning_speed = get_parent().turning_speed
+@onready var turning_speed = 2
 
 
 # Called when the node enters the scene tree for the first time.
