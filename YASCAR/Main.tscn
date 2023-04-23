@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmg43rg7702cy"]
 
-[ext_resource type="PackedScene" path="res://components/Car.tscn" id="1_665sy"]
+[ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://components/Car.tscn" id="1_665sy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tw5cu"]
 
@@ -11,11 +11,9 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [node name="Car" parent="." instance=ExtResource("1_665sy")]
 
-[node name="Camera3D" type="Camera3D" parent="Car"]
-transform = Transform3D(1, -7.17198e-15, 2.3397e-15, 2.53463e-15, 0.611527, 0.791224, -7.10543e-15, -0.791224, 0.611527, -0.305795, 7.51218, 2.49752)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.858253, 0.513227, 0, -0.513227, 0.858253, 0, 6.02766, 0)
+shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -0.615286, 0)
