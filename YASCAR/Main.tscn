@@ -9,35 +9,78 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [node name="Main" type="Node3D"]
 
-[node name="Car" parent="." instance=ExtResource("1_665sy")]
+[node name="SplitScreen" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="LeftContainer" type="SubViewportContainer" parent="SplitScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SplitScreen/LeftContainer"]
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 4
+
+[node name="Car" parent="SplitScreen/LeftContainer/SubViewport" instance=ExtResource("1_665sy")]
+
+[node name="RightContainer" type="SubViewportContainer" parent="SplitScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SplitScreen/RightContainer"]
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 4
+
+[node name="Car" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("1_665sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53811, 0, 0)
+car_color = Color(0.298039, 0.658824, 0.803922, 1)
+control_scheme = 0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.858253, 0.513227, 0, -0.513227, 0.858253, 0, 6.02766, 0)
 shadow_enabled = true
+shadow_opacity = 0.44
+shadow_blur = 0.452
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Environment" type="Node3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -0.615286, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_tw5cu")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/MeshInstance3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_1nklo")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -1.36187, -15.6323)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.49317, -0.781615)
 mesh = SubResource("BoxMesh_tw5cu")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/MeshInstance3D2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_1nklo")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -2.09468, -30.9834)
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.95879, -1.54917)
 mesh = SubResource("BoxMesh_tw5cu")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/MeshInstance3D3"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/MeshInstance3D3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_1nklo")
