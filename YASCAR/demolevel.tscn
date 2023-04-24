@@ -55,9 +55,47 @@ transform = Transform3D(2.30242, 0, 1.39808, 0, 2.69365, 0, -1.39808, 0, 2.30242
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tqta6")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.487464, 0.873143, 0, -0.873143, 0.487464, -604.009, 97.5945, 65.9196)
+shadow_enabled = true
+
 [node name="old-western-saloon" parent="." instance=ExtResource("5_o0vv0")]
 transform = Transform3D(-0.913794, 0, -0.406178, 0, 1, 0, 0.406178, 0, -0.913794, -30.0578, 0.248459, 106.46)
 
-[node name="Car2" parent="." instance=ExtResource("3_iyn8n")]
+[node name="SplitScreen" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="LeftContainer" type="SubViewportContainer" parent="SplitScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SplitScreen/LeftContainer"]
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 4
+
+[node name="Car2" parent="SplitScreen/LeftContainer/SubViewport" instance=ExtResource("3_iyn8n")]
+transform = Transform3D(0.364275, 0, 0.931291, 0, 1, 0, -0.931291, 0, 0.364275, -410.916, 0.655762, 333.951)
+car_color = Color(0, 0.929412, 0.415686, 1)
+
+[node name="RightContainer" type="SubViewportContainer" parent="SplitScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SplitScreen/RightContainer"]
+handle_input_locally = false
+size = Vector2i(574, 648)
+render_target_update_mode = 4
+
+[node name="Car3" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("3_iyn8n")]
 transform = Transform3D(0.364275, 0, 0.931291, 0, 1, 0, -0.931291, 0, 0.364275, -410.305, 0.655762, 332.103)
 control_scheme = 0
