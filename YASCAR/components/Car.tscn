@@ -71,14 +71,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_eajom")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7jxy3"]
-size = Vector3(1.82287, 1, 2.51924)
+[sub_resource type="BoxShape3D" id="BoxShape3D_sse80"]
+size = Vector3(1.24998, 1, 2.21048)
 
 [node name="Car" type="VehicleBody3D"]
 center_of_mass_mode = 1
 script = ExtResource("1_n7gti")
 car_color = Color(1, 0.470588, 0.180392, 1)
 control_scheme = 1
+acceleration_force = 200.0
+braking_force = 200.0
 
 [node name="FrontRightWheel" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.629373, 0.297358, -0.681135)
@@ -130,10 +132,6 @@ transform = Transform3D(-1, 3.48787e-16, -1.50996e-07, 3.48787e-16, 1, -3.48787e
 [node name="body" parent="CarBody" index="0"]
 transform = Transform3D(1, -4.02216e-24, 0, -4.02216e-24, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499756, 0)
-shape = SubResource("BoxShape3D_7jxy3")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.907748, 0.419515, 0, -0.419515, 0.907748, 0, 2.91171, 4.23454)
 
@@ -147,5 +145,21 @@ volume_db = -20.0
 
 [node name="SoundEffectAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_16fmb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.652286, 0)
+shape = SubResource("BoxShape3D_sse80")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.97613, 0.217189, 0, -0.217189, 0.97613, -0.329882, 0.898956, -1.29311)
+light_color = Color(1, 1, 0.694118, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.97613, 0.217189, 0, -0.217189, 0.97613, 0.313265, 0.898956, -1.29311)
+light_color = Color(1, 1, 0.694118, 1)
+light_energy = 0.8
+shadow_enabled = true
 
 [editable path="CarBody"]
