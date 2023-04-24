@@ -17,10 +17,10 @@ enum ControlScheme { ARROWS, WASD }
 @export var control_scheme:ControlScheme = ControlScheme.ARROWS
 
 # Acceleration, braking, steering limit, and max speed parameters
-@export var acceleration_force = 250.0
+@export var acceleration_force = 150.0
 @export var braking_force = 100.0
-@export var steering_limit = deg_to_rad(25)
-@export var max_speed = 50.0
+@export var steering_limit = deg_to_rad(10)
+@export var max_speed = 30.0
 
 # Minimum and maximum FOV for the camera
 @export var min_fov = 70.0

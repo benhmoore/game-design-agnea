@@ -3,9 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://e34nmk8fa5pr"
-path.s3tc="res://.godot/imported/old-western-saloon_fabric_wire_light_brown.png-36bd64c3ea80d1a0873a98076595c44f.s3tc.ctex"
+path.etc2="res://.godot/imported/old-western-saloon_fabric_wire_light_brown.png-36bd64c3ea80d1a0873a98076595c44f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +13,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assets/models/old-western-saloon_fabric_wire_light_brown.png"
-dest_files=["res://.godot/imported/old-western-saloon_fabric_wire_light_brown.png-36bd64c3ea80d1a0873a98076595c44f.s3tc.ctex"]
+dest_files=["res://.godot/imported/old-western-saloon_fabric_wire_light_brown.png-36bd64c3ea80d1a0873a98076595c44f.etc2.ctex"]
 
 [params]
 

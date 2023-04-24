@@ -3,9 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo7yovm02h7c6"
-path.s3tc="res://.godot/imported/old-western-saloon_METAL_SNIP.png-f7a1b8a3e9f36aab76e8478a465bb7b0.s3tc.ctex"
+path.etc2="res://.godot/imported/old-western-saloon_METAL_SNIP.png-f7a1b8a3e9f36aab76e8478a465bb7b0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +13,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assets/models/old-western-saloon_METAL_SNIP.png"
-dest_files=["res://.godot/imported/old-western-saloon_METAL_SNIP.png-f7a1b8a3e9f36aab76e8478a465bb7b0.s3tc.ctex"]
+dest_files=["res://.godot/imported/old-western-saloon_METAL_SNIP.png-f7a1b8a3e9f36aab76e8478a465bb7b0.etc2.ctex"]
 
 [params]
 

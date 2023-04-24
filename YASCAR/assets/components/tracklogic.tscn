@@ -81,6 +81,7 @@ path_joined = false
 material = ExtResource("3_4aegd")
 
 [node name="Ground" type="CSGPolygon3D" parent="."]
+visible = false
 polygon = PackedVector2Array(0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0)
 mode = 2
 path_node = NodePath("..")
