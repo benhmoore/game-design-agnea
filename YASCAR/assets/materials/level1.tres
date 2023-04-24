@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/road.gdshader" id="1_p74yj"]
+[ext_resource type="Texture2D" uid="uid://nbarpk5y4f6d" path="res://assets/textures/TexturesCom_Roads0069_1_seamless_S.jpg" id="2_k6yi5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_p74yj")
+shader_parameter/road_texture = ExtResource("2_k6yi5")
