@@ -3,9 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://oc4nmnvoyqwi"
-path.s3tc="res://.godot/imported/old-western-saloon_(DIRT 3) soil dust dirt sand ground texture.png-f36bb91bc05a17f0432cb9ed187b720c.s3tc.ctex"
+path.etc2="res://.godot/imported/old-western-saloon_(DIRT 3) soil dust dirt sand ground texture.png-f36bb91bc05a17f0432cb9ed187b720c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +13,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assets/models/old-western-saloon_(DIRT 3) soil dust dirt sand ground texture.png"
-dest_files=["res://.godot/imported/old-western-saloon_(DIRT 3) soil dust dirt sand ground texture.png-f36bb91bc05a17f0432cb9ed187b720c.s3tc.ctex"]
+dest_files=["res://.godot/imported/old-western-saloon_(DIRT 3) soil dust dirt sand ground texture.png-f36bb91bc05a17f0432cb9ed187b720c.etc2.ctex"]
 
 [params]
 
