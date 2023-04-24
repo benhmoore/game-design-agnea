@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cjwdbvpa3hvmr"]
+
+[ext_resource type="Texture2D" uid="uid://bmmntyi08xuhe" path="res://assets/models/lowpoly-desert-house_vkgrchzga_8K_Albedo.png" id="1_7cs5k"]
+
+[resource]
+albedo_color = Color(0.537255, 0.298039, 0.054902, 1)
+albedo_texture = ExtResource("1_7cs5k")
