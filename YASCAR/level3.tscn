@@ -44,9 +44,9 @@ mesh = SubResource("BoxMesh_ap2o5")
 
 [node name="Track" type="Node3D" parent="."]
 
-[node name="TrackPath" parent="Track" instance=ExtResource("2_srr2r")]
-
 [node name="Scenery" type="Node3D" parent="."]
+
+[node name="TrackPath" parent="Scenery" instance=ExtResource("2_srr2r")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tqta6")
