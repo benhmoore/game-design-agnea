@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://5jpfgahx5o5y"]
+
+[ext_resource type="Shader" path="res://assets/shaders/road.gdshader" id="1_7apj7"]
+[ext_resource type="Texture2D" uid="uid://nbarpk5y4f6d" path="res://assets/textures/TexturesCom_Roads0069_1_seamless_S.jpg" id="2_tri2r"]
+[ext_resource type="Material" uid="uid://bg75i5wfkl1b6" path="res://assets/materials/rail.tres" id="3_vefix"]
+
+[sub_resource type="Curve3D" id="Curve3D_fnmhh"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 386.927, 0, 383.653, 0, 0, 0, 0, 0, 0, 312.874, 0, 357.517, 0, 0, 0, 0, 0, 0, 219.992, 0, 288.489, 0, 0, 0, 0, 0, 0, 144.073, 0, 323.337, 0, 0, 0, 0, 0, 0, 98.0232, 0, 390.544, 14.6624, 0, -2.01718, -14.6624, 0, 2.01718, 50.1068, 0, 403.612, 0, 0, 0, 0, 0, 0, -12.7445, 0, 366.897, 0, 0, 0, 0, 0, 0, -63.1501, 0, 304.046, 0, 0, 0, 0, 0, 0, -140.314, 0, 335.783, 13.0465, 0, -5.66504, -13.0465, 0, 5.66504, -186.364, 0, 389.3, 0, 0, 0, 0, 0, 0, -260.434, 0, 378.291, 0, 0, 0, 0, 0, 0, -319.552, 0, 313.573, 16.0998, 0, 6.82327, -16.0998, 0, -6.82327, -399.205, 0, 341.576, 0, 0, 0, 0, 0, 0, -440.648, 0, 289.494, -0.00991821, 0, 20.6469, 0.00991821, 0, -20.6469, -438.781, 0, 195.528, 0, 0, 0, 0, 0, 0, -374.997, 0, 151.472, 0, 0, 0, 0, 0, 0, -320.092, 0, 122.715, 0, 0, 0, 0, 0, 0, -240.436, 0, 94.0886, 0, 0, 0, 0, 0, 0, -187.542, 0, 60.4849, 0, 0, 0, 0, 0, 0, -146.697, 0, 26.5243, 0, 0, 0, 0, 0, 0, -110.605, 0, -37.5716, 0, 0, 0, 0, 0, 0, -200.837, 0, -85.4879, 0, 0, 0, 0, 0, 0, -333.393, 0, -120.654, -1.40549, 0, 20.7995, 1.40549, 0, -20.7995, -432.959, 0, -177.905, 0, 0, 0, 0, 0, 0, -358.798, 0, -266.396, 0, 0, 0, 0, 0, 0, -282.257, 0, -313.068, 0, 0, 0, 0, 0, 0, -91.4642, 0, -364.127, 0, 0, 0, 0, 0, 0, 37.35, 0, -363.505, 0, 0, 0, 0, 0, 0, 168.653, 0, -347.325, 0, 0, 0, 0, 0, 0, 264.11, 0, -329.195, 0, 0, 0, 0, 0, 0, 381.101, 0, -263.855, 0, 0, 0, 0, 0, 0, 463.574, 0, -152.226, 0, 0, 0, 0, 0, 0, 307.657, 0, -117.554, 0, 0, 0, 0, 0, 0, 276.402, 0, -149.612, 22.0957, 0, -35.2213, -22.0957, 0, 35.2213, 233.406, 0, -174.312, 0, 0, 0, 0, 0, 0, 199.559, 0, -201.756, 0, 0, 0, 0, 0, 0, 178.862, 0, -214.45, 0, 0, 0, 0, 0, 0, 138.878, 0, -241.291, 0, 0, 0, 0, 0, 0, 68.7034, 0, -237.155, 0, 0, 0, 0, 0, 0, 11.6404, 0, -167.593, 0, 0, 0, 0, 0, 0, 29.2725, 0, -65.6016, 0, 0, 0, 0, 0, 0, 68.1288, 0, 99.5484, 0, 0, 0, 0, 0, 0, 176.496, 0, 113.941, 0, 0, 0, 0, 0, 0, 195.122, 0, 41.1316, 0, 0, 0, 0, 0, 0, 240.839, 0, -4.58588, 0, 0, 0, 0, 0, 0, 300.103, 0, -10.5122, 0, 0, 0, 0, 0, 0, 362.753, 0, -5.43248, 0, 0, 0, 0, 0, 0, 408.47, 0, 42.8249, 0.96402, 0, -16.3209, -0.96402, 0, 16.3209, 420.323, 0, 99.5484, 24.7742, 0, 12.6271, -24.7742, 0, -12.6271, 340.74, 0, 149.499, 0, 0, 0, 0, 0, 0, 329.861, 0, 111.123, 0, 0, 0, 0, 0, 0, 353.813, 0, 86.4446, 0, 0, 0, 0, 0, 0, 363.975, 0, 61.7661, 0, 0, 0, 0, 0, 0, 328.409, 0, 45.7976, 0, 0, 0, 0, 0, 0, 292.117, 0, 39.9909, 0, 0, 0, 0, 0, 0, 258.002, 0, 66.1211, 0, 0, 0, 0, 0, 0, 243.486, 0, 89.348, -24.8495, 0, 4.88661, 24.8495, 0, -4.88661, 236.227, 0, 167.739, -10.5377, 0, -32.6328, 10.5377, 0, 32.6328, 316.579, 0, 204.932, -15.6909, 0, -30.1759, 15.6909, 0, 30.1759, 386.658, 0, 206.214, 0, 0, 0, 0, 0, 0, 425.854, 0, 292.589, 0, 0, 0, 0, 0, 0, 442.285, 0, 365.227, 0, 0, 0, 0, 0, 0, 435.31, 0, 382.383, 0, 0, 0, 0, 0, 0, 403.15, 0, 382.324),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8wc8"]
+render_priority = 0
+shader = ExtResource("1_7apj7")
+shader_parameter/road_texture = ExtResource("2_tri2r")
+
+[node name="TrackPath" type="Path3D"]
+curve = SubResource("Curve3D_fnmhh")
+
+[node name="Road" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.431152, 0.655762, 0.0510292)
+use_collision = true
+flip_faces = true
+polygon = PackedVector2Array(-3.5, 0, 3.5, 0, 8.5, 0, 4, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 10.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+material = SubResource("ShaderMaterial_v8wc8")
+
+[node name="Rrail" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(-3.25, 1, -3.5, 1.6, -3, 0, -3, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 10.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_vefix")
+
+[node name="Lrail" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(8.5, 1.45, 8.2, 1.6, 7.5, 0, 7.5, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 10.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("3_vefix")
+
+[connection signal="curve_changed" from="." to="." method="_on_curve_changed"]

@@ -66,4 +66,8 @@ path_u_distance = 1.0
 path_joined = false
 material = ExtResource("3_4aegd")
 
+<<<<<<< Updated upstream
 [connection signal="curve_changed" from="." to="." method="_on_curve_changed"]
+=======
+[connection signal="curve_changed" from="." to="." method="_on_curve_changed"]
+>>>>>>> Stashed changes
