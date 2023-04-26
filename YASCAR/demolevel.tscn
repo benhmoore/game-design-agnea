@@ -2,12 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dwutdvcsd7r5t" path="res://assets/models/lowpoly-desert-house_tmekfduiw_4K_Albedo.png" id="1_e4xrq"]
 [ext_resource type="PackedScene" uid="uid://xqp0e1tf1185" path="res://assets/components/tracklogic.tscn" id="2_0sqn8"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://assets/components/Car.tscn" id="3_iyn8n"]
-[ext_resource type="PackedScene" uid="uid://c8pst6pl0j14b" path="res://assets/models/old-western-saloon.glb" id="5_o0vv0"]
-=======
 [ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://components/Car.tscn" id="3_iyn8n"]
->>>>>>> Stashed changes
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wolme"]
 size = Vector3(1000, 1, 1000)
@@ -51,21 +46,11 @@ mesh = SubResource("BoxMesh_ap2o5")
 
 [node name="TrackPath" parent="Track" instance=ExtResource("2_0sqn8")]
 
-[node name="Car" parent="." instance=ExtResource("3_iyn8n")]
-transform = Transform3D(-0.959683, 0, 0.281086, 0, 1, 0, -0.281086, 0, -0.959683, -53.9953, 1.01069, 59.6674)
-
-[node name="Camera3D" type="Camera3D" parent="Car"]
-transform = Transform3D(-0.0441948, 0, -0.999023, 0, 1, 0, 0.999023, 0, -0.0441948, -2.68092, 1.39471, -0.0422821)
-
 [node name="Scenery" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tqta6")
 
-<<<<<<< Updated upstream
-[node name="old-western-saloon" parent="." instance=ExtResource("5_o0vv0")]
-transform = Transform3D(-0.913794, 0, -0.406178, 0, 1, 0, 0.406178, 0, -0.913794, -30.0578, 0.248459, 106.46)
-=======
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.487464, 0.873143, 0, -0.873143, 0.487464, -604.009, 97.5945, 65.9196)
 shadow_enabled = true
@@ -107,4 +92,3 @@ render_target_update_mode = 4
 [node name="Car3" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("3_iyn8n")]
 transform = Transform3D(0.364275, 0, 0.931291, 0, 1, 0, -0.931291, 0, 0.364275, -410.305, 0.655762, 332.103)
 control_scheme = 0
->>>>>>> Stashed changes
