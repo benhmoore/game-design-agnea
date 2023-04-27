@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://xqp0e1tf1185"]
+[gd_scene load_steps=6 format=3 uid="uid://cccay6x1xn23e"]
 
-[ext_resource type="Shader" path="res://assets/shaders/road.gdshader" id="1_fgsp2"]
-[ext_resource type="Texture2D" uid="uid://nbarpk5y4f6d" path="res://assets/textures/TexturesCom_Roads0069_1_seamless_S.jpg" id="2_t1unf"]
-[ext_resource type="Material" uid="uid://bg75i5wfkl1b6" path="res://assets/materials/rail.tres" id="3_4aegd"]
+[ext_resource type="Shader" path="res://assets/shaders/road.gdshader" id="1_4mftr"]
+[ext_resource type="Texture2D" uid="uid://nbarpk5y4f6d" path="res://assets/textures/TexturesCom_Roads0069_1_seamless_S.jpg" id="2_k4fem"]
+[ext_resource type="Material" uid="uid://bg75i5wfkl1b6" path="res://assets/materials/rail.tres" id="3_yd2m2"]
 
 [sub_resource type="Curve3D" id="Curve3D_fnmhh"]
 _data = {
@@ -13,22 +13,8 @@ point_count = 113
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v8wc8"]
 render_priority = 0
-shader = ExtResource("1_fgsp2")
-shader_parameter/road_texture = ExtResource("2_t1unf")
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_frxyy"]
-material = ExtResource("3_4aegd")
-top_radius = 0.05
-bottom_radius = 0.05
-height = 0.5
-radial_segments = 16
-rings = 1
-
-[sub_resource type="MultiMesh" id="MultiMesh_alscs"]
-transform_format = 1
-instance_count = 1
-mesh = SubResource("CylinderMesh_frxyy")
-buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader = ExtResource("1_4mftr")
+shader_parameter/road_texture = ExtResource("2_k4fem")
 
 [node name="TrackPath" type="Path3D"]
 curve = SubResource("Curve3D_fnmhh")
@@ -37,11 +23,11 @@ curve = SubResource("Curve3D_fnmhh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.431152, 0.655762, 0.0510292)
 use_collision = true
 flip_faces = true
-polygon = PackedVector2Array(-3, 0, -3, 0, 8, 0, 3, 0)
+polygon = PackedVector2Array(-3.5, 0, 3.5, 0, 8.5, 0, 4, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
-path_interval = 1.0
+path_interval = 10.0
 path_simplify_angle = 0.0
 path_rotation = 2
 path_local = false
@@ -52,49 +38,32 @@ material = SubResource("ShaderMaterial_v8wc8")
 
 [node name="Rrail" type="CSGPolygon3D" parent="."]
 use_collision = true
-polygon = PackedVector2Array(-3, 1.25, -4, 2, -3, 0, -2, 0)
+polygon = PackedVector2Array(-3.25, 1, -3.5, 1.6, -3, 0, -3, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
-path_interval = 1.0
+path_interval = 10.0
 path_simplify_angle = 0.0
 path_rotation = 2
 path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
-material = ExtResource("3_4aegd")
+material = ExtResource("3_yd2m2")
 
 [node name="Lrail" type="CSGPolygon3D" parent="."]
 use_collision = true
-polygon = PackedVector2Array(8, 1.25, 8, 2, 8, 0, 8, 0)
+polygon = PackedVector2Array(8.5, 1.45, 8.2, 1.6, 7.5, 0, 7.5, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
-path_interval = 1.0
+path_interval = 10.0
 path_simplify_angle = 0.0
 path_rotation = 2
 path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
-material = ExtResource("3_4aegd")
-
-[node name="Ground" type="CSGPolygon3D" parent="."]
-visible = false
-polygon = PackedVector2Array(0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0)
-mode = 2
-path_node = NodePath("..")
-path_interval_type = 0
-path_interval = 1.0
-path_simplify_angle = 0.0
-path_rotation = 2
-path_local = false
-path_continuous_u = true
-path_u_distance = 1.0
-path_joined = false
-
-[node name="Posts" type="MultiMeshInstance3D" parent="."]
-multimesh = SubResource("MultiMesh_alscs")
+material = ExtResource("3_yd2m2")
 
 [connection signal="curve_changed" from="." to="." method="_on_curve_changed"]

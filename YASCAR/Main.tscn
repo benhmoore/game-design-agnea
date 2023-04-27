@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cmg43rg7702cy"]
 
-[ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://components/Car.tscn" id="1_665sy"]
+[ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://assets/components/Car.tscn" id="1_665sy"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fq7fy"]
 turbidity = 0.0
@@ -42,7 +42,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SplitScreen/LeftContainer"]
 handle_input_locally = false
-size = Vector2i(574, 648)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Car" parent="SplitScreen/LeftContainer/SubViewport" instance=ExtResource("1_665sy")]
@@ -56,7 +56,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SplitScreen/RightContainer"]
 handle_input_locally = false
-size = Vector2i(574, 648)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Car" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("1_665sy")]
