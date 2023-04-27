@@ -21,13 +21,14 @@ acceleration_force = 200.0
 braking_force = 200.0
 
 [node name="Exhaust" parent="." instance=ExtResource("2_44x8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.314708, 0.164056, 1.83535)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.413086, 0.302289, 1.19054)
 
 [node name="FrontRightWheel" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.629373, 0.297358, -0.681135)
 use_as_steering = true
 suspension_travel = 1.0
-suspension_stiffness = 20.0
+suspension_stiffness = 30.0
+suspension_max_force = 7000.0
 
 [node name="tire" parent="FrontRightWheel" instance=ExtResource("2_ouqlv")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0)
@@ -36,7 +37,8 @@ transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -0.640192, 0.296943, -0.681202)
 use_as_steering = true
 suspension_travel = 1.0
-suspension_stiffness = 20.0
+suspension_stiffness = 30.0
+suspension_max_force = 7000.0
 
 [node name="tire" parent="FrontLeftWheel" instance=ExtResource("2_ouqlv")]
 
@@ -44,7 +46,8 @@ suspension_stiffness = 20.0
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.628964, 0.299, 0.680365)
 use_as_traction = true
 suspension_travel = 1.0
-suspension_stiffness = 20.0
+suspension_stiffness = 30.0
+suspension_max_force = 7000.0
 
 [node name="tire" parent="RearRightWheel" instance=ExtResource("2_ouqlv")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0)
@@ -53,7 +56,8 @@ transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -0.640603, 0.298585, 0.680298)
 use_as_traction = true
 suspension_travel = 1.0
-suspension_stiffness = 20.0
+suspension_stiffness = 30.0
+suspension_max_force = 7000.0
 
 [node name="tire" parent="RearLeftWheel" instance=ExtResource("2_ouqlv")]
 
@@ -79,7 +83,7 @@ volume_db = -20.0
 stream = ExtResource("4_16fmb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.652286, 0)
+transform = Transform3D(1, 0, 0, 0, 0.995272, -0.0971313, 0, 0.0971313, 0.995272, 0, 0.791662, 0)
 shape = SubResource("BoxShape3D_sse80")
 
 [node name="LeftHeadlight" type="SpotLight3D" parent="."]

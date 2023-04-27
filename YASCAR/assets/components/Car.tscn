@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://kg7msxebiky3"]
 
 [ext_resource type="Script" path="res://scripts/Car/CarRevamp.gd" id="1_n7gti"]
-[ext_resource type="PackedScene" uid="uid://dvap54kkh0oga" path="res://assets/models/Car/piece_textured.glb" id="1_sp3ta"]
+[ext_resource type="PackedScene" uid="uid://c6mvvdpcgny7e" path="res://assets/models/Car/piece_textured.glb" id="1_sp3ta"]
 [ext_resource type="Script" path="res://scripts/Car/TargetDirection.gd" id="3_5namy"]
 [ext_resource type="Script" path="res://scripts/Car/CurrentDirection.gd" id="4_2n306"]
 

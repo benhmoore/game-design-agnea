@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpdrp8att3ltj"]
+[gd_scene load_steps=6 format=3 uid="uid://dpdrp8att3ltj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wbve"]
 albedo_color = Color(0.458824, 0.458824, 0.458824, 1)
@@ -9,18 +9,37 @@ disable_receive_shadows = true
 [sub_resource type="SphereMesh" id="SphereMesh_x7q01"]
 material = SubResource("StandardMaterial3D_7wbve")
 
+[sub_resource type="Gradient" id="Gradient_p88bo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jntb"]
+albedo_color = Color(0.662745, 0.662745, 0.662745, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nfxgd"]
+material = SubResource("StandardMaterial3D_0jntb")
+
 [node name="Exhaust" type="Node3D"]
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.741904)
-amount = 6
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+amount = 14
 speed_scale = 0.9
-explosiveness = 0.42
+explosiveness = 0.49
 mesh = SubResource("SphereMesh_x7q01")
 emission_shape = 1
 emission_sphere_radius = 0.1
-gravity = Vector3(2.08165e-12, 1.2, 2.08165e-12)
+gravity = Vector3(2.08165e-12, 1.2, 1)
 initial_velocity_min = 0.3
 initial_velocity_max = 1.5
 scale_amount_min = 0.03
 scale_amount_max = 0.12
+color_ramp = SubResource("Gradient_p88bo")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+amount = 6
+mesh = SubResource("SphereMesh_nfxgd")
+emission_shape = 1
+emission_sphere_radius = 0.3
+gravity = Vector3(2.08165e-12, 0.4, 0.3)
+scale_amount_min = 0.01
+scale_amount_max = 0.03

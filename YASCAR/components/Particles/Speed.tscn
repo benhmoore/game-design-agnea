@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjutumclmwy2p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmjr1"]
+albedo_color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_tulbd"]
+material = SubResource("StandardMaterial3D_bmjr1")
+
+[node name="Speed" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 16
+mesh = SubResource("SphereMesh_tulbd")
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_amount_min = 0.01
+scale_amount_max = 0.03
