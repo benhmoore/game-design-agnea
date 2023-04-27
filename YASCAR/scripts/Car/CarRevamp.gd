@@ -1,5 +1,7 @@
 extends VehicleBody3D
 
+signal collision_detected
+
 enum ControlScheme { ARROWS, WASD }
 enum CarState { IDLE, MOVING_FORWARD, MOVING_REVERSE, BREAKING }
 
@@ -18,12 +20,14 @@ var last_airborne_duration = 0.0
 var airborne_timer = 0.0
 var flip_count = 0
 
+@export var idle_speed_threshold = 0.5
+
+# Hit particles
+@onready var hit_particles: CPUParticles3D = $Hit/CPUParticles3D
+
 # For flip detection
 var previous_euler_angles = Vector3()
 var accumulated_rotation = Vector3()
-
-
-@export var idle_speed_threshold = 0.5
 
 # Audio players
 @onready var engine_player: AudioStreamPlayer = $EngineAudioPlayer
@@ -69,11 +73,15 @@ var upside_down_timer: float = 0.0
 var no_position_change_timer: float = 0.0
 var previous_position: Vector3
 
+var prev_linear_velocity = Vector3()
+
 func _ready():
 	set_car_color(car_color)  # Set the car's color to red
 	engine_player.play()
 	initial_position = transform
 	previous_position = transform.origin
+	
+	collision_detected.connect(camera._on_collision_detected)
 
 func toggle_breaklights():
 	var newMaterial = StandardMaterial3D.new()
@@ -90,9 +98,15 @@ func toggle_breaklights():
 func set_car_color(color: Color):
 	var newMaterial = StandardMaterial3D.new()
 	newMaterial.albedo_color = color
+	
+	# Set car color
 	car_mesh.set_surface_override_material(1, newMaterial)
 
 func _physics_process(delta):
+	
+	# Store the previous linear velocity at the beginning of each physics frame
+	prev_linear_velocity = linear_velocity
+	
 	check_car_reset(delta)
 
 	# Get input values for acceleration, braking, and steering
@@ -280,4 +294,19 @@ func update_camera_fov(delta):
 	camera.fov = lerp(camera.fov, target_fov, 5 * delta)
 
 
-   
+func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	# Detect high-speed collisions and print
+	var collision_speed = linear_velocity.length()
+	print("Collision at %s km/h" % (collision_speed * 3.6))
+	if collision_speed > 9:
+		# Fire one-shot CPUParticles3D
+		hit_particles.emitting = true
+		
+		print("Emitting signal")
+		emit_signal("collision_detected")
+
+#
+#func _on_body_entered(body):
+#	# Detect high-speed collisions and print
+#	var collision_speed = linear_velocity.length()
+#	print("Collision at %s km/h" % (collision_speed * 3.6))

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://fo3suv4stwtp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ex1rf"]
+albedo_color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_4fy7m"]
+material = SubResource("StandardMaterial3D_ex1rf")
+
+[node name="Hit" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 2000
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.76
+randomness = 0.5
+lifetime_randomness = 0.22
+mesh = SubResource("PrismMesh_4fy7m")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 18.42
+initial_velocity_max = 28.94
+radial_accel_min = 11.05
+radial_accel_max = 40.53
+tangential_accel_min = 23.16
+tangential_accel_max = 40.53
+angle_min = 2.1
+angle_max = 142.3
+scale_amount_min = 0.0
+scale_amount_max = 0.01

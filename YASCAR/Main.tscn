@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmg43rg7702cy"]
+[gd_scene load_steps=11 format=3 uid="uid://cmg43rg7702cy"]
 
-[ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://assets/components/Car.tscn" id="1_665sy"]
+[ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://components/Car.tscn" id="1_665sy"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fq7fy"]
 turbidity = 0.0
@@ -13,6 +13,11 @@ sky_material = SubResource("PhysicalSkyMaterial_fq7fy")
 [sub_resource type="Environment" id="Environment_n2ldf"]
 background_mode = 2
 sky = SubResource("Sky_jo6m5")
+
+[sub_resource type="BoxMesh" id="BoxMesh_sffmt"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8pryl"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="PrismMesh" id="PrismMesh_ksq0j"]
 
@@ -42,7 +47,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SplitScreen/LeftContainer"]
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(574, 648)
 render_target_update_mode = 4
 
 [node name="Car" parent="SplitScreen/LeftContainer/SubViewport" instance=ExtResource("1_665sy")]
@@ -56,7 +61,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SplitScreen/RightContainer"]
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(574, 648)
 render_target_update_mode = 4
 
 [node name="Car" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("1_665sy")]
@@ -81,6 +86,15 @@ transform = Transform3D(60, 0, 0, 0, 60, 0, 0, 0, 60, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n2ldf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15.9046, 1.25914, 29.9607)
+mesh = SubResource("BoxMesh_sffmt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldEnvironment/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8pryl")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 10, 6.47029, 0, 0)
