@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpdrp8att3ltj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wbve"]
+albedo_color = Color(0.458824, 0.458824, 0.458824, 1)
+rim_enabled = true
+rim = 0.82
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_x7q01"]
+material = SubResource("StandardMaterial3D_7wbve")
+
+[node name="Exhaust" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.741904)
+amount = 6
+speed_scale = 0.9
+explosiveness = 0.42
+mesh = SubResource("SphereMesh_x7q01")
+emission_shape = 1
+emission_sphere_radius = 0.1
+gravity = Vector3(2.08165e-12, 1.2, 2.08165e-12)
+initial_velocity_min = 0.3
+initial_velocity_max = 1.5
+scale_amount_min = 0.03
+scale_amount_max = 0.12

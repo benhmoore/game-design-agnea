@@ -45,7 +45,7 @@ func toggle_breaklights():
 	if breaklights_on:
 		breaklight_left.light_energy = 1
 		breaklight_right.light_energy = 1
-		newMaterial.albedo_color = Color(1.3, 0, 0)
+		newMaterial.albedo_color = Color(1.8, 0, 0)
 	else:
 		breaklight_left.light_energy = 0
 		breaklight_right.light_energy = 0
