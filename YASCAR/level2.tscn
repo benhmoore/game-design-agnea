@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://oh828ktykvvg"]
+[gd_scene load_steps=9 format=3 uid="uid://oh828ktykvvg"]
 
 [ext_resource type="PackedScene" uid="uid://bm6y7deeb5rtj" path="res://components/tracklogiclevel2.tscn" id="2_qgbih"]
+[ext_resource type="Script" path="res://scripts/Car/CarCamera.gd" id="3_cnk41"]
 [ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://components/Car.tscn" id="3_f6nwn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wolme"]
@@ -27,7 +28,7 @@ background_mode = 2
 sky = SubResource("Sky_1hsd2")
 ambient_light_source = 3
 
-[node name="Space" type="Node3D"]
+[node name="Space2" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -69,9 +70,14 @@ handle_input_locally = false
 size = Vector2i(574, 648)
 render_target_update_mode = 4
 
-[node name="Car2" parent="SplitScreen/LeftContainer/SubViewport" instance=ExtResource("3_f6nwn")]
+[node name="Car2" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("camera") instance=ExtResource("3_f6nwn")]
 transform = Transform3D(-0.993015, 0, -0.117988, 0, 1, 0, 0.117988, 0, -0.993015, 245.624, 0.655762, -180.099)
 car_color = Color(0, 0.929412, 0.415686, 1)
+camera = NodePath("../Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("vehicle")]
+script = ExtResource("3_cnk41")
+vehicle = NodePath("../Car2")
 
 [node name="RightContainer" type="SubViewportContainer" parent="SplitScreen"]
 layout_mode = 2
@@ -84,6 +90,11 @@ handle_input_locally = false
 size = Vector2i(574, 648)
 render_target_update_mode = 4
 
-[node name="Car3" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("3_f6nwn")]
+[node name="Car3" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("camera") instance=ExtResource("3_f6nwn")]
 transform = Transform3D(-0.99768, 0, -0.0680678, 0, 1, 0, 0.0680678, 0, -0.99768, 248.368, 0.655762, -180.244)
+camera = NodePath("../Camera3D")
 control_scheme = 0
+
+[node name="Camera3D" type="Camera3D" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("vehicle")]
+script = ExtResource("3_cnk41")
+vehicle = NodePath("../Car3")

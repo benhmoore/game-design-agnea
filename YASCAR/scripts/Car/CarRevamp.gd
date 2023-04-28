@@ -56,7 +56,7 @@ var breaklights_on: bool = false
 @onready var breaklight_right: SpotLight3D = $RightBreaklight
 
 # Car camera
-@onready var camera: Camera3D = $Camera3D
+@export var camera: Camera3D
 
 # Control scheme selection
 @export var control_scheme: ControlScheme = ControlScheme.ARROWS
@@ -194,9 +194,9 @@ func _physics_process(delta):
 	else:
 		speed_particles.emitting = false
 		
-
 	# Update camera FOV based on car's velocity
 	update_camera_fov(delta)
+
 
 func update_airborne_status(delta):
 	var wheels_in_contact = 0
@@ -213,6 +213,7 @@ func update_airborne_status(delta):
 		airborne_timer = 0
 		print("Airborne duration: %s seconds, Flips: %d" % [last_airborne_duration, flip_count])
 		flip_count = 0
+
 
 func update_flip_count(delta):
 	if airborne:
@@ -235,7 +236,8 @@ func update_flip_count(delta):
 
 func print_car_state():
 	print("Car state changed: ", car_state_labels[car_state])
-	
+
+
 func update_car_state(accel_input: float):
 	var speed = linear_velocity.length()
 	var forward_speed = linear_velocity.dot(-transform.basis.z)
@@ -248,6 +250,7 @@ func update_car_state(accel_input: float):
 		car_state = CarState.MOVING_FORWARD
 	elif forward_speed < -idle_speed_threshold:
 		car_state = CarState.MOVING_REVERSE
+
 
 func is_car_breaking(accel_input: float) -> bool:
 	var forward_speed = linear_velocity.dot(-transform.basis.z)
