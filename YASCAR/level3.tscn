@@ -70,7 +70,7 @@ size = Vector2i(574, 648)
 render_target_update_mode = 4
 
 [node name="Car2" parent="SplitScreen/LeftContainer/SubViewport" instance=ExtResource("3_j208s")]
-transform = Transform3D(-0.993015, 0, -0.117988, 0, 1, 0, 0.117988, 0, -0.993015, 170.554, 0.655762, -225.724)
+transform = Transform3D(-0.618738, 0, -0.785598, 0, 1, 0, 0.785598, 0, -0.618738, 170.141, 0.655762, -224.262)
 car_color = Color(0, 0.929412, 0.415686, 1)
 
 [node name="RightContainer" type="SubViewportContainer" parent="SplitScreen"]
@@ -85,5 +85,5 @@ size = Vector2i(574, 648)
 render_target_update_mode = 4
 
 [node name="Car3" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("3_j208s")]
-transform = Transform3D(-0.99768, 0, -0.0680678, 0, 1, 0, 0.0680678, 0, -0.99768, 168.379, 0.655762, -225.456)
+transform = Transform3D(-0.657335, 0, -0.753597, 0, 1, 0, 0.753597, 0, -0.657335, 168.792, 0.655762, -222.535)
 control_scheme = 0
