@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://t78ei4busiyw"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_jijcy"]
 [ext_resource type="Script" path="res://NewGame.gd" id="2_ksxq5"]

@@ -1,18 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjutumclmwy2p"]
+[gd_scene load_steps=6 format=3 uid="uid://cjutumclmwy2p"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmjr1"]
-albedo_color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+[sub_resource type="Curve" id="Curve_s8qbv"]
+_data = [Vector2(0.217258, 0.783239), 0.0, 0.0, 0, 0, Vector2(0.758828, 0.10712), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="SphereMesh" id="SphereMesh_tulbd"]
-material = SubResource("StandardMaterial3D_bmjr1")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayx3d"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.760784)
+rim_enabled = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_rkrtd"]
+material = SubResource("StandardMaterial3D_ayx3d")
+sections = 4
+section_length = 40.0
+curve = SubResource("Curve_s8qbv")
+
+[sub_resource type="Curve" id="Curve_u2ybx"]
+_data = [Vector2(0.209725, 0.518274), 0.0, 0.0, 0, 0, Vector2(0.66371, 0.993384), 0.0855124, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_a4qol"]
+offsets = PackedFloat32Array(0.342342, 0.731231)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [node name="Speed" type="Node3D"]
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-amount = 16
-mesh = SubResource("SphereMesh_tulbd")
+sorting_offset = -1.0
+emitting = false
+amount = 128
+randomness = 0.46
+lifetime_randomness = 0.35
+mesh = SubResource("RibbonTrailMesh_rkrtd")
 emission_shape = 1
-emission_sphere_radius = 3.0
+emission_sphere_radius = 5.0
 gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+angular_velocity_max = 208.42
+radial_accel_max = 0.4
 scale_amount_min = 0.01
 scale_amount_max = 0.03
+scale_amount_curve = SubResource("Curve_u2ybx")
+color_ramp = SubResource("Gradient_a4qol")
