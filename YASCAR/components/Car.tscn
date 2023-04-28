@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://kg7msxebiky3"]
+[gd_scene load_steps=13 format=3 uid="uid://kg7msxebiky3"]
 
 [ext_resource type="Script" path="res://scripts/Car/CarRevamp.gd" id="1_n7gti"]
 [ext_resource type="PackedScene" uid="uid://c6mvvdpcgny7e" path="res://assets/models/Car/piece_textured.glb" id="1_sp3ta"]
@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://daq521qhwwgf8" path="res://assets/sounds/tire_skid.wav" id="4_16fmb"]
 [ext_resource type="PackedScene" uid="uid://cjutumclmwy2p" path="res://components/Particles/Speed.tscn" id="4_xf3o2"]
 [ext_resource type="Script" path="res://scripts/Car/CarRumble.gd" id="5_y466y"]
-[ext_resource type="Script" path="res://scripts/Car/CarCamera.gd" id="7_4m2cy"]
 [ext_resource type="AudioStream" uid="uid://b6eqccgc3m6y" path="res://assets/sounds/car_engine_loop_2.wav" id="9_851kf"]
 [ext_resource type="AudioStream" uid="uid://c5kh5x18cpgai" path="res://assets/sounds/car_wind_1.wav" id="10_vpv3l"]
 
@@ -79,10 +78,6 @@ script = ExtResource("5_y466y")
 
 [node name="body" parent="CarBody" index="0"]
 transform = Transform3D(1, 2.74118e-25, 0, 2.7411e-25, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.907748, 0.419515, 0, -0.419515, 0.907748, 0, 2.91171, 4.23454)
-script = ExtResource("7_4m2cy")
 
 [node name="TireAudioPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -25.0

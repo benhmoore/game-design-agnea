@@ -8,17 +8,31 @@ extends Camera3D
 @export var speed_threshold: float = 10.0
 @export var max_speed: float = 30.0
 
+# Camera follow parameters
+@export var follow_distance: float = 5.0
+@export var follow_height: float = 2.0
+@export var look_down_angle: float = 10.0
+
 var shake_timer: float = 0.0
 var initial_offset: Vector3
 
 # Reference to the vehicle
-@onready var vehicle: VehicleBody3D = get_parent()
+@export var vehicle: VehicleBody3D
 
 func _ready():
 	initial_offset = get_position()
 
 func _process(delta: float):
+	follow_vehicle()
 	shake_camera(delta)
+
+func follow_vehicle():
+	var target_position = vehicle.global_transform.origin + vehicle.global_transform.basis.z * follow_distance
+	target_position.y += follow_height
+	global_transform.origin = target_position
+	
+	var look_at_pos = vehicle.global_transform.origin - Vector3(0, 0, 0)
+	look_at(look_at_pos, Vector3.UP)
 
 func shake_camera(delta: float):
 	shake_timer += delta
@@ -27,7 +41,7 @@ func shake_camera(delta: float):
 		shake_timer = 0.0
 	
 	var shake_offset = Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)) * get_shake_intensity()
-	set_position(initial_offset + shake_offset)
+	set_position(global_transform.origin + shake_offset)
 
 func get_shake_intensity() -> float:
 	var car_speed = vehicle.linear_velocity.length()

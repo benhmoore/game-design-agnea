@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmg43rg7702cy"]
+[gd_scene load_steps=12 format=3 uid="uid://cmg43rg7702cy"]
 
 [ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://components/Car.tscn" id="1_665sy"]
+[ext_resource type="Script" path="res://scripts/Car/CarCamera.gd" id="1_cvim2"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fq7fy"]
 turbidity = 0.0
@@ -50,8 +51,14 @@ handle_input_locally = false
 size = Vector2i(574, 648)
 render_target_update_mode = 4
 
-[node name="Car" parent="SplitScreen/LeftContainer/SubViewport" instance=ExtResource("1_665sy")]
+[node name="Camera3D" type="Camera3D" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("vehicle")]
+transform = Transform3D(1, 0, 0, 0, 0.949852, 0.3127, 0, -0.3127, 0.949852, -1.23333, 3.29937, 2.36296)
+script = ExtResource("1_cvim2")
+vehicle = NodePath("../Car")
+
+[node name="Car" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("camera") instance=ExtResource("1_665sy")]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -1.256, 2.08165e-12, -1.269)
+camera = NodePath("../Camera3D")
 
 [node name="RightContainer" type="SubViewportContainer" parent="SplitScreen"]
 layout_mode = 2
@@ -64,9 +71,14 @@ handle_input_locally = false
 size = Vector2i(574, 648)
 render_target_update_mode = 4
 
-[node name="Car" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("1_665sy")]
+[node name="Camera3D" type="Camera3D" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("vehicle")]
+script = ExtResource("1_cvim2")
+vehicle = NodePath("../Car")
+
+[node name="Car" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("camera") instance=ExtResource("1_665sy")]
 transform = Transform3D(0.010402, 0, 0.999946, 0, 1, 0, -0.999946, 0, 0.010402, -1.28226, 0, 1.26899)
 car_color = Color(0.298039, 0.658824, 0.803922, 1)
+camera = NodePath("../Camera3D")
 control_scheme = 0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

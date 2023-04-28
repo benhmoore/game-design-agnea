@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpv5fnf246bjh"]
+[gd_scene load_steps=9 format=3 uid="uid://bpv5fnf246bjh"]
 
+[ext_resource type="Script" path="res://scripts/Car/CarCamera.gd" id="2_bugt7"]
 [ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://components/Car.tscn" id="3_iyn8n"]
 [ext_resource type="PackedScene" uid="uid://cccay6x1xn23e" path="res://components/tracklogiclevel1.tscn" id="3_vwiob"]
 
@@ -69,9 +70,14 @@ handle_input_locally = false
 size = Vector2i(574, 648)
 render_target_update_mode = 4
 
-[node name="Car2" parent="SplitScreen/LeftContainer/SubViewport" instance=ExtResource("3_iyn8n")]
+[node name="Camera3D" type="Camera3D" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("vehicle")]
+script = ExtResource("2_bugt7")
+vehicle = NodePath("../Car2")
+
+[node name="Car2" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("camera") instance=ExtResource("3_iyn8n")]
 transform = Transform3D(0.364275, 0, 0.931291, 0, 1, 0, -0.931291, 0, 0.364275, -410.916, 0.655762, 333.951)
 car_color = Color(0, 0.929412, 0.415686, 1)
+camera = NodePath("../Camera3D")
 
 [node name="RightContainer" type="SubViewportContainer" parent="SplitScreen"]
 layout_mode = 2
@@ -84,6 +90,11 @@ handle_input_locally = false
 size = Vector2i(574, 648)
 render_target_update_mode = 4
 
-[node name="Car3" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("3_iyn8n")]
+[node name="Camera3D2" type="Camera3D" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("vehicle")]
+script = ExtResource("2_bugt7")
+vehicle = NodePath("../Car3")
+
+[node name="Car3" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("camera") instance=ExtResource("3_iyn8n")]
 transform = Transform3D(0.364275, 0, 0.931291, 0, 1, 0, -0.931291, 0, 0.364275, -410.305, 0.655762, 332.103)
+camera = NodePath("../Camera3D2")
 control_scheme = 0
