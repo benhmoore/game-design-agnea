@@ -1,7 +1,5 @@
 extends VehicleBody3D
 
-signal collision_detected
-
 enum ControlScheme { ARROWS, WASD }
 enum CarState { IDLE, MOVING_FORWARD, MOVING_REVERSE, BREAKING }
 
@@ -20,31 +18,16 @@ var last_airborne_duration = 0.0
 var airborne_timer = 0.0
 var flip_count = 0
 
-@export var idle_speed_threshold = 0.5
-
-# Hit particles
-@onready var hit_particles: CPUParticles3D = $Hit/CPUParticles3D
-
-# Speed particles
-@onready var speed_particles: CPUParticles3D = $Speed/CPUParticles3D
-
 # For flip detection
 var previous_euler_angles = Vector3()
 var accumulated_rotation = Vector3()
 
+
+@export var idle_speed_threshold = 0.5
+
 # Audio players
 @onready var engine_player: AudioStreamPlayer = $EngineAudioPlayer
-@onready var tire_player: AudioStreamPlayer = $TireAudioPlayer
 @onready var sound_effect_player: AudioStreamPlayer = $SoundEffectAudioPlayer
-@onready var wind_player: AudioStreamPlayer = $WindAudioPlayer
-
-@export var min_engine_pitch = 0.7
-@export var max_engine_pitch = 2.2
-
-@export var wind_min_volume = -80.0
-@export var wind_max_volume = 0.0
-@export var wind_min_pitch = 1.0
-@export var wind_max_pitch = 1.5
 
 # Car color
 @export var car_color: Color = Color(1, 0, 0)
@@ -86,15 +69,11 @@ var upside_down_timer: float = 0.0
 var no_position_change_timer: float = 0.0
 var previous_position: Vector3
 
-var prev_linear_velocity = Vector3()
-
 func _ready():
 	set_car_color(car_color)  # Set the car's color to red
 	engine_player.play()
 	initial_position = transform
 	previous_position = transform.origin
-	
-	collision_detected.connect(camera._on_collision_detected)
 
 func toggle_breaklights():
 	var newMaterial = StandardMaterial3D.new()
@@ -111,38 +90,9 @@ func toggle_breaklights():
 func set_car_color(color: Color):
 	var newMaterial = StandardMaterial3D.new()
 	newMaterial.albedo_color = color
-	
-	# Set car color
 	car_mesh.set_surface_override_material(1, newMaterial)
-	
-func update_wind_sound(delta):
-	var speed_ratio = linear_velocity.length() / max_speed
-	var target_volume = lerp(wind_min_volume, wind_max_volume, speed_ratio)
-	var target_pitch = lerp(wind_min_pitch, wind_max_pitch, speed_ratio)
-
-	wind_player.volume_db = target_volume
-	wind_player.pitch_scale = target_pitch
-
-
-func update_engine_pitch(delta):
-	var forward_speed = linear_velocity.dot(-transform.basis.z)
-	var is_accelerating = (forward_speed * get_acceleration_input()) > 0
-	
-	var speed_ratio = linear_velocity.length() / max_speed
-	var target_pitch = lerp(min_engine_pitch, max_engine_pitch, speed_ratio)
-	
-	tire_player.pitch_scale = lerp(tire_player.pitch_scale, max(1, 1.5 * (max_engine_pitch / target_pitch)), 5 * delta)
-	
-	if is_accelerating:
-		engine_player.pitch_scale = lerp(engine_player.pitch_scale, target_pitch, 5 * delta)
-	else:
-		engine_player.pitch_scale = lerp(engine_player.pitch_scale, min_engine_pitch, 5 * delta)
 
 func _physics_process(delta):
-	
-	# Store the previous linear velocity at the beginning of each physics frame
-	prev_linear_velocity = linear_velocity
-	
 	check_car_reset(delta)
 
 	# Get input values for acceleration, braking, and steering
@@ -160,12 +110,7 @@ func _physics_process(delta):
 	else:
 		time_in_current_state = 0
 		print_car_state()
-		
-	# Update engine pitch based on the car's velocity and acceleration
-	update_engine_pitch(delta)
-	
-	# Update wind sound based on the car's velocity
-	update_wind_sound(delta)
+
 
 	# Handle break lights
 	if car_state == CarState.BREAKING or (car_state == CarState.MOVING_REVERSE and accel_input != 0):
@@ -187,13 +132,6 @@ func _physics_process(delta):
 
 	# Limit vehicle's top speed
 	limit_top_speed()
-	
-	# Show speed particles
-	if linear_velocity.length() > 25:
-		speed_particles.emitting = true
-	else:
-		speed_particles.emitting = false
-		
 
 	# Update camera FOV based on car's velocity
 	update_camera_fov(delta)
@@ -342,19 +280,4 @@ func update_camera_fov(delta):
 	camera.fov = lerp(camera.fov, target_fov, 5 * delta)
 
 
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	# Detect high-speed collisions and print
-	var collision_speed = linear_velocity.length()
-	print("Collision at %s km/h" % (collision_speed * 3.6))
-	if collision_speed > 9:
-		# Fire one-shot CPUParticles3D
-		hit_particles.emitting = true
-		
-		print("Emitting signal")
-		emit_signal("collision_detected")
-
-#
-#func _on_body_entered(body):
-#	# Detect high-speed collisions and print
-#	var collision_speed = linear_velocity.length()
-#	print("Collision at %s km/h" % (collision_speed * 3.6))
+   

@@ -1,7 +1,5 @@
 extends Node3D
 
-signal rock_car
-
 # Parameters
 @export var amplitude: float = 0.15
 @export var frequency: float = 20
@@ -17,4 +15,3 @@ func _process(delta: float):
 	time_passed += delta
 	var rotation_offset = Vector3(0, 0, sin(time_passed * frequency) * amplitude)
 	rotation_degrees = initial_rotation + rotation_offset
-

@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://t78ei4busiyw"]
+[gd_scene load_steps=9 format=3 uid="uid://d06fyfsc8a7ou"]
 
-[ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_jijcy"]
+[ext_resource type="Script" path="res://mainMenu.gd" id="1_jijcy"]
 [ext_resource type="Script" path="res://NewGame.gd" id="2_ksxq5"]
-[ext_resource type="Script" path="res://scripts/Options.gd" id="3_o36kn"]
+[ext_resource type="Script" path="res://Options.gd" id="3_o36kn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g1eyj"]
 font_size = 125

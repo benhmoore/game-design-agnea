@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://h4bbeyuy2cbo"]
 
-[ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_u7vh7"]
+[ext_resource type="Script" path="res://Settings.gd" id="1_0uq7q"]
+[ext_resource type="Script" path="res://MusicVolume.gd" id="1_4il6o"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_g1eyj"]
+[sub_resource type="LabelSettings" id="LabelSettings_81utl"]
 font_size = 125
 
+[sub_resource type="LabelSettings" id="LabelSettings_8gl4i"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_nj06f"]
+font_size = 32
+
+[sub_resource type="Theme" id="Theme_i82p8"]
+default_font_size = 32
+
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_u7vh7")
+script = ExtResource("1_0uq7q")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1426.0
@@ -28,6 +38,78 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 text = "Options"
-label_settings = SubResource("LabelSettings_g1eyj")
+label_settings = SubResource("LabelSettings_81utl")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="MusicVolume" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("1_4il6o")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_8gl4i")
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="SFXVolume" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "SFX Volume
+"
+label_settings = SubResource("LabelSettings_nj06f")
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_i82p8")
+text = "Fullscreen"
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "          Back          "
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/Button" to="." method="_on_button_pressed"]
