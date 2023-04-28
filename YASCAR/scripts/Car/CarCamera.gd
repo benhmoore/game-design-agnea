@@ -10,7 +10,7 @@ extends Camera3D
 
 # Camera follow parameters
 @export var follow_distance: float = 5.0
-@export var follow_height: float = 2.0
+@export var follow_height: float = 3
 @export var look_down_angle: float = 10.0
 
 var shake_timer: float = 0.0
@@ -31,7 +31,7 @@ func follow_vehicle():
 	target_position.y += follow_height
 	global_transform.origin = target_position
 	
-	var look_at_pos = vehicle.global_transform.origin - Vector3(0, 0, 0)
+	var look_at_pos = vehicle.global_transform.origin + Vector3(0, 1, 0)
 	look_at(look_at_pos, Vector3.UP)
 
 func shake_camera(delta: float):
