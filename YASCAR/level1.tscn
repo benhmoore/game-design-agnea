@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpv5fnf246bjh"]
 
 [ext_resource type="Script" path="res://scripts/Car/CarCamera.gd" id="2_bugt7"]
-[ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://components/Car.tscn" id="3_iyn8n"]
+[ext_resource type="PackedScene" uid="uid://b1mg2eb83avsf" path="res://components/Car.tscn" id="3_iyn8n"]
 [ext_resource type="PackedScene" uid="uid://cccay6x1xn23e" path="res://components/tracklogiclevel1.tscn" id="3_vwiob"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wolme"]
@@ -67,7 +67,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SplitScreen/LeftContainer"]
 handle_input_locally = false
-size = Vector2i(574, 648)
+size = Vector2i(958, 1080)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("vehicle")]
@@ -87,7 +87,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SplitScreen/RightContainer"]
 handle_input_locally = false
-size = Vector2i(574, 648)
+size = Vector2i(958, 1080)
 render_target_update_mode = 4
 
 [node name="Camera3D2" type="Camera3D" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("vehicle")]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bm6y7deeb5rtj" path="res://components/tracklogiclevel2.tscn" id="2_qgbih"]
 [ext_resource type="Script" path="res://scripts/Car/CarCamera.gd" id="3_cnk41"]
-[ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://components/Car.tscn" id="3_f6nwn"]
+[ext_resource type="PackedScene" uid="uid://b1mg2eb83avsf" path="res://components/Car.tscn" id="3_f6nwn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wolme"]
 size = Vector3(1000, 1, 1000)

@@ -19,6 +19,8 @@ var initial_offset: Vector3
 # Reference to the vehicle
 @export var vehicle: VehicleBody3D
 
+@onready var ray:RayCast3D = $RayCast3D
+
 func _ready():
 	initial_offset = get_position()
 
@@ -28,11 +30,22 @@ func _process(delta: float):
 
 func follow_vehicle():
 	var target_position = vehicle.global_transform.origin + vehicle.global_transform.basis.z * follow_distance
-	target_position.y += follow_height
+	
+	# Use raycast to get y position of floor under camera
+	ray.target_position = Vector3(0, -follow_height, 0)
+	ray.force_raycast_update()
+	var raycast_position = ray.get_collision_point()
+	if raycast_position != null:
+		print(raycast_position.y)
+		target_position.y = raycast_position.y + follow_height
+	else:
+		print("Lost floor collider")
+		target_position.y += follow_height
+	
 	global_transform.origin = target_position
 	
-	var look_at_pos = vehicle.global_transform.origin + Vector3(0, 1, 0)
-	look_at(look_at_pos, Vector3.UP)
+#	var look_at_pos = vehicle.global_transform.origin + Vector3(0, 1, 0)
+#	look_at(look_at_pos, Vector3.UP)
 
 func shake_camera(delta: float):
 	shake_timer += delta
