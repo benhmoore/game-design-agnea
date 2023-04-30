@@ -344,8 +344,11 @@ func update_camera_fov(delta):
 	var target_fov = lerp(min_fov, max_fov, speed_ratio)
 	camera_gimbal.camera.fov = lerp(camera_gimbal.camera.fov, target_fov, 5 * delta)
 
+func pickup_item(item):
+	print("Picked up", item)
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	
 	# Detect high-speed collisions and print
 	var collision_speed = linear_velocity.length()
 	print("Collision at %s km/h" % (collision_speed * 3.6))

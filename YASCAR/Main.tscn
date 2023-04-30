@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmg43rg7702cy"]
+[gd_scene load_steps=14 format=3 uid="uid://cmg43rg7702cy"]
 
 [ext_resource type="PackedScene" uid="uid://bvl6yfqqhm3au" path="res://components/CarGimbal.tscn" id="1_553rr"]
 [ext_resource type="PackedScene" uid="uid://b1mg2eb83avsf" path="res://components/Car.tscn" id="1_665sy"]
+[ext_resource type="PackedScene" uid="uid://bj6032sulvv57" path="res://components/HUD/HUD.tscn" id="1_mecw7"]
+[ext_resource type="PackedScene" uid="uid://5piwe4ol7k2b" path="res://components/Pickup.tscn" id="3_62ou3"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fq7fy"]
 turbidity = 0.0
@@ -51,6 +53,8 @@ handle_input_locally = false
 size = Vector2i(958, 1080)
 render_target_update_mode = 4
 
+[node name="HUD" parent="SplitScreen/LeftContainer/SubViewport" instance=ExtResource("1_mecw7")]
+
 [node name="CarGimbal" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("vehicle") instance=ExtResource("1_553rr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35764, 0.891925, -0.936448)
 vehicle = NodePath("../Car")
@@ -69,6 +73,8 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(958, 1080)
 render_target_update_mode = 4
+
+[node name="HUD" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("1_mecw7")]
 
 [node name="CarGimbal" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("vehicle") instance=ExtResource("1_553rr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35764, 0.891925, -0.936448)
@@ -108,7 +114,7 @@ mesh = SubResource("BoxMesh_sffmt")
 shape = SubResource("ConcavePolygonShape3D_8pryl")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 3, 0, 0, 0, 20, 8.96714, 1.25726, 0)
+transform = Transform3D(20, 0, 0, 0, 3, 0, 0, 0, 20, 32.9086, 1.25726, 0)
 mesh = SubResource("PrismMesh_ksq0j")
 skeleton = NodePath("../MeshInstance3D")
 
@@ -125,3 +131,12 @@ mesh = SubResource("PlaneMesh_8wt6v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_y3pnv")
+
+[node name="Pickup" parent="." instance=ExtResource("3_62ou3")]
+transform = Transform3D(0.251172, 0, -0.544897, 0, 0.6, 0, 0.544897, 0, 0.251172, 4.38397, 1, -24.7558)
+
+[node name="Pickup2" parent="." instance=ExtResource("3_62ou3")]
+transform = Transform3D(0.251172, 0, -0.544897, 0, 0.6, 0, 0.544897, 0, 0.251172, -3.13556, 1, -24.7558)
+
+[node name="Pickup3" parent="." instance=ExtResource("3_62ou3")]
+transform = Transform3D(0.251172, 0, -0.544897, 0, 0.6, 0, 0.544897, 0, 0.251172, -10.7592, 1, -24.7558)

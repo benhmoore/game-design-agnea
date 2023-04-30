@@ -45,7 +45,7 @@ func _process(delta):
 		
 		# Check if all stored positions are the same
 		if snapped(actions[0][1].x, 1.00) == snapped(actions[1][1].x, 1.00) and snapped(actions[1][1].x, 1.00) == snapped(actions[2][1].x, 1.00) and snapped(actions[0][1].z, 1.00) == snapped(actions[1][1].z, 1.00) and snapped(actions[1][1].z, 1.00) == snapped(actions[2][1].z, 1.00):
-			if not car.rear_wheels[0].is_in_contact() and not car.rear_wheels[1].is_in_contact():
+			if not car.rear_wheels[0].is_in_contact() or not car.rear_wheels[1].is_in_contact():
 				car.reset_car()
 				print("Resetting car's position!")
 
