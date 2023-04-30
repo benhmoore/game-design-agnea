@@ -2,6 +2,10 @@ extends VehicleBody3D
 
 signal collision_detected
 
+
+# Pickup inventory
+var pickup:Node3D
+
 enum ControlScheme { ARROWS, WASD }
 enum CarState { IDLE, MOVING_FORWARD, MOVING_REVERSE, BREAKING }
 
@@ -345,7 +349,9 @@ func update_camera_fov(delta):
 	camera_gimbal.camera.fov = lerp(camera_gimbal.camera.fov, target_fov, 5 * delta)
 
 func pickup_item(item):
-	print("Picked up", item)
+	if pickup != null: # If the player already has a pickup, get rid of it
+		pickup.queue_free()
+	pickup = item
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	
