@@ -39,14 +39,14 @@ func _process(delta):
 			actions.append([action_label, global_position])
 			prev_action = action_label
 
-	if len(actions) > 3:
+	if len(actions) > 2:
 		
 		print(actions)
 		
 		# Check if all stored positions are the same
-		if snapped(actions[0][1].x, 0.01) == snapped(actions[1][1].x, 0.01) and snapped(actions[1][1].x, 0.01) == snapped(actions[2][1].x, 0.01) and snapped(actions[0][1].z, 0.01) == snapped(actions[1][1].z, 0.01) and snapped(actions[1][1].z, 0.01) == snapped(actions[2][1].z, 0.01):
-			
-			car.reset_car()
-			print("Resetting car's position!")
+		if snapped(actions[0][1].x, 1.00) == snapped(actions[1][1].x, 1.00) and snapped(actions[1][1].x, 1.00) == snapped(actions[2][1].x, 1.00) and snapped(actions[0][1].z, 1.00) == snapped(actions[1][1].z, 1.00) and snapped(actions[1][1].z, 1.00) == snapped(actions[2][1].z, 1.00):
+			if not car.rear_wheels[0].is_in_contact() and not car.rear_wheels[1].is_in_contact():
+				car.reset_car()
+				print("Resetting car's position!")
 
 		actions.clear()
