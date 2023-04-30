@@ -4,15 +4,19 @@ enum ItemState {PRONE, INVENTORY, ACTIVE}
 
 var pickups:Dictionary = {
 	"tire": {
-		"mesh": preload("res://assets/models/Items/SpareTire.glb")
+		"scene": preload("res://components/Pickups/SpareTire.tscn")
 	},
-	"haybell": {
-		"mesh": preload("res://assets/models/Items/HayBale.glb")
+	"haybale": {
+		"scene": preload("res://components/Pickups/HayBale.tscn")
 	},
-#	"oil": {
-#
-#	}
+	"oil": {
+		"scene": preload("res://components/Pickups/OilSlick.tscn")
+	},
 }
+
+var pickup
+
+@onready var placeholder = $MysteryItem
 
 var time = 0
 @onready var init_pos = transform.origin
@@ -37,6 +41,25 @@ var current_pickup_time = 0
 # Add scales for the collider in the prone and inventory states
 var prone_scale = Vector3.ONE
 var inventory_scale = Vector3.ONE * 0.5
+
+func set_pickup(item):
+	pickup = item
+	
+	var scene = item.scene.instantiate()
+	add_child(scene)
+	placeholder.queue_free()
+
+func determine_item(): # Randomly chooses the item's type when picked up
+
+	# Convert the dictionary to an array
+	var pickup_names = pickups.values()
+
+	# Pick a random element from the array
+	var random_item = pickup_names[randi() % pickup_names.size()]
+	
+	set_pickup(random_item)
+	
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -101,7 +124,14 @@ func inventory_behavior(delta):
 		transform.origin = init_pos.lerp(target_position, transition_progress)
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	if body.is_in_group("Vehicle") and player_node != body:
+	
+	if not body.is_in_group("Vehicle"):
+		return
+	
+	if state == ItemState.PRONE:
+		determine_item()
+		
+	if player_node != body:
 		
 		var should_pickup = false
 		
