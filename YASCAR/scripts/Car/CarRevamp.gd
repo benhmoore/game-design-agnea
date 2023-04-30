@@ -56,7 +56,7 @@ var breaklights_on: bool = false
 @onready var breaklight_right: SpotLight3D = $RightBreaklight
 
 # Car camera
-@export var camera: Camera3D
+@export var camera_gimbal: Node3D
 
 # Control scheme selection
 @export var control_scheme: ControlScheme = ControlScheme.ARROWS
@@ -68,8 +68,8 @@ var breaklights_on: bool = false
 @export var max_speed = 30.0
 
 # Minimum and maximum FOV for the camera
-@export var min_fov = 70.0
-@export var max_fov = 110.0
+@export var min_fov = 60.0
+@export var max_fov = 85.0
 
 # Front and rear wheels
 @onready var front_wheels = [get_node("FrontLeftWheel"), get_node("FrontRightWheel")]
@@ -94,7 +94,7 @@ func _ready():
 	initial_position = transform
 	previous_position = transform.origin
 	
-	collision_detected.connect(camera._on_collision_detected)
+	collision_detected.connect(camera_gimbal._on_collision_detected)
 
 func toggle_breaklights():
 	var newMaterial = StandardMaterial3D.new()
@@ -342,7 +342,7 @@ func get_steering_input() -> float:
 func update_camera_fov(delta):
 	var speed_ratio = linear_velocity.length() / max_speed
 	var target_fov = lerp(min_fov, max_fov, speed_ratio)
-	camera.fov = lerp(camera.fov, target_fov, 5 * delta)
+	camera_gimbal.camera.fov = lerp(camera_gimbal.camera.fov, target_fov, 5 * delta)
 
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):

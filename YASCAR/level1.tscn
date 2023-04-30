@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpv5fnf246bjh"]
 
-[ext_resource type="Script" path="res://scripts/Car/CarCamera.gd" id="2_bugt7"]
-[ext_resource type="PackedScene" uid="uid://kg7msxebiky3" path="res://components/Car.tscn" id="3_iyn8n"]
+[ext_resource type="PackedScene" uid="uid://bvl6yfqqhm3au" path="res://components/CarGimbal.tscn" id="2_b2ofx"]
+[ext_resource type="PackedScene" uid="uid://b1mg2eb83avsf" path="res://components/Car.tscn" id="3_iyn8n"]
 [ext_resource type="PackedScene" uid="uid://cccay6x1xn23e" path="res://components/tracklogiclevel1.tscn" id="3_vwiob"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wolme"]
@@ -67,17 +67,16 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SplitScreen/LeftContainer"]
 handle_input_locally = false
-size = Vector2i(574, 648)
+size = Vector2i(958, 1080)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("vehicle")]
-script = ExtResource("2_bugt7")
+[node name="CarGimbal" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("vehicle") instance=ExtResource("2_b2ofx")]
 vehicle = NodePath("../Car2")
 
-[node name="Car2" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("camera") instance=ExtResource("3_iyn8n")]
+[node name="Car2" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("camera_gimbal") instance=ExtResource("3_iyn8n")]
 transform = Transform3D(0.364275, 0, 0.931291, 0, 1, 0, -0.931291, 0, 0.364275, -410.916, 0.655762, 333.951)
 car_color = Color(0, 0.929412, 0.415686, 1)
-camera = NodePath("../Camera3D")
+camera_gimbal = NodePath("../CarGimbal")
 
 [node name="RightContainer" type="SubViewportContainer" parent="SplitScreen"]
 layout_mode = 2
@@ -87,14 +86,13 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SplitScreen/RightContainer"]
 handle_input_locally = false
-size = Vector2i(574, 648)
+size = Vector2i(958, 1080)
 render_target_update_mode = 4
 
-[node name="Camera3D2" type="Camera3D" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("vehicle")]
-script = ExtResource("2_bugt7")
+[node name="CarGimbal" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("vehicle") instance=ExtResource("2_b2ofx")]
 vehicle = NodePath("../Car3")
 
-[node name="Car3" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("camera") instance=ExtResource("3_iyn8n")]
+[node name="Car3" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("camera_gimbal") instance=ExtResource("3_iyn8n")]
 transform = Transform3D(0.364275, 0, 0.931291, 0, 1, 0, -0.931291, 0, 0.364275, -410.305, 0.655762, 332.103)
-camera = NodePath("../Camera3D2")
+camera_gimbal = NodePath("../CarGimbal")
 control_scheme = 0

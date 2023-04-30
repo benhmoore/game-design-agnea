@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://vshsasb3erex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_of80q"]
+albedo_color = Color(1, 0.572549, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+rim_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_hbjpl"]
+material = SubResource("StandardMaterial3D_of80q")
+radius = 0.01
+height = 0.02
+
+[sub_resource type="Curve" id="Curve_aeb03"]
+_data = [Vector2(0.249223, 1), 0.0, 0.0, 0, 0, Vector2(0.931111, 0.0203214), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hsqd"]
+cull_mode = 2
+albedo_color = Color(1, 0.568627, 0, 1)
+rim_enabled = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_3rtmw"]
+material = SubResource("StandardMaterial3D_3hsqd")
+size = 0.02
+sections = 3
+curve = SubResource("Curve_aeb03")
+
+[node name="ExhaustFire" type="Node3D"]
+
+[node name="Sparks" type="CPUParticles3D" parent="."]
+explosiveness = 0.67
+mesh = SubResource("SphereMesh_hbjpl")
+direction = Vector3(2.08165e-12, -1, 2.08165e-12)
+spread = 18.94
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 3.0
+initial_velocity_max = 20.0
+scale_amount_min = 0.4
+scale_amount_max = 1.3
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 4
+lifetime = 0.69
+explosiveness = 0.46
+mesh = SubResource("RibbonTrailMesh_3rtmw")
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(2.08165e-12, -1, 2.08165e-12)
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)

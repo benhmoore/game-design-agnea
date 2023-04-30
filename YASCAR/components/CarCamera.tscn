@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1knbsa8ohick"]
+
+[ext_resource type="Script" path="res://scripts/Car/CarCamera.gd" id="1_fy0ku"]
+
+[node name="CarCamera" type="Camera3D"]
+script = ExtResource("1_fy0ku")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(2.08165e-12, -5, 2.08165e-12)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://kg7msxebiky3"]
+[gd_scene load_steps=14 format=3 uid="uid://b1mg2eb83avsf"]
 
 [ext_resource type="Script" path="res://scripts/Car/CarRevamp.gd" id="1_n7gti"]
 [ext_resource type="PackedScene" uid="uid://c6mvvdpcgny7e" path="res://assets/models/Car/piece_textured.glb" id="1_sp3ta"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/Car/CarRumble.gd" id="5_y466y"]
 [ext_resource type="AudioStream" uid="uid://b6eqccgc3m6y" path="res://assets/sounds/car_engine_loop_2.wav" id="9_851kf"]
 [ext_resource type="AudioStream" uid="uid://c5kh5x18cpgai" path="res://assets/sounds/car_wind_1.wav" id="10_vpv3l"]
+[ext_resource type="Script" path="res://scripts/Car/StuckDetector.gd" id="12_uybx6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sse80"]
 size = Vector3(1.24998, 1, 2.21048)
@@ -37,9 +38,8 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2
 [node name="FrontRightWheel" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.629373, 0.297358, -0.681135)
 use_as_steering = true
-suspension_travel = 1.0
-suspension_stiffness = 30.0
-suspension_max_force = 7000.0
+suspension_travel = 0.3
+suspension_stiffness = 35.0
 
 [node name="tire" parent="FrontRightWheel" instance=ExtResource("2_ouqlv")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0)
@@ -47,18 +47,16 @@ transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e
 [node name="FrontLeftWheel" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -0.640192, 0.296943, -0.681202)
 use_as_steering = true
-suspension_travel = 1.0
-suspension_stiffness = 30.0
-suspension_max_force = 7000.0
+suspension_travel = 0.3
+suspension_stiffness = 35.0
 
 [node name="tire" parent="FrontLeftWheel" instance=ExtResource("2_ouqlv")]
 
 [node name="RearRightWheel" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0.628964, 0.299, 0.680365)
 use_as_traction = true
-suspension_travel = 1.0
-suspension_stiffness = 30.0
-suspension_max_force = 7000.0
+suspension_travel = 0.3
+suspension_stiffness = 35.0
 
 [node name="tire" parent="RearRightWheel" instance=ExtResource("2_ouqlv")]
 transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0)
@@ -66,9 +64,8 @@ transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e
 [node name="RearLeftWheel" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -0.640603, 0.298585, 0.680298)
 use_as_traction = true
-suspension_travel = 1.0
-suspension_stiffness = 30.0
-suspension_max_force = 7000.0
+suspension_travel = 0.3
+suspension_stiffness = 35.0
 
 [node name="tire" parent="RearLeftWheel" instance=ExtResource("2_ouqlv")]
 
@@ -95,7 +92,7 @@ volume_db = -30.0
 stream = ExtResource("4_16fmb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.995272, -0.0971313, 0, 0.0971313, 0.995272, 0, 0.791662, 0)
+transform = Transform3D(1, 0, 0, 0, 0.995272, -0.0971313, 0, 0.0971313, 0.995272, 0, 0.921851, 0)
 shape = SubResource("BoxShape3D_sse80")
 
 [node name="LeftHeadlight" type="SpotLight3D" parent="."]
@@ -111,7 +108,7 @@ light_energy = 0.8
 shadow_enabled = true
 
 [node name="RightBreaklight" type="SpotLight3D" parent="."]
-transform = Transform3D(-1, 1.89873e-08, -8.53359e-08, -2.59886e-08, 0.867436, 0.497549, 8.34705e-08, 0.497549, -0.867436, 0.38332, 0.783885, 1.12223)
+transform = Transform3D(-1, 1.89872e-08, -8.53359e-08, -2.59886e-08, 0.867436, 0.497549, 8.34705e-08, 0.497549, -0.867436, 0.38332, 0.783885, 1.12223)
 light_color = Color(1, 0, 0, 1)
 light_energy = 0.0
 shadow_enabled = true
@@ -121,6 +118,10 @@ transform = Transform3D(-1, 1.89873e-08, -8.53359e-08, -2.59886e-08, 0.867436, 0
 light_color = Color(1, 0, 0, 1)
 light_energy = 0.0
 shadow_enabled = true
+
+[node name="StuckDetector" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61679, 0.462293)
+script = ExtResource("12_uybx6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
