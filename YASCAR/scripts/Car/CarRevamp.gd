@@ -2,6 +2,10 @@ extends VehicleBody3D
 
 signal collision_detected
 
+
+# Pickup inventory
+var pickup:Node3D
+
 enum ControlScheme { ARROWS, WASD }
 enum CarState { IDLE, MOVING_FORWARD, MOVING_REVERSE, BREAKING }
 
@@ -88,6 +92,14 @@ var previous_position: Vector3
 
 var prev_linear_velocity = Vector3()
 
+func use_pickup():
+	if pickup == null:
+		print("You don't have a pickup to use!")
+		return
+	
+	pickup.queue_free()
+	pickup = null
+
 func _ready():
 	set_car_color(car_color)  # Set the car's color to red
 	engine_player.play()
@@ -139,6 +151,14 @@ func update_engine_pitch(delta):
 		engine_player.pitch_scale = lerp(engine_player.pitch_scale, min_engine_pitch, 5 * delta)
 
 func _physics_process(delta):
+	
+	# Use pickup items
+	if control_scheme == ControlScheme.ARROWS:
+		if Input.get_action_strength("use_item_slash") > 0:
+			use_pickup()
+	else:
+		if Input.get_action_strength("use_item_q") > 0:
+			use_pickup()
 	
 	# Store the previous linear velocity at the beginning of each physics frame
 	prev_linear_velocity = linear_velocity
@@ -344,8 +364,13 @@ func update_camera_fov(delta):
 	var target_fov = lerp(min_fov, max_fov, speed_ratio)
 	camera_gimbal.camera.fov = lerp(camera_gimbal.camera.fov, target_fov, 5 * delta)
 
+func pickup_item(item):
+	if pickup != null: # If the player already has a pickup, get rid of it
+		pickup.queue_free()
+	pickup = item
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	
 	# Detect high-speed collisions and print
 	var collision_speed = linear_velocity.length()
 	print("Collision at %s km/h" % (collision_speed * 3.6))

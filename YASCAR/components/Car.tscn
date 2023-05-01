@@ -16,7 +16,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_sse80"]
 size = Vector3(1.24998, 1, 2.21048)
 
-[node name="Car" type="VehicleBody3D"]
+[node name="Car" type="VehicleBody3D" groups=["Vehicle"]]
 center_of_mass_mode = 1
 max_contacts_reported = 2
 contact_monitor = true
@@ -123,7 +123,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61679, 0.462293)
 script = ExtResource("12_uybx6")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 
 [editable path="CarBody"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://oh828ktykvvg"]
+[gd_scene load_steps=9 format=3 uid="uid://d1fmnhax66bw5"]
 
 [ext_resource type="PackedScene" uid="uid://bvl6yfqqhm3au" path="res://components/CarGimbal.tscn" id="2_3euaa"]
-[ext_resource type="PackedScene" uid="uid://bm6y7deeb5rtj" path="res://components/tracklogiclevel2.tscn" id="2_qgbih"]
+[ext_resource type="PackedScene" uid="uid://bm6y7deeb5rtj" path="res://components/LevelLogic/tracklogiclevel2.tscn" id="2_qgbih"]
 [ext_resource type="PackedScene" uid="uid://b1mg2eb83avsf" path="res://components/Car.tscn" id="3_f6nwn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wolme"]

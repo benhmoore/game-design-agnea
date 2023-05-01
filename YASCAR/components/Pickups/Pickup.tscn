@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://5piwe4ol7k2b"]
+
+[ext_resource type="Script" path="res://scripts/Pickups/Pickup.gd" id="1_4e1y2"]
+[ext_resource type="PackedScene" uid="uid://d1e1u24khrgvi" path="res://components/Pickups/MysteryItem.tscn" id="2_ekq2i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_174ee"]
+size = Vector3(8.36625, 6.20435, 8.24076)
+
+[node name="Pickup" type="Area3D" groups=["Pickup"]]
+transform = Transform3D(0.6, -2.09272e-16, 2.09272e-16, 2.09272e-16, 0.6, -2.09272e-16, -2.09272e-16, 2.09272e-16, 0.6, 0, 0.327912, 0)
+script = ExtResource("1_4e1y2")
+
+[node name="MysteryItem" parent="." instance=ExtResource("2_ekq2i")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 1.21652e-31, -6.79311e-24, -1.21652e-31, 1, 6.79311e-24, 6.79311e-24, -6.79311e-24, 1, 0, 0, 0)
+light_color = Color(0, 1, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 2.88513e-23, 1.02014e-23, 1.02014e-23, 1, -1.02014e-23, 2.88513e-23, -2.88513e-23, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_174ee")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

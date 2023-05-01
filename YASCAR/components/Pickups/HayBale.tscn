@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyrdoe0mchmvk"]
+
+[ext_resource type="PackedScene" uid="uid://bdkas82avf023" path="res://assets/models/Items/HayBale.glb" id="1_wt8nk"]
+
+[node name="HayBale" type="Node3D"]
+
+[node name="HayBale" parent="." instance=ExtResource("1_wt8nk")]
