@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c7ogtw1t3e518"]
+[gd_scene load_steps=24 format=3 uid="uid://c7ogtw1t3e518"]
 
 [ext_resource type="PackedScene" uid="uid://x58t16mfb50h" path="res://components/Environment/Clouds.tscn" id="1_3ov26"]
 [ext_resource type="Script" path="res://addons/terrain_3d/terrain.gd" id="1_lwqy5"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cgaafyrn6co4d" path="res://components/Environment/Buildings/Saloon.tscn" id="17_cak2p"]
 [ext_resource type="PackedScene" uid="uid://bbx0qxytbs64x" path="res://components/Environment/Buildings/Shack.tscn" id="18_y4ptj"]
 [ext_resource type="PackedScene" uid="uid://bai8y4rc2asq6" path="res://components/Environment/Buildings/Shed.tscn" id="19_vo4ej"]
+[ext_resource type="PackedScene" uid="uid://5piwe4ol7k2b" path="res://components/Pickups/Pickup.tscn" id="20_rs3km"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06nss"]
 sky_top_color = Color(0.541176, 0.72549, 0.992157, 1)
@@ -138,3 +139,12 @@ transform = Transform3D(-0.567039, 0, -0.823691, 0, 1, 0, 0.823691, 0, -0.567039
 
 [node name="Shed" parent="." instance=ExtResource("19_vo4ej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.764, 0, 127.8)
+
+[node name="Pickup" parent="." instance=ExtResource("20_rs3km")]
+transform = Transform3D(0.6, -2.09272e-16, 2.09272e-16, 2.09272e-16, 0.6, -2.09272e-16, -2.09272e-16, 2.09272e-16, 0.6, -136.658, 2.07154, 40.5988)
+
+[node name="Pickup2" parent="." instance=ExtResource("20_rs3km")]
+transform = Transform3D(0.6, -2.09272e-16, 2.09272e-16, 2.09272e-16, 0.6, -2.09272e-16, -2.09272e-16, 2.09272e-16, 0.6, -136.658, 2.07154, 36.3577)
+
+[node name="Pickup3" parent="." instance=ExtResource("20_rs3km")]
+transform = Transform3D(0.6, -2.09272e-16, 2.09272e-16, 2.09272e-16, 0.6, -2.09272e-16, -2.09272e-16, 2.09272e-16, 0.6, -136.658, 2.07154, 32.2103)
