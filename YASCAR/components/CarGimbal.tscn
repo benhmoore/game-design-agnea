@@ -1,18 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvl6yfqqhm3au"]
+[gd_scene load_steps=2 format=3 uid="uid://bvl6yfqqhm3au"]
 
 [ext_resource type="Script" path="res://scripts/Car/CarCamera.gd" id="1_1fkql"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_pro16"]
 
 [node name="CarGimbal" type="Node3D"]
 script = ExtResource("1_1fkql")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.914105, 0.405477, 0, -0.405477, 0.914105, 2.08165e-12, 3, 5)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28154, 0.739898)
-mesh = SubResource("CapsuleMesh_pro16")
-
-[node name="Marker3D" type="Marker3D" parent="."]
-gizmo_extents = 0.67
+transform = Transform3D(1, 0, 0, 0, 0.947238, 0.320531, 0, -0.320531, 0.947238, 2.08165e-12, 3, 5)

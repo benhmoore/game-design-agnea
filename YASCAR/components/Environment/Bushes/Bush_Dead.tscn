@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://xa7vuok5bt1y"]
+
+[ext_resource type="PackedScene" uid="uid://b5ghxdqf5fy6l" path="res://assets/models/Environment/Bushes/Bush_Dead.glb" id="1_o3bhx"]
+
+[node name="Bush_Dead" instance=ExtResource("1_o3bhx")]
