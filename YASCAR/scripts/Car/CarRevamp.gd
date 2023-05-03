@@ -50,6 +50,10 @@ var accumulated_rotation = Vector3()
 @export var wind_min_pitch = 1.0
 @export var wind_max_pitch = 1.5
 
+# Launch and flip parameters
+@export var launch_force = 1000.0
+@export var flip_torque = 500.0
+
 # Car color
 @export var car_color: Color = Color(1, 0, 0)
 @onready var car_mesh: MeshInstance3D = $CarBody/body
@@ -96,9 +100,12 @@ func use_pickup():
 	if pickup == null:
 		print("You don't have a pickup to use!")
 		return
+		
 	
-	pickup.queue_free()
+	pickup.use()
 	pickup = null
+	
+	
 
 func _ready():
 	set_car_color(car_color)  # Set the car's color to red
@@ -370,6 +377,13 @@ func pickup_item(item):
 	pickup = item
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	
+	if body.name == "Oil":
+		# Make car flip and launch in air if moving fast
+		var launch_dir = Vector3(linear_velocity.x, launch_force, linear_velocity.z)
+		apply_impulse(Vector3.ZERO, launch_dir)
+		var flip_axis = Vector3(1, 0, 0)
+		apply_torque_impulse(flip_axis * flip_torque)
 	
 	# Detect high-speed collisions and print
 	var collision_speed = linear_velocity.length()

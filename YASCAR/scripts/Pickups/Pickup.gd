@@ -3,14 +3,17 @@ extends Area3D
 enum ItemState {PRONE, INVENTORY, ACTIVE}
 
 var pickups:Dictionary = {
-	"tire": {
-		"scene": preload("res://components/Pickups/SpareTire.tscn")
-	},
-	"haybale": {
-		"scene": preload("res://components/Pickups/HayBale.tscn")
-	},
+#	"tire": {
+#		"scene": preload("res://components/Pickups/MeshScenes/SpareTireModel.tscn"),
+#		"enabledScene": preload("res://components/Pickups/Tire.tscn")
+#	},
+#	"haybale": {
+#		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
+#		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
+#	},
 	"oil": {
-		"scene": preload("res://components/Pickups/OilSlick.tscn")
+		"scene": preload("res://components/Pickups/MeshScenes/OilSlickModel.tscn"),
+		"enabledScene": preload("res://components/Pickups/Oil.tscn")
 	},
 }
 
@@ -58,6 +61,19 @@ func determine_item(): # Randomly chooses the item's type when picked up
 	var random_item = pickup_names[randi() % pickup_names.size()]
 	
 	set_pickup(random_item)
+	
+	
+	
+func use():
+	
+	var enabledScene = pickup.enabledScene.instantiate()
+	enabledScene.transform.origin = transform.origin
+	
+	enabledScene.linear_velocity = player_node.linear_velocity * -1.2
+	
+	get_tree().root.add_child(enabledScene)
+	
+	queue_free()
 	
 	
 

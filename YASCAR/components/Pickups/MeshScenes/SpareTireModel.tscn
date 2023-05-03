@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw2c76q8dtbb1"]
+
+[ext_resource type="PackedScene" uid="uid://dwt4xedgokcis" path="res://assets/models/Items/SpareTire.glb" id="1_p2d8e"]
+
+[node name="SpareTire" type="Node3D"]
+
+[node name="SpareTire" parent="." instance=ExtResource("1_p2d8e")]

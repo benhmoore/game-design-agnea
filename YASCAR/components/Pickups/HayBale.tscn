@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyrdoe0mchmvk"]
+[gd_scene load_steps=3 format=3 uid="uid://dsh8anlsmka8t"]
 
-[ext_resource type="PackedScene" uid="uid://bdkas82avf023" path="res://assets/models/Items/HayBale.glb" id="1_wt8nk"]
+[ext_resource type="PackedScene" uid="uid://dyrdoe0mchmvk" path="res://components/Pickups/MeshScenes/HayBaleModel.tscn" id="1_rek67"]
 
-[node name="HayBale" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjptc"]
+size = Vector3(1.71116, 1.499, 2.26812)
 
-[node name="HayBale" parent="." instance=ExtResource("1_wt8nk")]
+[node name="HayBale" type="RigidBody3D"]
+mass = 100.0
+
+[node name="HayBale" parent="." instance=ExtResource("1_rek67")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mjptc")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1e1u24khrgvi"]
+
+[ext_resource type="PackedScene" uid="uid://b6q2k6duqc4cr" path="res://assets/models/Items/Pickup.glb" id="1_baua3"]
+
+[node name="MysteryItem" type="Node3D"]
+
+[node name="Pickup" parent="." instance=ExtResource("1_baua3")]

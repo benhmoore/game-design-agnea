@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dj8cdhscc3or0"]
+[gd_scene load_steps=15 format=3 uid="uid://cb4gvxwktjdql"]
 
 [ext_resource type="PackedScene" uid="uid://bvl6yfqqhm3au" path="res://components/CarGimbal.tscn" id="1_553rr"]
 [ext_resource type="PackedScene" uid="uid://b1mg2eb83avsf" path="res://components/Car.tscn" id="1_665sy"]
 [ext_resource type="PackedScene" uid="uid://x58t16mfb50h" path="res://components/Environment/Clouds.tscn" id="1_i4v7t"]
 [ext_resource type="PackedScene" uid="uid://bj6032sulvv57" path="res://components/HUD/HUD.tscn" id="1_mecw7"]
-[ext_resource type="PackedScene" uid="uid://5piwe4ol7k2b" path="res://components/Pickups/Pickup.tscn" id="3_62ou3"]
+[ext_resource type="PackedScene" uid="uid://di5r5aipj26li" path="res://components/Pickups/PickupContainer.tscn" id="3_62ou3"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fq7fy"]
 turbidity = 0.0
