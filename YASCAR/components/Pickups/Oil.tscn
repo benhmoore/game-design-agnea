@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2rn7g55tg4w6"]
 
 [ext_resource type="Script" path="res://scripts/Pickups/Throwable.gd" id="1_pmxoh"]
-[ext_resource type="PackedScene" uid="uid://l6jcpl62ohi0" path="res://components/Pickups/MeshScenes/OilSlickModel.tscn" id="1_tbiry"]
+[ext_resource type="PackedScene" uid="uid://bf4jbxwvdycf2" path="res://assets/models/Items/Oil.glb" id="2_duvwg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kc6yc"]
 size = Vector3(2.90753, 0.673038, 2.77683)
@@ -11,8 +11,10 @@ mass = 1000.0
 lock_rotation = true
 script = ExtResource("1_pmxoh")
 
-[node name="OilSlick" parent="." groups=["Slippery"] instance=ExtResource("1_tbiry")]
+[node name="OilSlick" type="Node3D" parent="." groups=["Slippery"]]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Oil" parent="OilSlick" instance=ExtResource("2_duvwg")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343778, 0)

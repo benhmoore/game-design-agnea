@@ -40,7 +40,7 @@ func fire(delta):
 	
 	# Set bullet position and rotation to match the car's
 	bullet.global_transform = car_node.global_transform
-	bullet.transform.origin += Vector3(0, 1.8, 0)
+	bullet.transform.origin += Vector3(0, 2, 0)
 	
 	# Fire in direction of car's velocity
 	bullet.linear_velocity = car_node.linear_velocity.normalized() * 120
@@ -65,7 +65,7 @@ func remove():
 func _process(delta):
 	if not car_node: return
 	
-	transform.origin = car_node.transform.origin + Vector3(0, 1.8, 0)
+	transform.origin = car_node.transform.origin + Vector3(0, 2, 0)
 	look_at(transform.origin + car_node.linear_velocity.normalized(), Vector3.UP)
 	rotate(Vector3.UP, PI / 2)
 	

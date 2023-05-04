@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhgrdgbjmf6b5"]
+
+[ext_resource type="PackedScene" uid="uid://dpl2tl5sedv27" path="res://assets/models/Items/Balloons.glb" id="1_ht5hq"]
+
+[node name="Balloons" type="Node3D"]
+
+[node name="Balloons" parent="." instance=ExtResource("1_ht5hq")]

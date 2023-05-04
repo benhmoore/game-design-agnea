@@ -28,7 +28,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 sorting_offset = -1.0
-emitting = false
 amount = 128
 randomness = 0.46
 lifetime_randomness = 0.35

@@ -19,6 +19,14 @@ var pickups:Dictionary = {
 		"scene": preload("res://components/Pickups/MeshScenes/HornModel.tscn"),
 		"enabledScene": preload("res://components/Pickups/Horn.tscn")
 	},
+	"speed_boost": {
+		"scene": preload("res://components/Pickups/MeshScenes/SpeedBooster.tscn"),
+		"enabledScene": preload("res://components/Pickups/SpeedBooster.tscn")
+	},
+	"balloons": {
+		"scene": preload("res://components/Pickups/MeshScenes/Balloons.tscn"),
+		"enabledScene": preload("res://components/Pickups/Balloons.tscn")
+	},
 }
 
 var pickup

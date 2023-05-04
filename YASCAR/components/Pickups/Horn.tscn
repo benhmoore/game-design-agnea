@@ -26,4 +26,4 @@ initial_velocity_min = 20.0
 initial_velocity_max = 100.0
 
 [node name="HornModel" parent="." instance=ExtResource("2_iei7l")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.211838, 0, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.445028, 0, 0)
