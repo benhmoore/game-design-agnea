@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccgynwhac14p5"]
+
+[ext_resource type="PackedScene" uid="uid://dhgrdgbjmf6b5" path="res://components/Pickups/MeshScenes/Balloons.tscn" id="1_c1ccb"]
+[ext_resource type="Script" path="res://scripts/Pickups/Balloons.gd" id="1_hgeal"]
+
+[node name="Balloons" type="Node3D"]
+script = ExtResource("1_hgeal")
+
+[node name="Balloons" parent="." instance=ExtResource("1_c1ccb")]

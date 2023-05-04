@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwbgna553vsbc"]
+
+[ext_resource type="PackedScene" uid="uid://bhs33i1xd46ym" path="res://assets/models/Items/SpeedBooster.glb" id="1_bxlsy"]
+
+[node name="SpeedBooster" type="Node3D"]
+
+[node name="SpeedBooster" parent="." instance=ExtResource("1_bxlsy")]

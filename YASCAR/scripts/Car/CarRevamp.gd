@@ -7,6 +7,11 @@ signal collision_detected
 var pickup:Node3D
 var gun:Node3D
 
+var balloons:Node3D
+
+# If a speed booster is active, this is set to true, blocking all input except steering
+var acceleration_locked:bool = false
+
 enum ControlScheme { ARROWS, WASD }
 enum CarState { IDLE, MOVING_FORWARD, MOVING_REVERSE, BREAKING }
 
@@ -140,7 +145,7 @@ func update_wind_sound(delta):
 	var target_volume = lerp(wind_min_volume, wind_max_volume, speed_ratio)
 	var target_pitch = lerp(wind_min_pitch, wind_max_pitch, speed_ratio)
 
-	wind_player.volume_db = target_volume
+	wind_player.volume_db = min(1.0, target_volume)
 	wind_player.pitch_scale = target_pitch
 
 
@@ -151,7 +156,7 @@ func update_engine_pitch(delta):
 	var speed_ratio = linear_velocity.length() / max_speed
 	var target_pitch = lerp(min_engine_pitch, max_engine_pitch, speed_ratio)
 	
-	tire_player.pitch_scale = lerp(tire_player.pitch_scale, max(1, 1.5 * (max_engine_pitch / target_pitch)), 5 * delta)
+	tire_player.pitch_scale = lerp(tire_player.pitch_scale, max(1.0, 1.5 * (max_engine_pitch / target_pitch)), 5 * delta)
 	
 	if is_accelerating:
 		engine_player.pitch_scale = lerp(engine_player.pitch_scale, target_pitch, 5 * delta)
@@ -176,6 +181,9 @@ func _physics_process(delta):
 	# Get input values for acceleration, braking, and steering
 	var accel_input = get_acceleration_input()
 	var steer_input = get_steering_input()
+	
+	if acceleration_locked:
+		accel_input = 1
 
 	# Update car state, airborne status, airborne duration, and flip count
 	var previous_state = car_state
@@ -377,6 +385,8 @@ func pickup_item(item):
 		pickup.queue_free()
 	if gun != null:
 		gun.remove()
+	if balloons != null:
+		balloons.remove()
 		
 	pickup = item
 
