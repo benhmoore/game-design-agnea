@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3awpmngkotwi"]
+
+[ext_resource type="Script" path="res://scripts/Pickups/Bullet.gd" id="1_un8f7"]
+[ext_resource type="AudioStream" uid="uid://ctyaymliaidjg" path="res://assets/sounds/fire.wav" id="2_ry8k2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_loccu"]
+albedo_color = Color(0.890196, 0, 0.239216, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ngtpp"]
+material = SubResource("StandardMaterial3D_loccu")
+radius = 0.3
+height = 0.5
+radial_segments = 4
+rings = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4i56r"]
+size = Vector3(0.531345, 0.506197, 0.549468)
+
+[node name="Bullet" type="RigidBody3D"]
+mass = 40.0
+script = ExtResource("1_un8f7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ngtpp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4i56r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ry8k2")
+volume_db = -3.45
+pitch_scale = 1.3

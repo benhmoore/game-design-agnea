@@ -1,0 +1,14 @@
+[gd_resource type="Material" script_class="TerrainLayerMaterial3D" load_steps=3 format=3 uid="uid://cc05uiuwau3ih"]
+
+[ext_resource type="Texture2D" uid="uid://kkr5csh620k6" path="res://assets/textures/path_seamless.jpg" id="1_7imtw"]
+[ext_resource type="Script" path="res://addons/terrain_3d/terrain_layer_material.gd" id="2_34vva"]
+
+[resource]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("2_34vva")
+albedo_texture = ExtResource("1_7imtw")
+albedo_color = Color(1, 1, 1, 1)
+normal_scale = 0.0
+uv_scale = Vector3(1, 1, 1)
+uv_anti_tile = false

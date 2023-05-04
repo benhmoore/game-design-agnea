@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgaafyrn6co4d"]
+
+[ext_resource type="PackedScene" uid="uid://b2hgtw5mx3jb8" path="res://assets/models/Environment/Buildings/Saloon.glb" id="1_xn2ue"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oo1j0"]
+size = Vector3(16.9803, 8.84685, 8.72079)
+
+[node name="Saloon" instance=ExtResource("1_xn2ue")]
+
+[node name="Saloon2" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.937431, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Saloon2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Saloon2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38946, 0)
+shape = SubResource("BoxShape3D_oo1j0")

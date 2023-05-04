@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://x58t16mfb50h"]
+
+[ext_resource type="Script" path="res://scripts/Environment/Clouds.gd" id="1_wib48"]
+
+[node name="Clouds" type="Node3D"]
+script = ExtResource("1_wib48")
+radius = 30.0
+min_sphere_scale = 0.1
+max_sphere_scale = 0.5
+cloud_speed = 0.01
+min_spheres_per_cloud = null
+max_spheres_per_cloud = null

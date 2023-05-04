@@ -1,0 +1,150 @@
+[gd_scene load_steps=24 format=3 uid="uid://b425yrxlig251"]
+
+[ext_resource type="PackedScene" uid="uid://x58t16mfb50h" path="res://components/Environment/Clouds.tscn" id="1_3ov26"]
+[ext_resource type="Script" path="res://addons/terrain_3d/terrain.gd" id="1_lwqy5"]
+[ext_resource type="PackedScene" uid="uid://b1mg2eb83avsf" path="res://components/Car.tscn" id="3_nd33f"]
+[ext_resource type="PackedScene" uid="uid://bvl6yfqqhm3au" path="res://components/CarGimbal.tscn" id="4_1ocuj"]
+[ext_resource type="Material" uid="uid://hjyeonevio04" path="res://levels/west_terrain_1.tres" id="4_02qaq"]
+[ext_resource type="PackedScene" path="res://components/Environment/Trees/Tree_1.tscn" id="6_jwwn0"]
+[ext_resource type="PackedScene" path="res://components/Environment/Trees/Tree_2.tscn" id="7_q0kgb"]
+[ext_resource type="PackedScene" path="res://components/Environment/Trees/Tree_3.tscn" id="8_ngpdw"]
+[ext_resource type="PackedScene" path="res://components/Environment/Trees/Tree_4.tscn" id="9_lkd5t"]
+[ext_resource type="PackedScene" path="res://components/Environment/Trees/Tree_5.tscn" id="10_bfcvb"]
+[ext_resource type="PackedScene" uid="uid://dljhw21lpeg0u" path="res://components/Environment/Cacti/Cactus_1.tscn" id="11_83a3g"]
+[ext_resource type="PackedScene" uid="uid://dbwwbfrup7m80" path="res://components/Environment/Cacti/Cactus_2.tscn" id="12_0drbe"]
+[ext_resource type="PackedScene" uid="uid://bnw6u5oso16nx" path="res://components/Environment/Cacti/Cactus_3.tscn" id="13_dhe4h"]
+[ext_resource type="PackedScene" path="res://components/Environment/Bushes/Bush_Cactus.tscn" id="14_p35eh"]
+[ext_resource type="PackedScene" uid="uid://xa7vuok5bt1y" path="res://components/Environment/Bushes/Bush_Dead.tscn" id="15_kusa8"]
+[ext_resource type="PackedScene" uid="uid://c6jy52n5ch7or" path="res://components/Environment/Bushes/Bush.tscn" id="16_i8dvg"]
+[ext_resource type="PackedScene" uid="uid://cgaafyrn6co4d" path="res://components/Environment/Buildings/Saloon.tscn" id="17_cak2p"]
+[ext_resource type="PackedScene" uid="uid://bbx0qxytbs64x" path="res://components/Environment/Buildings/Shack.tscn" id="18_y4ptj"]
+[ext_resource type="PackedScene" uid="uid://bai8y4rc2asq6" path="res://components/Environment/Buildings/Shed.tscn" id="19_vo4ej"]
+[ext_resource type="PackedScene" uid="uid://di5r5aipj26li" path="res://components/Pickups/PickupContainer.tscn" id="20_rs3km"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06nss"]
+sky_top_color = Color(0.541176, 0.72549, 0.992157, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+sky_curve = 1e-05
+sky_energy_multiplier = 0.6
+ground_bottom_color = Color(0.270588, 0.231373, 0.184314, 1)
+sun_angle_max = 360.0
+sun_curve = 0.0568396
+
+[sub_resource type="Sky" id="Sky_1hsd2"]
+sky_material = SubResource("ProceduralSkyMaterial_06nss")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_00tan"]
+background_mode = 2
+sky = SubResource("Sky_1hsd2")
+ambient_light_source = 3
+tonemap_white = 1.2
+ssao_intensity = 1.0
+ssil_intensity = 0.0
+sdfgi_use_occlusion = true
+glow_intensity = 0.4
+fog_enabled = true
+fog_light_color = Color(0.431373, 0.741176, 1, 1)
+fog_light_energy = 1.2
+fog_density = 0.0006
+volumetric_fog_density = 0.04
+volumetric_fog_albedo = Color(0.4, 0.94902, 1, 1)
+volumetric_fog_emission = Color(1, 1, 1, 1)
+volumetric_fog_emission_energy = 0.3
+volumetric_fog_gi_inject = 0.53
+volumetric_fog_anisotropy = 0.55
+volumetric_fog_length = 20.0
+adjustment_enabled = true
+adjustment_saturation = 1.2
+
+[node name="west" type="Node3D"]
+
+[node name="Clouds" parent="." instance=ExtResource("1_3ov26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 53.4402, 0)
+radius = 1000.0
+max_cloud_size = 100
+min_sphere_scale = 4.0
+max_sphere_scale = 15.0
+cloud_speed = 2.0
+min_spheres_per_cloud = 3
+max_spheres_per_cloud = 6
+
+[node name="Car" parent="." node_paths=PackedStringArray("camera_gimbal") instance=ExtResource("3_nd33f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+camera_gimbal = NodePath("../CarGimbal")
+
+[node name="CarGimbal" parent="." node_paths=PackedStringArray("vehicle") instance=ExtResource("4_1ocuj")]
+vehicle = NodePath("../Car")
+
+[node name="Terrain3D" type="Node3D" parent="."]
+script = ExtResource("1_lwqy5")
+surface_material = ExtResource("4_02qaq")
+size = 1024
+height = 64
+particle_mesh_array = null
+particle_mask_texture = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_00tan")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.503849, 0.421067, 0.754214, -0.629966, -0.418273, 0.654362, 0.590998, -0.804829, 0.0545112, -606.725, 99.3613, 50.5032)
+light_color = Color(1, 0.901961, 0.65098, 1)
+shadow_enabled = true
+
+[node name="Tree_1" parent="." instance=ExtResource("6_jwwn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.34407, 0, 1.99078)
+
+[node name="Tree_2" parent="." instance=ExtResource("7_q0kgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.909, 0, -21.1672)
+
+[node name="Tree_3" parent="." instance=ExtResource("8_ngpdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.66079, 4.76837e-07, -13.616)
+
+[node name="Tree_4" parent="." instance=ExtResource("9_lkd5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.7666, 0, 141.095)
+
+[node name="Tree_5" parent="." instance=ExtResource("10_bfcvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3874, 0, -31.224)
+
+[node name="Cactus_1" parent="." instance=ExtResource("11_83a3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3197, 9.53674e-07, -0.893064)
+
+[node name="Cactus_2" parent="." instance=ExtResource("12_0drbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8105, 0, -25.5549)
+
+[node name="Cactus_3" parent="." instance=ExtResource("13_dhe4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8331, 0, 101.875)
+
+[node name="Cactus_Bush" parent="." instance=ExtResource("14_p35eh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6274, 0, 7.98625)
+
+[node name="Cactus_Bush2" parent="." instance=ExtResource("14_p35eh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2901, 0, 4.54745)
+
+[node name="Bush_Dead" parent="." instance=ExtResource("15_kusa8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8349, 0, -10.6588)
+
+[node name="Bush" parent="." instance=ExtResource("16_i8dvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.151, 0, -2.63465)
+
+[node name="Bush2" parent="." instance=ExtResource("16_i8dvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.5075, 0, -19.1047)
+
+[node name="Saloon" parent="." instance=ExtResource("17_cak2p")]
+transform = Transform3D(-0.904909, 0, 0.425605, 0, 1, 0, -0.425605, 0, -0.904909, -48.8747, 1.90735e-06, 77.9924)
+
+[node name="Shack" parent="." instance=ExtResource("18_y4ptj")]
+transform = Transform3D(-0.567039, 0, -0.823691, 0, 1, 0, 0.823691, 0, -0.567039, -39.5863, 0, -34.5843)
+
+[node name="Shed" parent="." instance=ExtResource("19_vo4ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.764, 0, 127.8)
+
+[node name="Pickup" parent="." instance=ExtResource("20_rs3km")]
+transform = Transform3D(0.6, -2.09272e-16, 2.09272e-16, 2.09272e-16, 0.6, -2.09272e-16, -2.09272e-16, 2.09272e-16, 0.6, -136.658, 2.07154, 40.5988)
+
+[node name="Pickup2" parent="." instance=ExtResource("20_rs3km")]
+transform = Transform3D(0.6, -2.09272e-16, 2.09272e-16, 2.09272e-16, 0.6, -2.09272e-16, -2.09272e-16, 2.09272e-16, 0.6, -136.658, 2.07154, 36.3577)
+
+[node name="Pickup3" parent="." instance=ExtResource("20_rs3km")]
+transform = Transform3D(0.6, -2.09272e-16, 2.09272e-16, 2.09272e-16, 0.6, -2.09272e-16, -2.09272e-16, 2.09272e-16, 0.6, -136.658, 2.07154, 32.2103)

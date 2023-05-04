@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://dq3mtwxbup8xp" path="res://assets/models/Environment/Trees/Tree_1.glb" id="1_8psbk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hykio"]
+size = Vector3(2.23738, 5.08852, 1.66201)
+
+[node name="Tree_1" instance=ExtResource("1_8psbk")]
+
+[node name="Tree_12" parent="." index="0"]
+transform = Transform3D(0.999996, -0.00275762, 0, 0.00275762, 0.999996, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95565, 0)
+shape = SubResource("BoxShape3D_hykio")

@@ -1,0 +1,14 @@
+[gd_resource type="Material" script_class="TerrainLayerMaterial3D" load_steps=3 format=3 uid="uid://cq3ktiuyacnj4"]
+
+[ext_resource type="Texture2D" uid="uid://4qnbq40tk1b3" path="res://assets/textures/sand.tres" id="1_1n86g"]
+[ext_resource type="Script" path="res://addons/terrain_3d/terrain_layer_material.gd" id="1_hlymx"]
+
+[resource]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_hlymx")
+albedo_texture = ExtResource("1_1n86g")
+albedo_color = Color(1, 1, 0.67451, 1)
+normal_scale = 0.0
+uv_scale = Vector3(0.5, 0.5, 0.5)
+uv_anti_tile = false

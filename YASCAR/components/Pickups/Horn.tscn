@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvinjf0pghbru"]
+
+[ext_resource type="Script" path="res://scripts/Pickups/Firable.gd" id="1_br1j2"]
+[ext_resource type="PackedScene" uid="uid://cm2nxp8ecy8d5" path="res://components/Pickups/MeshScenes/HornModel.tscn" id="2_iei7l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjrku"]
+albedo_color = Color(0.988235, 0.227451, 0.227451, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q443v"]
+material = SubResource("StandardMaterial3D_mjrku")
+radius = 0.05
+height = 0.1
+
+[node name="Horn" type="Node3D"]
+script = ExtResource("1_br1j2")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.597309, 0, 0)
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 0.7
+mesh = SubResource("SphereMesh_q443v")
+gravity = Vector3(2.08165e-12, -9.8, 2.08165e-12)
+initial_velocity_min = 20.0
+initial_velocity_max = 100.0
+
+[node name="HornModel" parent="." instance=ExtResource("2_iei7l")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.211838, 0, 0)

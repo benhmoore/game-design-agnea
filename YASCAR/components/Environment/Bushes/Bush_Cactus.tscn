@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://b0x2es07y1nht" path="res://assets/models/Environment/Bushes/Cactus_Bush.glb" id="1_gxidl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fwyn"]
+
+[node name="Cactus_Bush" instance=ExtResource("1_gxidl")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cactus_Bush2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cactus_Bush2/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_3fwyn")

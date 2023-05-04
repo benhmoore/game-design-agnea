@@ -19,13 +19,13 @@ ground_bottom_color = Color(0.270588, 0.231373, 0.184314, 1)
 sun_angle_max = 360.0
 sun_curve = 0.0568396
 
-[sub_resource type="Sky" id="Sky_1hsd2"]
+[sub_resource type="Sky" id="Sky_5lbd3"]
 sky_material = SubResource("ProceduralSkyMaterial_ilnne")
 radiance_size = 2
 
 [sub_resource type="Environment" id="Environment_tqta6"]
 background_mode = 2
-sky = SubResource("Sky_1hsd2")
+sky = SubResource("Sky_5lbd3")
 ambient_light_source = 3
 
 [node name="Space" type="Node3D"]

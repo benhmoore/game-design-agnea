@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbx0qxytbs64x"]
+
+[ext_resource type="PackedScene" uid="uid://db2k3cvdtprpk" path="res://assets/models/Environment/Buildings/Shack.glb" id="1_urbn3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fhb38"]
+size = Vector3(7.47805, 5.89588, 6.21178)
+
+[node name="Shack" instance=ExtResource("1_urbn3")]
+
+[node name="Shack2" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.951582, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Shack2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shack2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3442, 1.87648, 1.69869)
+shape = SubResource("BoxShape3D_fhb38")

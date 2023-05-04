@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://c7kgfwqi5atir" path="res://assets/models/Environment/Trees/Tree_2.glb" id="1_f2vlc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_teowb"]
+size = Vector3(1.24749, 4.27981, 1.56853)
+
+[node name="Tree_2" instance=ExtResource("1_f2vlc")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3864, 0)
+shape = SubResource("BoxShape3D_teowb")
