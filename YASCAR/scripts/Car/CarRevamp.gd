@@ -5,6 +5,7 @@ signal collision_detected
 
 # Pickup inventory
 var pickup:Node3D
+var gun:Node3D
 
 enum ControlScheme { ARROWS, WASD }
 enum CarState { IDLE, MOVING_FORWARD, MOVING_REVERSE, BREAKING }
@@ -103,7 +104,7 @@ func use_pickup():
 		
 	
 	pickup.use()
-	pickup = null
+#	pickup = null
 	
 	
 
@@ -374,6 +375,9 @@ func update_camera_fov(delta):
 func pickup_item(item):
 	if pickup != null: # If the player already has a pickup, get rid of it
 		pickup.queue_free()
+	if gun != null:
+		gun.remove()
+		
 	pickup = item
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):

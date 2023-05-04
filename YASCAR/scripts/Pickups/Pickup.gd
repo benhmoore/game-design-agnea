@@ -3,17 +3,21 @@ extends Area3D
 enum ItemState {PRONE, INVENTORY, ACTIVE}
 
 var pickups:Dictionary = {
-#	"tire": {
-#		"scene": preload("res://components/Pickups/MeshScenes/SpareTireModel.tscn"),
-#		"enabledScene": preload("res://components/Pickups/Tire.tscn")
-#	},
-#	"haybale": {
-#		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
-#		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
-#	},
+	"tire": {
+		"scene": preload("res://components/Pickups/MeshScenes/SpareTireModel.tscn"),
+		"enabledScene": preload("res://components/Pickups/Tire.tscn")
+	},
+	"haybale": {
+		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
+		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
+	},
 	"oil": {
 		"scene": preload("res://components/Pickups/MeshScenes/OilSlickModel.tscn"),
 		"enabledScene": preload("res://components/Pickups/Oil.tscn")
+	},
+	"horn": {
+		"scene": preload("res://components/Pickups/MeshScenes/HornModel.tscn"),
+		"enabledScene": preload("res://components/Pickups/Horn.tscn")
 	},
 }
 
@@ -62,20 +66,14 @@ func determine_item(): # Randomly chooses the item's type when picked up
 	
 	set_pickup(random_item)
 	
-	
-	
 func use():
 	
 	var enabledScene = pickup.enabledScene.instantiate()
-	enabledScene.transform.origin = transform.origin
-	
-	enabledScene.linear_velocity = player_node.linear_velocity * -1.2
+	enabledScene.car_node = player_node
+	enabledScene.use(transform.origin)
 	
 	get_tree().root.add_child(enabledScene)
-	
 	queue_free()
-	
-	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -160,7 +158,7 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 			should_pickup = true
 			
 		init_pos = transform.origin
-			
+
 		if should_pickup:
 			body.pickup_item(self)
 			state = ItemState.INVENTORY

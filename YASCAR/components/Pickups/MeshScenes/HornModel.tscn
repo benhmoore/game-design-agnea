@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm2nxp8ecy8d5"]
+
+[ext_resource type="PackedScene" uid="uid://cpygs54ti1x2y" path="res://assets/models/Items/Horn.glb" id="1_e73ha"]
+
+[node name="HornModel" type="Node3D"]
+
+[node name="Horn" parent="." instance=ExtResource("1_e73ha")]

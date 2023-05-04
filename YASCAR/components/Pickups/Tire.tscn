@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc14ju1e0y4wf"]
+[gd_scene load_steps=4 format=3 uid="uid://cc14ju1e0y4wf"]
 
 [ext_resource type="PackedScene" uid="uid://bw2c76q8dtbb1" path="res://components/Pickups/MeshScenes/SpareTireModel.tscn" id="1_jk8b0"]
+[ext_resource type="Script" path="res://scripts/Pickups/Throwable.gd" id="1_r4728"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_f2b2d"]
 height = 0.598675
@@ -8,6 +9,7 @@ radius = 0.993126
 
 [node name="Tire" type="RigidBody3D"]
 mass = 10.0
+script = ExtResource("1_r4728")
 
 [node name="SpareTire" parent="." instance=ExtResource("1_jk8b0")]
 
