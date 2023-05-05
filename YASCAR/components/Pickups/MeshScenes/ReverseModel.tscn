@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ysb5dk2idbg1"]
+
+[ext_resource type="PackedScene" uid="uid://ns8s45qmw0v0" path="res://assets/models/Items/Reverse.glb" id="1_28fvi"]
+
+[node name="ReverseModel" type="Node3D"]
+
+[node name="Reverse" parent="." instance=ExtResource("1_28fvi")]

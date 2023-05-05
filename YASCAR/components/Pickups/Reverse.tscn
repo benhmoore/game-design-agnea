@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://upwwjejsrik6"]
+
+[ext_resource type="Script" path="res://scripts/Pickups/Reverse.gd" id="1_5e5et"]
+
+[node name="Reverse" type="Node3D"]
+script = ExtResource("1_5e5et")
