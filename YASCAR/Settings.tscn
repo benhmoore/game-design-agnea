@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://csowvqc4itosd"]
+[gd_scene load_steps=8 format=3 uid="uid://csowvqc4itosd"]
 
 [ext_resource type="Script" path="res://Settings.gd" id="1_0uq7q"]
 [ext_resource type="Script" path="res://MusicVolume.gd" id="1_4il6o"]
@@ -15,17 +15,34 @@ font_size = 32
 [sub_resource type="Theme" id="Theme_i82p8"]
 default_font_size = 32
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Theme" id="Theme_q4tdu"]
+default_font_size = 85
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_0uq7q")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1426.0
-offset_bottom = 844.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.266667, 0.0823529, 0.607843, 0.407843)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 1150.0
-offset_bottom = 649.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 58
 theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 73
@@ -36,7 +53,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 1
 text = "Options"
 label_settings = SubResource("LabelSettings_81utl")
 horizontal_alignment = 1
@@ -63,7 +80,6 @@ script = ExtResource("1_4il6o")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 0
 text = "Music Volume"
 label_settings = SubResource("LabelSettings_8gl4i")
 horizontal_alignment = 1
@@ -84,7 +100,6 @@ value = 1.0
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
 text = "SFX Volume
 "
 label_settings = SubResource("LabelSettings_nj06f")
@@ -98,18 +113,21 @@ theme_override_constants/margin_right = 50
 [node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = SubResource("Theme_i82p8")
 text = "Fullscreen"
 
-[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="."]
 layout_mode = 2
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4"]
-layout_mode = 2
+offset_left = 792.0
+offset_top = 952.0
+offset_right = 1128.0
+offset_bottom = 1076.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "          Back          "
+theme = SubResource("Theme_q4tdu")
+text = "   Back   "
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/CheckButton" to="." method="_on_check_button_toggled"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

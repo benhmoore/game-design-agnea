@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://mya7ayom578r"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_1uuja"]
+
+[sub_resource type="Theme" id="Theme_px5li"]
+default_font_size = 105
+
+[sub_resource type="Theme" id="Theme_aym3n"]
+default_font_size = 85
+
+[sub_resource type="Theme" id="Theme_vmlts"]
+default_font_size = 85
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_1uuja")
+
+[node name="pausemenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="pausemenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.145098, 0.145098, 0.745098)
+
+[node name="CenterContainer" type="CenterContainer" parent="pausemenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pausemenu/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="pausemenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_px5li")
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="pausemenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="pausemenu/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(444, 0)
+layout_mode = 2
+theme = SubResource("Theme_aym3n")
+text = "Resume"
+
+[node name="Quit" type="Button" parent="pausemenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_vmlts")
+text = "Quit"
+
+[connection signal="pressed" from="pausemenu/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed" flags=18]
+[connection signal="pressed" from="pausemenu/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed" flags=18]

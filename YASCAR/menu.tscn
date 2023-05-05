@@ -30,17 +30,33 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_jijcy")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1426.0
-offset_bottom = 844.0
-color = Color(0.266667, 0.0823529, 0.607843, 0.407843)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.25143, 0.0966512, 0.610871, 0.407843)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 1150.0
-offset_bottom = 649.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 58
 theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 73
@@ -82,6 +98,24 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_37rft")
 text = "New Game
 "
 
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+focus_next = NodePath("../../MarginContainer2/Options")
+focus_previous = NodePath("../../MarginContainer3/Quit")
+focus_mode = 0
+theme = SubResource("Theme_wlvqb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8g7m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_200r3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_37rft")
+text = "Controls
+"
+
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -119,5 +153,6 @@ text = "Quit
 "
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1jix71f2iejd"]
+
+[ext_resource type="PackedScene" uid="uid://mya7ayom578r" path="res://pause_menu.tscn" id="1_xnjy7"]
+
+[node name="GUI" type="CanvasLayer"]
+process_mode = 3
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_xnjy7")]
+visible = false
