@@ -1,12 +1,19 @@
 extends Node3D
 
+signal checkpoint_highlighted
+
 @export var lap_count:int = 2
 
 var checkpoints:Array[Node3D]
 var finish:Node3D
 
 var cars:Array[VehicleBody3D]
+
 var car_lap:Array[int] # Keep track of the cars' current lap
+
+
+func compareCheckpoints(a, b):
+	return a.order < b.order
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,8 +55,27 @@ func reset_checkpoints(car):
 		
 		checkpoint.claim_statuses[index].visible = false
 		
+	# Highlight first checkpoint
+	emit_signal("checkpoint_highlighted", [checkpoints[0].order, car])
 
-func _on_checkpoint_passed():
+func highlight_next_checkpoint(checkpoint):
+	
+	var passing_car = checkpoint.pass_history[-1]
+	checkpoints.sort_custom(compareCheckpoints)	
+	for i in range(0, len(checkpoints)):
+		if passing_car not in checkpoints[i].pass_history:
+			emit_signal("checkpoint_highlighted", [checkpoints[i].order, passing_car])
+			break
+			
+		# Highlight finish
+		if i == len(checkpoints) - 1:
+			emit_signal("checkpoint_highlighted", [finish.order, passing_car])
+			
+	
+
+func _on_checkpoint_passed(order):
+	print("Checkpoint at the following order passed: ", order)
+	highlight_next_checkpoint(order)
 	update_status()
 	
 func _on_finish_passed():

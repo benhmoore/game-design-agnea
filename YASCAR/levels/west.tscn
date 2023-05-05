@@ -99,13 +99,16 @@ lap_count = 1
 
 [node name="Checkpoint" parent="CheckpointController" instance=ExtResource("7_bqbij")]
 transform = Transform3D(-0.263856, 0, 0.964562, 0, 1, 0, -0.964562, 0, -0.263856, -80.921, -9.53674e-07, -12.2285)
+order = 1
 
 [node name="Checkpoint2" parent="CheckpointController" instance=ExtResource("7_bqbij")]
 transform = Transform3D(-0.756607, 0, 0.65387, 0, 1, 0, -0.65387, 0, -0.756607, -111.463, -9.53674e-07, 5.92077)
+order = 2
 
 [node name="Checkpoint3" parent="CheckpointController" instance=ExtResource("7_bqbij")]
 transform = Transform3D(-0.756607, 0, 0.65387, 0, 1, 0, -0.65387, 0, -0.756607, -166.73, -9.53674e-07, 59.9334)
 is_finish = true
+order = 3
 
 [node name="Tree_1" parent="." instance=ExtResource("6_jwwn0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.34407, 0, 1.99078)

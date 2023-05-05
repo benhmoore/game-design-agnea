@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://nbixokwyh52j"]
+
+[ext_resource type="Script" path="res://scripts/Symbols/Checkmark.gd" id="1_8ec26"]
+[ext_resource type="PackedScene" uid="uid://caxob2l5cv3yj" path="res://assets/models/Symbols/Checkbox.glb" id="2_anf2u"]
+
+[node name="Checkmark" type="Node3D"]
+script = ExtResource("1_8ec26")
+
+[node name="Checkbox" parent="." instance=ExtResource("2_anf2u")]
+
+[editable path="Checkbox"]
