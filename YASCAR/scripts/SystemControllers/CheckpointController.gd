@@ -43,7 +43,11 @@ func update_status():
 
 func reset_checkpoints(car):
 	for checkpoint in checkpoints:
+		var index = checkpoint.pass_history.find(car)
 		checkpoint.pass_history.erase(car)
+		
+		checkpoint.claim_statuses[index].visible = false
+		
 
 func _on_checkpoint_passed():
 	update_status()
