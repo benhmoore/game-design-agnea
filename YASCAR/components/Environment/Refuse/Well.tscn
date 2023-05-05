@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wtx57of7h3vu"]
+
+[ext_resource type="PackedScene" uid="uid://wv6psdbju7ub" path="res://assets/models/Environment/Refuse/Well.glb" id="1_lpo2o"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qrqfh"]
+height = 6.04564
+radius = 1.02758
+
+[node name="Well" instance=ExtResource("1_lpo2o")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("CylinderShape3D_qrqfh")
