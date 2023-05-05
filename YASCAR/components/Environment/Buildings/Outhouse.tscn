@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0xkrhunhvx6s"]
+
+[ext_resource type="PackedScene" uid="uid://07dh2p0u0fg0" path="res://assets/models/Environment/Buildings/Outhouse.glb" id="1_vb8xi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ekaxw"]
+size = Vector3(1.96007, 4.28437, 1.84413)
+
+[node name="Outhouse" instance=ExtResource("1_vb8xi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12499, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.823151, 0)
+shape = SubResource("BoxShape3D_ekaxw")
+
+[node name="Outhouse2" parent="." index="1"]
+transform = Transform3D(0.725173, -4.01112e-16, 2.52931e-16, 2.52931e-16, 1.15002, -2.52931e-16, -2.52931e-16, 4.01112e-16, 0.725173, 0, 0, 0)

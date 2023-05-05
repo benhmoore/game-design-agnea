@@ -7,10 +7,10 @@ var pickups:Dictionary = {
 		"scene": preload("res://components/Pickups/MeshScenes/SpareTireModel.tscn"),
 		"enabledScene": preload("res://components/Pickups/Tire.tscn")
 	},
-	"haybale": {
-		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
-		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
-	},
+#	"haybale": {
+#		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
+#		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
+#	},
 	"oil": {
 		"scene": preload("res://components/Pickups/MeshScenes/OilSlickModel.tscn"),
 		"enabledScene": preload("res://components/Pickups/Oil.tscn")
@@ -26,6 +26,10 @@ var pickups:Dictionary = {
 	"balloons": {
 		"scene": preload("res://components/Pickups/MeshScenes/Balloons.tscn"),
 		"enabledScene": preload("res://components/Pickups/Balloons.tscn")
+	},
+	"reverse": {
+		"scene": preload("res://components/Pickups/MeshScenes/ReverseModel.tscn"),
+		"enabledScene": preload("res://components/Pickups/Reverse.tscn")
 	},
 }
 
@@ -78,9 +82,9 @@ func use():
 	
 	var enabledScene = pickup.enabledScene.instantiate()
 	enabledScene.car_node = player_node
-	enabledScene.use(transform.origin)
 	
 	get_tree().root.add_child(enabledScene)
+	enabledScene.use(transform.origin)
 	queue_free()
 
 # Called when the node enters the scene tree for the first time.

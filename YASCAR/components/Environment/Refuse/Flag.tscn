@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc3enhqe27ic8"]
+
+[ext_resource type="PackedScene" uid="uid://bpvkiaj8rl027" path="res://assets/models/Environment/Refuse/Flag.glb" id="1_awf4w"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8tov3"]
+height = 24.1444
+radius = 1.13304
+
+[node name="Flag" instance=ExtResource("1_awf4w")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("CylinderShape3D_8tov3")

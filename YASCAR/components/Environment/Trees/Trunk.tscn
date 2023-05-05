@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dutrldktsipj7"]
+
+[ext_resource type="PackedScene" uid="uid://re2iqb8tr6hp" path="res://assets/models/Environment/Trees/Trunk.glb" id="1_v3075"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ca3u4"]
+size = Vector3(1.51272, 1.78386, 1.499)
+
+[node name="Trunk" instance=ExtResource("1_v3075")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+transform = Transform3D(0.919181, 0, 0.393835, 0, 1, 0, -0.393835, 0, 0.919181, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 3.74884e-09, 0, 1, 0, 3.74884e-09, 0, 1, 0.0588852, 0.871001, -0.137434)
+shape = SubResource("BoxShape3D_ca3u4")

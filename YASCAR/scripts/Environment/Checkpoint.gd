@@ -21,6 +21,11 @@ var claimed_highlight_particles = [0, 0]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	# Cycle checkpoint highlights
+	for highlight_particle in highlight_particles:
+		highlight_particle.emitting = true
+		highlight_particle.emitting = false
+	
 	print(checkpoint_controller)
 	
 	checkpoint_controller.connect("checkpoint_highlighted", _on_highlight)
@@ -86,8 +91,6 @@ func _on_highlight(params):
 				update_highlight_color(highlight_particles[i], car)
 				
 				break
-	
-	print("Updating highlight for ", index)
 	
 	if order == highlighted_order:
 		highlight_particles[index].emitting = true
