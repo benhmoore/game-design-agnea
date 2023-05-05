@@ -6,8 +6,8 @@ Download the latest standard version of Godot 4.0 here: https://godotengine.org/
 
 ## Team Contributions
 
-- Colin Klein – Sound
-- Tyler Mahler – UI
+- Colin Klein – UI
+- Tyler Mahler – Sound
 - Ben Moore – Vehicle, Pickups, Checkpoints, 3D Assets
 - Clarke Bowen – Documentation, Level Design
 - Graham Sanders – System Interactions, Lapping
