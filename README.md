@@ -4,6 +4,14 @@ The `YASCAR` directory contains the Godot project. It can be opened in Godot 4.0
 
 Download the latest standard version of Godot 4.0 here: https://godotengine.org/download. We will not be using the .NET version of Godot.
 
+## Team Contributions
+
+- Colin Klein – Sound
+- Tyler Mahler – UI
+- Ben Moore – Vehicle, Pickups, Checkpoints, 3D Assets
+- Clarke Bowen – Documentation, Level Design
+- Graham Sanders – System Interactions, Lapping
+
 ## Contributing
 
 1. Clone the repository with gh cli (https://cli.github.com):
