@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b425yrxlig251"]
+[gd_scene load_steps=26 format=3 uid="uid://b425yrxlig251"]
 
 [ext_resource type="PackedScene" uid="uid://x58t16mfb50h" path="res://components/Environment/Clouds.tscn" id="1_3ov26"]
 [ext_resource type="Script" path="res://addons/terrain_3d/terrain.gd" id="1_lwqy5"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bvl6yfqqhm3au" path="res://components/CarGimbal.tscn" id="4_1ocuj"]
 [ext_resource type="Material" uid="uid://hjyeonevio04" path="res://levels/west_terrain_1.tres" id="4_02qaq"]
 [ext_resource type="PackedScene" path="res://components/Environment/Trees/Tree_1.tscn" id="6_jwwn0"]
+[ext_resource type="PackedScene" uid="uid://bl1ls6p5keote" path="res://components/SystemControllers/CheckpointController.tscn" id="6_wucm4"]
+[ext_resource type="PackedScene" uid="uid://d2lbqwg8ph7s" path="res://components/Environment/Checkpoint.tscn" id="7_bqbij"]
 [ext_resource type="PackedScene" path="res://components/Environment/Trees/Tree_2.tscn" id="7_q0kgb"]
 [ext_resource type="PackedScene" path="res://components/Environment/Trees/Tree_3.tscn" id="8_ngpdw"]
 [ext_resource type="PackedScene" path="res://components/Environment/Trees/Tree_4.tscn" id="9_lkd5t"]
@@ -91,6 +93,19 @@ environment = SubResource("Environment_00tan")
 transform = Transform3D(0.503849, 0.421067, 0.754214, -0.629966, -0.418273, 0.654362, 0.590998, -0.804829, 0.0545112, -606.725, 99.3613, 50.5032)
 light_color = Color(1, 0.901961, 0.65098, 1)
 shadow_enabled = true
+
+[node name="CheckpointController" parent="." instance=ExtResource("6_wucm4")]
+lap_count = 1
+
+[node name="Checkpoint" parent="CheckpointController" instance=ExtResource("7_bqbij")]
+transform = Transform3D(-0.263856, 0, 0.964562, 0, 1, 0, -0.964562, 0, -0.263856, -80.921, -9.53674e-07, -12.2285)
+
+[node name="Checkpoint2" parent="CheckpointController" instance=ExtResource("7_bqbij")]
+transform = Transform3D(-0.756607, 0, 0.65387, 0, 1, 0, -0.65387, 0, -0.756607, -111.463, -9.53674e-07, 5.92077)
+
+[node name="Checkpoint3" parent="CheckpointController" instance=ExtResource("7_bqbij")]
+transform = Transform3D(-0.756607, 0, 0.65387, 0, 1, 0, -0.65387, 0, -0.756607, -166.73, -9.53674e-07, 59.9334)
+is_finish = true
 
 [node name="Tree_1" parent="." instance=ExtResource("6_jwwn0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.34407, 0, 1.99078)

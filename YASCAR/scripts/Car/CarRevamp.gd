@@ -9,6 +9,10 @@ var gun:Node3D
 
 var balloons:Node3D
 
+# Keeps track of if the car can finish (has passed through all checkpoints
+var can_finish = false
+var current_lap = 0
+
 # If a speed booster is active, this is set to true, blocking all input except steering
 var acceleration_locked:bool = false
 

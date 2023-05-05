@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://cb4gvxwktjdql"]
+[gd_scene load_steps=17 format=3 uid="uid://cb4gvxwktjdql"]
 
 [ext_resource type="PackedScene" uid="uid://bvl6yfqqhm3au" path="res://components/CarGimbal.tscn" id="1_553rr"]
 [ext_resource type="PackedScene" uid="uid://b1mg2eb83avsf" path="res://components/Car.tscn" id="1_665sy"]
 [ext_resource type="PackedScene" uid="uid://x58t16mfb50h" path="res://components/Environment/Clouds.tscn" id="1_i4v7t"]
 [ext_resource type="PackedScene" uid="uid://bj6032sulvv57" path="res://components/HUD/HUD.tscn" id="1_mecw7"]
 [ext_resource type="PackedScene" uid="uid://di5r5aipj26li" path="res://components/Pickups/PickupContainer.tscn" id="3_62ou3"]
+[ext_resource type="PackedScene" uid="uid://d2lbqwg8ph7s" path="res://components/Environment/Checkpoint.tscn" id="6_tdqe2"]
+[ext_resource type="PackedScene" uid="uid://bl1ls6p5keote" path="res://components/SystemControllers/CheckpointController.tscn" id="7_hkmj3"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fq7fy"]
 turbidity = 0.0
@@ -152,3 +154,19 @@ transform = Transform3D(0.251172, 0, -0.544897, 0, 0.6, 0, 0.544897, 0, 0.251172
 
 [node name="Pickup3" parent="." instance=ExtResource("3_62ou3")]
 transform = Transform3D(0.251172, 0, -0.544897, 0, 0.6, 0, 0.544897, 0, 0.251172, -10.7592, 1, -24.7558)
+
+[node name="CheckpointController" parent="." instance=ExtResource("7_hkmj3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.074, 3.0364, 0)
+
+[node name="Checkpoint" parent="CheckpointController" instance=ExtResource("6_tdqe2")]
+transform = Transform3D(0.369601, 0, 0.929191, 0, 1, 0, -0.929191, 0, 0.369601, 59.3401, -3.0364, -1.7574)
+
+[node name="Checkpoint4" parent="CheckpointController" instance=ExtResource("6_tdqe2")]
+transform = Transform3D(0.978491, 0, 0.20629, 0, 1, 0, -0.20629, 0, 0.978491, 37.9951, -3.0364, -26.5683)
+
+[node name="Checkpoint5" parent="CheckpointController" instance=ExtResource("6_tdqe2")]
+transform = Transform3D(0.999992, 0, 0.00403186, 0, 1, 0, -0.00403188, 0, 0.999992, 63.5192, -3.0364, -51.9402)
+
+[node name="Checkpoint2" parent="CheckpointController" instance=ExtResource("6_tdqe2")]
+transform = Transform3D(-0.913433, 0, -0.406992, 0, 1, 0, 0.406992, 0, -0.913432, 84.905, -3.0364, -31.889)
+is_finish = true
