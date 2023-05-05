@@ -1,6 +1,8 @@
 extends Node3D
 
 signal checkpoint_highlighted
+signal car_lapped
+signal car_won
 
 @export var lap_count:int = 2
 
@@ -92,6 +94,6 @@ func _on_finish_passed():
 	finish.pass_history.erase(passing_car)
 	
 	if passing_car.current_lap == lap_count:
-		print("CAR WON!!!!")
+		emit_signal("car_won", passing_car)
 	else:
-		print("Car is on lap:", passing_car.current_lap)
+		emit_signal("car_lapped", passing_car)
