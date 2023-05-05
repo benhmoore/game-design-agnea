@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu0v4ritqjwt"]
+
+[sub_resource type="GDScript" id="GDScript_5iu17"]
+script/source = "extends Control
+
+
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file(\"res://menu.tscn\")
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_donqk"]
+font_size = 125
+
+[sub_resource type="Theme" id="Theme_40wd3"]
+default_font_size = 85
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_5iu17")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.266667, 0.0823529, 0.607843, 0.407843)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 104.0
+offset_top = 56.0
+offset_right = 613.0
+offset_bottom = 230.0
+size_flags_vertical = 1
+text = "Controls"
+label_settings = SubResource("LabelSettings_donqk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 792.0
+offset_top = 952.0
+offset_right = 1128.0
+offset_bottom = 1076.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = SubResource("Theme_40wd3")
+text = "   Back   "
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

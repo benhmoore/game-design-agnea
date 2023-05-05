@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxwy3yaktvtnl"]
+[gd_scene load_steps=10 format=3 uid="uid://dxwy3yaktvtnl"]
 
 [ext_resource type="PackedScene" uid="uid://bvl6yfqqhm3au" path="res://components/CarGimbal.tscn" id="2_b2ofx"]
 [ext_resource type="PackedScene" uid="uid://b1mg2eb83avsf" path="res://components/Car.tscn" id="3_iyn8n"]
 [ext_resource type="PackedScene" uid="uid://cccay6x1xn23e" path="res://components/LevelLogic/tracklogiclevel1.tscn" id="3_vwiob"]
+[ext_resource type="PackedScene" uid="uid://c1jix71f2iejd" path="res://g_ui.tscn" id="4_6wf6w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wolme"]
 size = Vector3(1000, 1, 1000)
@@ -96,3 +97,5 @@ vehicle = NodePath("../Car3")
 transform = Transform3D(0.364275, 0, 0.931291, 0, 1, 0, -0.931291, 0, 0.364275, -410.305, 0.655762, 332.103)
 camera_gimbal = NodePath("../CarGimbal")
 control_scheme = 0
+
+[node name="GUI" parent="." instance=ExtResource("4_6wf6w")]
