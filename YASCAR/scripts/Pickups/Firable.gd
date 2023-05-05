@@ -43,7 +43,7 @@ func fire(delta):
 	bullet.transform.origin += Vector3(0, 2, 0)
 	
 	# Fire in direction of car's velocity
-	bullet.linear_velocity = car_node.linear_velocity.normalized() * 120
+	bullet.linear_velocity = car_node.linear_velocity.normalized() * 130
 	
 	# Add bullet instance to the scene
 	get_tree().root.add_child(bullet)

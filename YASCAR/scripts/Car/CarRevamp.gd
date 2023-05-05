@@ -405,12 +405,10 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 	
 	# Detect high-speed collisions and print
 	var collision_speed = linear_velocity.length()
-	print("Collision at %s km/h" % (collision_speed * 3.6))
+#	print("Collision at %s km/h" % (collision_speed * 3.6))
 	if collision_speed > 9:
 		# Fire one-shot CPUParticles3D
 		hit_particles.emitting = true
-		
-		print("Emitting signal")
 		emit_signal("collision_detected")
 
 #

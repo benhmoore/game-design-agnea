@@ -92,8 +92,6 @@ func _on_highlight(params):
 				
 				break
 	
-	print("Updating highlight for ", index)
-	
 	if order == highlighted_order:
 		highlight_particles[index].emitting = true
 	else:
