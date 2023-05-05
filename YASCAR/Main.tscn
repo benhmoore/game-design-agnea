@@ -160,13 +160,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.074, 3.0364, 0)
 
 [node name="Checkpoint" parent="CheckpointController" instance=ExtResource("6_tdqe2")]
 transform = Transform3D(0.369601, 0, 0.929191, 0, 1, 0, -0.929191, 0, 0.369601, 59.3401, -3.0364, -1.7574)
+order = 1
 
 [node name="Checkpoint4" parent="CheckpointController" instance=ExtResource("6_tdqe2")]
 transform = Transform3D(0.978491, 0, 0.20629, 0, 1, 0, -0.20629, 0, 0.978491, 37.9951, -3.0364, -26.5683)
+order = 2
 
 [node name="Checkpoint5" parent="CheckpointController" instance=ExtResource("6_tdqe2")]
-transform = Transform3D(0.999992, 0, 0.00403186, 0, 1, 0, -0.00403188, 0, 0.999992, 63.5192, -3.0364, -51.9402)
+transform = Transform3D(0.999983, 0.00413642, 0.00403183, -0.00413639, 0.999991, -1.66775e-05, -0.00403188, 0, 0.999992, 63.5192, -3.0364, -51.9402)
+order = 3
 
 [node name="Checkpoint2" parent="CheckpointController" instance=ExtResource("6_tdqe2")]
 transform = Transform3D(-0.913433, 0, -0.406992, 0, 1, 0, 0.406992, 0, -0.913432, 84.905, -3.0364, -31.889)
 is_finish = true
+order = 4
