@@ -172,9 +172,6 @@ func update_engine_pitch(delta):
 
 func _physics_process(delta):
 	
-	if Input.get_action_strength("Reset Car"):
-		reset_car()
-	
 	# Use pickup items
 	if control_scheme == ControlScheme.ARROWS:
 		if Input.get_action_strength("use_item_slash") > 0:
@@ -182,6 +179,13 @@ func _physics_process(delta):
 	else:
 		if Input.get_action_strength("use_item_q") > 0:
 			use_pickup()
+			
+	if control_scheme == ControlScheme.ARROWS:
+		if Input.get_action_strength("right_car_reset") > 0:
+			reset_car()
+	else:
+		if Input.get_action_strength("left_reset_car") > 0:
+			reset_car()
 	
 	# Store the previous linear velocity at the beginning of each physics frame
 	prev_linear_velocity = linear_velocity

@@ -68,7 +68,7 @@ func _on_car_reset(car):
 	for i in range(len(checkpoints) - 1, -1, -1):
 		if car in checkpoints[i].pass_history:
 			car_reset = true
-			car.transform.origin = checkpoints[i].transform.origin + Vector3(0, 2, 0)
+			car.global_transform.origin = checkpoints[i].global_transform.origin + Vector3(0, 2, 0)
 			break
 
 	if not car_reset:
