@@ -17,13 +17,15 @@ script = ExtResource("1_br1j2")
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.597309, 0, 0)
 emitting = false
-amount = 12
+amount = 32
 one_shot = true
 explosiveness = 0.7
 mesh = SubResource("SphereMesh_q443v")
 gravity = Vector3(2.08165e-12, -9.8, 2.08165e-12)
 initial_velocity_min = 20.0
 initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
 
 [node name="HornModel" parent="." instance=ExtResource("2_iei7l")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.445028, 0, 0)

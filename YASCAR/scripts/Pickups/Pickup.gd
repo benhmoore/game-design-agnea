@@ -3,34 +3,34 @@ extends Area3D
 enum ItemState {PRONE, INVENTORY, ACTIVE}
 
 var pickups:Dictionary = {
-	"tire": {
-		"scene": preload("res://components/Pickups/MeshScenes/SpareTireModel.tscn"),
-		"enabledScene": preload("res://components/Pickups/Tire.tscn")
-	},
-	"haybale": {
-		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
-		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
-	},
-	"oil": {
-		"scene": preload("res://components/Pickups/MeshScenes/OilSlickModel.tscn"),
-		"enabledScene": preload("res://components/Pickups/Oil.tscn")
-	},
+#	"tire": {
+#		"scene": preload("res://components/Pickups/MeshScenes/SpareTireModel.tscn"),
+#		"enabledScene": preload("res://components/Pickups/Tire.tscn")
+#	},
+#	"haybale": {
+#		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
+#		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
+#	},
+#	"oil": {
+#		"scene": preload("res://components/Pickups/MeshScenes/OilSlickModel.tscn"),
+#		"enabledScene": preload("res://components/Pickups/Oil.tscn")
+#	},
 	"horn": {
 		"scene": preload("res://components/Pickups/MeshScenes/HornModel.tscn"),
 		"enabledScene": preload("res://components/Pickups/Horn.tscn")
 	},
-	"speed_boost": {
-		"scene": preload("res://components/Pickups/MeshScenes/SpeedBooster.tscn"),
-		"enabledScene": preload("res://components/Pickups/SpeedBooster.tscn")
-	},
-	"balloons": {
-		"scene": preload("res://components/Pickups/MeshScenes/Balloons.tscn"),
-		"enabledScene": preload("res://components/Pickups/Balloons.tscn")
-	},
-	"reverse": {
-		"scene": preload("res://components/Pickups/MeshScenes/ReverseModel.tscn"),
-		"enabledScene": preload("res://components/Pickups/Reverse.tscn")
-	},
+#	"speed_boost": {
+#		"scene": preload("res://components/Pickups/MeshScenes/SpeedBooster.tscn"),
+#		"enabledScene": preload("res://components/Pickups/SpeedBooster.tscn")
+#	},
+#	"balloons": {
+#		"scene": preload("res://components/Pickups/MeshScenes/Balloons.tscn"),
+#		"enabledScene": preload("res://components/Pickups/Balloons.tscn")
+#	},
+#	"reverse": {
+#		"scene": preload("res://components/Pickups/MeshScenes/ReverseModel.tscn"),
+#		"enabledScene": preload("res://components/Pickups/Reverse.tscn")
+#	},
 }
 
 var pickup
