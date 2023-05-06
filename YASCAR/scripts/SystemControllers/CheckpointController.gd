@@ -41,7 +41,8 @@ func update_status():
 				cars.append(car)
 				
 	for car in cars:
-		car.connect("car_reset", _on_car_reset)
+		if not car.is_connected("car_reset", _on_car_reset):
+			car.connect("car_reset", _on_car_reset)
 		car.car_logged = true
 		var can_finish = true
 		for checkpoint in checkpoints:

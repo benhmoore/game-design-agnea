@@ -52,6 +52,8 @@ var current_scale = Vector3.ONE
 var transition_progress = 0.0
 var transition_speed = 10
 
+var attached_to = null
+
 var pickup_delay = 4.0
 var current_pickup_time = 0
 
@@ -172,6 +174,7 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 		init_pos = transform.origin
 
 		if should_pickup:
+			attached_to = body
 			body.pickup_item(self)
 			state = ItemState.INVENTORY
 			player_node = body
