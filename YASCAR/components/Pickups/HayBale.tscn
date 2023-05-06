@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsh8anlsmka8t"]
 
+[ext_resource type="Script" path="res://scripts/Pickups/HayBale.gd" id="1_7wght"]
 [ext_resource type="PackedScene" uid="uid://dyrdoe0mchmvk" path="res://components/Pickups/MeshScenes/HayBaleModel.tscn" id="1_rek67"]
-[ext_resource type="Script" path="res://scripts/Pickups/Throwable.gd" id="1_wy758"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjptc"]
 size = Vector3(1.71116, 1.499, 2.26812)
 
 [node name="HayBale" type="RigidBody3D"]
 mass = 100.0
-script = ExtResource("1_wy758")
+script = ExtResource("1_7wght")
 
 [node name="HayBale" parent="." instance=ExtResource("1_rek67")]
 

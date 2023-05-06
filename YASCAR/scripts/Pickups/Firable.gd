@@ -39,7 +39,7 @@ func fire(delta):
 	var num_bullets = 4
 
 	# Angle between bullets in degrees
-	var angle_between_bullets = 10
+	var angle_between_bullets = 6
 
 	for i in range(num_bullets):
 		# Spawn bullet instance
@@ -48,6 +48,11 @@ func fire(delta):
 		# Set bullet position and rotation to match the car's
 		bullet.global_transform = car_node.global_transform
 		bullet.transform.origin += Vector3(0, 2, 0)
+
+		# Randomize the bullet color
+		var new_mat = StandardMaterial3D.new()
+		new_mat.albedo_color = Color8(randi() % 256, randi() % 256, randi() % 256)
+		bullet.get_node("MeshInstance3D").set_surface_override_material(0, new_mat)
 		
 		# Calculate the angle for the current bullet
 		var bullet_angle = -angle_between_bullets * (num_bullets - 1) / 2 + i * angle_between_bullets
