@@ -35,19 +35,30 @@ func fire(delta):
 	# Decrease ammo
 	ammo -= 1
 	
-	# Spawn bullet instance
-	var bullet = bullet_scene.instantiate()
-	
-	# Set bullet position and rotation to match the car's
-	bullet.global_transform = car_node.global_transform
-	bullet.transform.origin += Vector3(0, 2, 0)
-	
-	# Fire in direction of car's velocity
-	bullet.linear_velocity = car_node.linear_velocity.normalized() * 130
-	
-	# Add bullet instance to the scene
-	get_tree().root.add_child(bullet)
+	# Number of bullets in a spray
+	var num_bullets = 4
 
+	# Angle between bullets in degrees
+	var angle_between_bullets = 10
+
+	for i in range(num_bullets):
+		# Spawn bullet instance
+		var bullet = bullet_scene.instantiate()
+		
+		# Set bullet position and rotation to match the car's
+		bullet.global_transform = car_node.global_transform
+		bullet.transform.origin += Vector3(0, 2, 0)
+		
+		# Calculate the angle for the current bullet
+		var bullet_angle = -angle_between_bullets * (num_bullets - 1) / 2 + i * angle_between_bullets
+
+		# Fire in the direction of the car's velocity with a rotation based on the calculated angle
+		var rotated_velocity = car_node.linear_velocity.rotated(Vector3.UP, deg_to_rad(bullet_angle))
+		bullet.linear_velocity = rotated_velocity.normalized() * 130
+		
+		# Add bullet instance to the scene
+		get_tree().root.add_child(bullet)
+	
 	# Apply recoil to the HornModel
 	var z_direction = horn_model.transform.basis.z.normalized()
 	horn_model.transform.origin += z_direction.rotated(Vector3.UP, deg_to_rad(270)) * recoil_amount

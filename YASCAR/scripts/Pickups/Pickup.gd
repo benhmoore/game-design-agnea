@@ -7,10 +7,10 @@ var pickups:Dictionary = {
 		"scene": preload("res://components/Pickups/MeshScenes/SpareTireModel.tscn"),
 		"enabledScene": preload("res://components/Pickups/Tire.tscn")
 	},
-#	"haybale": {
-#		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
-#		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
-#	},
+	"haybale": {
+		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
+		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
+	},
 	"oil": {
 		"scene": preload("res://components/Pickups/MeshScenes/OilSlickModel.tscn"),
 		"enabledScene": preload("res://components/Pickups/Oil.tscn")
