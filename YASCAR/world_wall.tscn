@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkb0hfy2oppgj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsogy"]
+size = Vector3(1, 1000, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tbrl2"]
+size = Vector3(1000, 1000, 1)
+
+[node name="WorldWall" type="Node3D"]
+
+[node name="WWall" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -500.131, 0, 0)
+shape = SubResource("BoxShape3D_tsogy")
+
+[node name="EWall" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 499.529, 0, 0)
+shape = SubResource("BoxShape3D_tsogy")
+
+[node name="NWall" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -500.811)
+shape = SubResource("BoxShape3D_tbrl2")
+
+[node name="SWall" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 499.656)
+shape = SubResource("BoxShape3D_tbrl2")

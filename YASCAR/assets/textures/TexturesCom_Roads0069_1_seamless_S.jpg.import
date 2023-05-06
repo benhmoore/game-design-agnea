@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://nbarpk5y4f6d"
 path.s3tc="res://.godot/imported/TexturesCom_Roads0069_1_seamless_S.jpg-def64eddcde98076f4bd7212350947ce.s3tc.ctex"
-path.etc2="res://.godot/imported/TexturesCom_Roads0069_1_seamless_S.jpg-def64eddcde98076f4bd7212350947ce.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/TexturesCom_Roads0069_1_seamless_S.jpg"
-dest_files=["res://.godot/imported/TexturesCom_Roads0069_1_seamless_S.jpg-def64eddcde98076f4bd7212350947ce.s3tc.ctex", "res://.godot/imported/TexturesCom_Roads0069_1_seamless_S.jpg-def64eddcde98076f4bd7212350947ce.etc2.ctex"]
+dest_files=["res://.godot/imported/TexturesCom_Roads0069_1_seamless_S.jpg-def64eddcde98076f4bd7212350947ce.s3tc.ctex"]
 
 [params]
 
