@@ -103,10 +103,14 @@ func _on_area_3d_body_shape_entered(body_rid, body, body_shape_index, local_shap
 		print("Car detected!")
 		if body not in pass_history:
 			pass_history.append(body)
+			
+			body.checkpoints_cleared += 1
+			print("Car has passed ", body.checkpoints_cleared, " checkpoints this lap!")
+			
 			if is_finish:
 				emit_signal("finish_passed")
 			else:
-				emit_signal("checkpoint_passed", self)
+				emit_signal("checkpoint_passed", [self, body])
 		else:
 			print("This car is already logged!")
 

@@ -9,9 +9,17 @@ var gun:Node3D
 
 var balloons:Node3D
 
+@export var checkpoint_controller:Node3D
+
 # Keeps track of if the car can finish (has passed through all checkpoints
 var can_finish = false
+
 var current_lap = 0
+var total_race_laps = 0
+
+var total_lap_checkpoints = 0
+var checkpoints_cleared = 0
+
 
 # If a speed booster is active, this is set to true, blocking all input except steering
 var acceleration_locked:bool = false
@@ -82,7 +90,7 @@ var breaklights_on: bool = false
 # Acceleration, braking, steering limit, and max speed parameters
 @export var acceleration_force = 150.0
 @export var braking_force = 100.0
-@export var steering_limit = deg_to_rad(10)
+@export var steering_limit = deg_to_rad(8)
 @export var max_speed = 30.0
 
 # Minimum and maximum FOV for the camera
@@ -109,24 +117,33 @@ var previous_position: Vector3
 
 var prev_linear_velocity = Vector3()
 
-func use_pickup():
-	if pickup == null:
-		print("You don't have a pickup to use!")
-		return
-		
-	
-	pickup.use()
-#	pickup = null
-	
-	
-
 func _ready():
+	
+	if checkpoint_controller:
+		checkpoint_controller.cars.append(self)
+		total_race_laps = checkpoint_controller.lap_count
+		var checkpoint_children = checkpoint_controller.get_children()
+		total_lap_checkpoints = 0
+		for child in checkpoint_children:
+			if child.get("is_finish") == null: continue
+			total_lap_checkpoints += 1
+	else:
+		assert(checkpoint_controller != null, "Car is missing a reference to the CheckpointController.")
+	
 	set_car_color(car_color)  # Set the car's color to red
 	engine_player.play()
 	initial_position = transform
 	previous_position = transform.origin
 	
 	collision_detected.connect(camera_gimbal._on_collision_detected)
+
+func use_pickup():
+	if pickup == null:
+		print("You don't have a pickup to use!")
+		return
+		
+	pickup.use()
+#	pickup = null
 
 func toggle_breaklights():
 	var newMaterial = StandardMaterial3D.new()

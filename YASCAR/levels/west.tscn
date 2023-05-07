@@ -89,8 +89,9 @@ cloud_speed = 2.0
 min_spheres_per_cloud = 3
 max_spheres_per_cloud = 6
 
-[node name="Car" parent="." node_paths=PackedStringArray("camera_gimbal") instance=ExtResource("3_nd33f")]
+[node name="Car" parent="." node_paths=PackedStringArray("checkpoint_controller", "camera_gimbal") instance=ExtResource("3_nd33f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+checkpoint_controller = NodePath("../CheckpointController")
 camera_gimbal = NodePath("../CarGimbal")
 
 [node name="CarGimbal" parent="." node_paths=PackedStringArray("vehicle") instance=ExtResource("4_1ocuj")]

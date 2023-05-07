@@ -47,7 +47,7 @@ func fire(delta):
 		
 		# Set bullet position and rotation to match the car's
 		bullet.global_transform = car_node.global_transform
-		bullet.transform.origin += Vector3(-1.5, 2, 0)
+		bullet.transform.origin += Vector3(-2, 2, 0)
 
 		# Randomize the bullet color
 		var new_mat = StandardMaterial3D.new()
