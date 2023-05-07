@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cb4gvxwktjdql"]
+[gd_scene load_steps=17 format=3 uid="uid://drr2p7lllb30g"]
 
 [ext_resource type="PackedScene" uid="uid://bvl6yfqqhm3au" path="res://components/CarGimbal.tscn" id="1_553rr"]
 [ext_resource type="PackedScene" uid="uid://b1mg2eb83avsf" path="res://components/Car.tscn" id="1_665sy"]
 [ext_resource type="PackedScene" uid="uid://x58t16mfb50h" path="res://components/Environment/Clouds.tscn" id="1_i4v7t"]
 [ext_resource type="PackedScene" uid="uid://bj6032sulvv57" path="res://components/HUD/HUD.tscn" id="1_mecw7"]
-[ext_resource type="PackedScene" uid="uid://di5r5aipj26li" path="res://components/Pickups/PickupContainer.tscn" id="3_62ou3"]
+[ext_resource type="PackedScene" uid="uid://di5r5aipj26li" path="res://components/Pickups/PickupSpawnPoint.tscn" id="3_62ou3"]
 [ext_resource type="PackedScene" uid="uid://d2lbqwg8ph7s" path="res://components/Environment/Checkpoint.tscn" id="6_tdqe2"]
 [ext_resource type="PackedScene" uid="uid://bl1ls6p5keote" path="res://components/SystemControllers/CheckpointController.tscn" id="7_hkmj3"]
 
@@ -73,8 +73,9 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35764, 0.891925, -0.936448)
 vehicle = NodePath("../Car")
 
-[node name="Car" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("camera_gimbal") instance=ExtResource("1_665sy")]
+[node name="Car" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("checkpoint_controller", "camera_gimbal") instance=ExtResource("1_665sy")]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -1.256, 2.08165e-12, -1.269)
+checkpoint_controller = NodePath("../../../../CheckpointController")
 camera_gimbal = NodePath("../CarGimbal")
 
 [node name="RightContainer" type="SubViewportContainer" parent="SplitScreen"]
@@ -94,8 +95,9 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35764, 0.891925, -0.936448)
 vehicle = NodePath("../Car")
 
-[node name="Car" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("camera_gimbal") instance=ExtResource("1_665sy")]
+[node name="Car" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("checkpoint_controller", "camera_gimbal") instance=ExtResource("1_665sy")]
 transform = Transform3D(0.010402, 0, 0.999946, 0, 1, 0, -0.999946, 0, 0.010402, -1.28226, 1.50503, 1.26899)
+checkpoint_controller = NodePath("../../../../CheckpointController")
 car_color = Color(0.298039, 0.658824, 0.803922, 1)
 camera_gimbal = NodePath("../CarGimbal")
 control_scheme = 0

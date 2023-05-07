@@ -90,7 +90,10 @@ var breaklights_on: bool = false
 # Acceleration, braking, steering limit, and max speed parameters
 @export var acceleration_force = 150.0
 @export var braking_force = 100.0
-@export var steering_limit = deg_to_rad(8)
+@export var steering_limit = deg_to_rad(12)
+
+var previous_steering_input = 0.0
+
 @export var max_speed = 30.0
 
 # Minimum and maximum FOV for the camera
@@ -120,7 +123,6 @@ var prev_linear_velocity = Vector3()
 func _ready():
 	
 	if checkpoint_controller:
-		checkpoint_controller.cars.append(self)
 		total_race_laps = checkpoint_controller.lap_count
 		var checkpoint_children = checkpoint_controller.get_children()
 		total_lap_checkpoints = 0
@@ -211,7 +213,10 @@ func _physics_process(delta):
 
 	# Get input values for acceleration, braking, and steering
 	var accel_input = get_acceleration_input()
-	var steer_input = get_steering_input()
+	var raw_steering_input = get_steering_input()
+	var steer_input = lerp(previous_steering_input, raw_steering_input, delta * 4)
+	if raw_steering_input == 0:
+		steer_input = raw_steering_input
 	
 	if acceleration_locked:
 		accel_input = 1
@@ -263,6 +268,8 @@ func _physics_process(delta):
 		
 	# Update camera FOV based on car's velocity
 	update_camera_fov(delta)
+	
+	previous_steering_input = steer_input
 
 
 func update_airborne_status(delta):

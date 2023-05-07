@@ -45,9 +45,9 @@ func fire(delta):
 		# Spawn bullet instance
 		var bullet = bullet_scene.instantiate()
 		
-		# Set bullet position and rotation to match the car's
-		bullet.global_transform = car_node.global_transform
-		bullet.transform.origin += Vector3(-2, 2, 0)
+		# Set the bullet's position 1 world unit in front of the horn's forward direction
+		var offset = horn_model.global_transform.basis.x * 3
+		bullet.global_transform.origin = horn_model.global_transform.origin + offset
 
 		# Randomize the bullet color
 		var new_mat = StandardMaterial3D.new()

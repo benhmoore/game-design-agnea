@@ -63,6 +63,7 @@ func update_color(claim:Node3D, car:VehicleBody3D):
 	
 func update_highlight_color(highlight_particles: CPUParticles3D, car: Node):
 	
+	print("Updating highlight color for car!", car)
 	var mat = StandardMaterial3D.new()
 	mat.albedo_color = car.car_color
 	mat.rim_enabled = true
