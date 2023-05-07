@@ -132,6 +132,10 @@ func _ready():
 	else:
 		assert(checkpoint_controller != null, "Car is missing a reference to the CheckpointController.")
 	
+	
+	var random_color = Color8(randi() % 256, randi() % 256, randi() % 256)
+	
+	car_color = random_color
 	set_car_color(car_color)  # Set the car's color to red
 	engine_player.play()
 	initial_position = transform
