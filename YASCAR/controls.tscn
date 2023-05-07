@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bu0v4ritqjwt"]
+[gd_scene load_steps=7 format=3 uid="uid://bu0v4ritqjwt"]
 
+[ext_resource type="FontFile" uid="uid://be02lo7u73wud" path="res://HVD_Comic_Serif_Pro.otf" id="1_2sxkf"]
 [ext_resource type="Texture2D" uid="uid://j6qgjn2f474l" path="res://controls_img.png" id="1_lhrts"]
 
 [sub_resource type="GDScript" id="GDScript_5iu17"]
@@ -11,6 +12,9 @@ script/source = "extends Control
 func _on_button_pressed():
 	get_tree().change_scene_to_file(\"res://menu.tscn\")
 "
+
+[sub_resource type="Theme" id="Theme_mva8i"]
+default_font = ExtResource("1_2sxkf")
 
 [sub_resource type="LabelSettings" id="LabelSettings_donqk"]
 font_size = 125
@@ -43,6 +47,7 @@ offset_top = 56.0
 offset_right = 613.0
 offset_bottom = 230.0
 size_flags_vertical = 1
+theme = SubResource("Theme_mva8i")
 text = "Controls"
 label_settings = SubResource("LabelSettings_donqk")
 horizontal_alignment = 1
