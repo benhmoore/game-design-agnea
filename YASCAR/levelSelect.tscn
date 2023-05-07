@@ -1,16 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhu2c5injhmf6"]
+[gd_scene load_steps=9 format=3 uid="uid://dhu2c5injhmf6"]
 
 [ext_resource type="Script" path="res://levelSelect.gd" id="1_wkiym"]
+[ext_resource type="FontFile" uid="uid://baoo7y60mfyj1" path="res://HVD_Comic_Serif_Pro.otf" id="2_uu3ny"]
 
 [sub_resource type="Theme" id="Theme_idpil"]
+default_font = ExtResource("2_uu3ny")
 default_font_size = 75
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_434y2"]
-bg_color = Color(0, 0, 0, 0.396078)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+bg_color = Color(0, 0.741176, 0, 0.545098)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oln1f"]
 bg_color = Color(0, 0, 0, 0.490196)
@@ -25,6 +27,9 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_07l88"]
+default_font = ExtResource("2_uu3ny")
 
 [sub_resource type="LabelSettings" id="LabelSettings_7a3qv"]
 font_size = 125
@@ -47,7 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.266667, 0.0823529, 0.607843, 0.407843)
+color = Color(0.721569, 0.333333, 0.117647, 0.835294)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -81,6 +86,7 @@ offset_top = 75.0
 offset_right = 1847.0
 offset_bottom = 249.0
 size_flags_vertical = 2
+theme = SubResource("Theme_07l88")
 text = "Level Select"
 label_settings = SubResource("LabelSettings_7a3qv")
 horizontal_alignment = 1
@@ -88,10 +94,10 @@ vertical_alignment = 1
 
 [node name="Level1" type="Button" parent="."]
 layout_mode = 2
-offset_left = 58.0
-offset_top = 336.0
-offset_right = 308.0
-offset_bottom = 439.0
+offset_left = 64.0
+offset_top = 320.0
+offset_right = 463.0
+offset_bottom = 423.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
 focus_next = NodePath("../MarginContainer/Back")
@@ -100,14 +106,14 @@ theme = SubResource("Theme_idpil")
 theme_override_styles/normal = SubResource("StyleBoxFlat_434y2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_oln1f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_t7a4e")
-text = "Level 1"
+text = "  Level 1  "
 
 [node name="Level2" type="Button" parent="."]
 layout_mode = 2
-offset_left = 827.0
-offset_top = 336.0
-offset_right = 1077.0
-offset_bottom = 439.0
+offset_left = 760.0
+offset_top = 320.0
+offset_right = 1161.0
+offset_bottom = 423.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_next = NodePath("../MarginContainer/Back")
@@ -116,14 +122,14 @@ theme = SubResource("Theme_idpil")
 theme_override_styles/normal = SubResource("StyleBoxFlat_434y2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_oln1f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_t7a4e")
-text = "Level 2"
+text = "  Level 2  "
 
 [node name="Level3" type="Button" parent="."]
 layout_mode = 2
-offset_left = 1597.0
-offset_top = 336.0
-offset_right = 1847.0
-offset_bottom = 439.0
+offset_left = 1448.0
+offset_top = 320.0
+offset_right = 1849.0
+offset_bottom = 423.0
 size_flags_horizontal = 8
 size_flags_vertical = 4
 focus_next = NodePath("../MarginContainer/Back")
@@ -132,7 +138,7 @@ theme = SubResource("Theme_idpil")
 theme_override_styles/normal = SubResource("StyleBoxFlat_434y2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_oln1f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_t7a4e")
-text = "Level 3"
+text = "  Level 3  "
 
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
