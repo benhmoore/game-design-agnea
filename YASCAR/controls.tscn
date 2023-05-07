@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu0v4ritqjwt"]
+[gd_scene load_steps=5 format=3 uid="uid://bu0v4ritqjwt"]
+
+[ext_resource type="Texture2D" uid="uid://j6qgjn2f474l" path="res://controls_img.png" id="1_lhrts"]
 
 [sub_resource type="GDScript" id="GDScript_5iu17"]
 script/source = "extends Control
@@ -32,9 +34,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.266667, 0.0823529, 0.607843, 0.407843)
+color = Color(0.847059, 0.360784, 0, 0.709804)
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 104.0
 offset_top = 56.0
 offset_right = 613.0
@@ -46,6 +49,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 792.0
 offset_top = 952.0
 offset_right = 1128.0
@@ -54,5 +58,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = SubResource("Theme_40wd3")
 text = "   Back   "
+
+[node name="ControlsImg" type="Sprite2D" parent="."]
+position = Vector2(960, 568)
+scale = Vector2(0.54975, 0.511315)
+texture = ExtResource("1_lhrts")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

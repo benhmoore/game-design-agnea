@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhu2c5injhmf6"]
+[gd_scene load_steps=10 format=3 uid="uid://dhu2c5injhmf6"]
 
 [ext_resource type="Script" path="res://levelSelect.gd" id="1_wkiym"]
+[ext_resource type="Texture2D" uid="uid://dl3c4rg88nnlx" path="res://Screenshot 2023-05-06 181429.png" id="2_dlui0"]
+[ext_resource type="Texture2D" uid="uid://b0xvj6e7ltdo7" path="res://Screenshot 2023-05-06 185850.png" id="3_rbbix"]
+[ext_resource type="Texture2D" uid="uid://boeokx5fqebhn" path="res://Screenshot 2023-05-06 190156.png" id="4_n1tt8"]
 
 [sub_resource type="Theme" id="Theme_idpil"]
 default_font_size = 75
@@ -47,7 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.266667, 0.0823529, 0.607843, 0.407843)
+color = Color(0.847059, 0.360784, 0, 0.709804)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -88,9 +91,9 @@ vertical_alignment = 1
 
 [node name="Level1" type="Button" parent="."]
 layout_mode = 2
-offset_left = 58.0
+offset_left = 43.0
 offset_top = 336.0
-offset_right = 308.0
+offset_right = 407.0
 offset_bottom = 439.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -100,13 +103,13 @@ theme = SubResource("Theme_idpil")
 theme_override_styles/normal = SubResource("StyleBoxFlat_434y2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_oln1f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_t7a4e")
-text = "Level 1"
+text = "   Level 1   "
 
 [node name="Level2" type="Button" parent="."]
 layout_mode = 2
-offset_left = 827.0
+offset_left = 780.0
 offset_top = 336.0
-offset_right = 1077.0
+offset_right = 1144.0
 offset_bottom = 439.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -116,13 +119,13 @@ theme = SubResource("Theme_idpil")
 theme_override_styles/normal = SubResource("StyleBoxFlat_434y2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_oln1f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_t7a4e")
-text = "Level 2"
+text = "   Level 2   "
 
 [node name="Level3" type="Button" parent="."]
 layout_mode = 2
-offset_left = 1597.0
+offset_left = 1518.0
 offset_top = 336.0
-offset_right = 1847.0
+offset_right = 1882.0
 offset_bottom = 439.0
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -132,7 +135,22 @@ theme = SubResource("Theme_idpil")
 theme_override_styles/normal = SubResource("StyleBoxFlat_434y2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_oln1f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_t7a4e")
-text = "Level 3"
+text = "   Level 3   "
+
+[node name="Screenshot2023-05-06181429" type="Sprite2D" parent="."]
+position = Vector2(224, 616)
+scale = Vector2(0.593443, 0.686144)
+texture = ExtResource("2_dlui0")
+
+[node name="Screenshot2023-05-06185850" type="Sprite2D" parent="."]
+position = Vector2(962.844, 619.313)
+scale = Vector2(0.591048, 0.70468)
+texture = ExtResource("3_rbbix")
+
+[node name="Screenshot2023-05-06190156" type="Sprite2D" parent="."]
+position = Vector2(1700, 620)
+scale = Vector2(0.823798, 0.989967)
+texture = ExtResource("4_n1tt8")
 
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
