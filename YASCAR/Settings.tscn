@@ -1,22 +1,41 @@
-[gd_scene load_steps=8 format=3 uid="uid://csowvqc4itosd"]
+[gd_scene load_steps=13 format=3 uid="uid://csowvqc4itosd"]
 
 [ext_resource type="Script" path="res://Settings.gd" id="1_0uq7q"]
 [ext_resource type="Script" path="res://MusicVolume.gd" id="1_4il6o"]
+[ext_resource type="FontFile" uid="uid://b0p53hemx0k3w" path="res://HVD_Comic_Serif_Pro.otf" id="2_vmct4"]
+
+[sub_resource type="Theme" id="Theme_s2bq8"]
+default_font = ExtResource("2_vmct4")
 
 [sub_resource type="LabelSettings" id="LabelSettings_81utl"]
 font_size = 125
 
+[sub_resource type="Theme" id="Theme_h3y3o"]
+default_font = ExtResource("2_vmct4")
+
 [sub_resource type="LabelSettings" id="LabelSettings_8gl4i"]
 font_size = 32
+
+[sub_resource type="Theme" id="Theme_ksqlu"]
+default_font = ExtResource("2_vmct4")
 
 [sub_resource type="LabelSettings" id="LabelSettings_nj06f"]
 font_size = 32
 
 [sub_resource type="Theme" id="Theme_i82p8"]
+default_font = ExtResource("2_vmct4")
 default_font_size = 32
 
 [sub_resource type="Theme" id="Theme_q4tdu"]
+default_font = ExtResource("2_vmct4")
 default_font_size = 85
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yamld"]
+bg_color = Color(0, 0.741176, 0, 0.545098)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -34,7 +53,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.266667, 0.0823529, 0.607843, 0.407843)
+color = Color(0.721569, 0.333333, 0.117647, 0.752941)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 320.0
+offset_right = 1864.0
+offset_bottom = 944.0
+color = Color(0, 0.741176, 0, 0.298039)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,6 +81,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme = SubResource("Theme_s2bq8")
 text = "Options"
 label_settings = SubResource("LabelSettings_81utl")
 horizontal_alignment = 1
@@ -80,6 +108,7 @@ script = ExtResource("1_4il6o")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme = SubResource("Theme_h3y3o")
 text = "Music Volume"
 label_settings = SubResource("LabelSettings_8gl4i")
 horizontal_alignment = 1
@@ -100,6 +129,7 @@ value = 1.0
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_ksqlu")
 text = "SFX Volume
 "
 label_settings = SubResource("LabelSettings_nj06f")
@@ -119,13 +149,14 @@ text = "Fullscreen"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
-offset_left = 792.0
+offset_left = 736.0
 offset_top = 952.0
-offset_right = 1128.0
+offset_right = 1175.0
 offset_bottom = 1076.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = SubResource("Theme_q4tdu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yamld")
 text = "   Back   "
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/SFXVolume" to="." method="_on_sfx_volume_value_changed"]

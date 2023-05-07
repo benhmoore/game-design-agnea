@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://mya7ayom578r"]
+[gd_scene load_steps=6 format=3 uid="uid://mya7ayom578r"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_1uuja"]
+[ext_resource type="FontFile" uid="uid://b0p53hemx0k3w" path="res://HVD_Comic_Serif_Pro.otf" id="2_n1aut"]
 
 [sub_resource type="Theme" id="Theme_px5li"]
+default_font = ExtResource("2_n1aut")
 default_font_size = 105
 
 [sub_resource type="Theme" id="Theme_aym3n"]
+default_font = ExtResource("2_n1aut")
 default_font_size = 85
 
 [sub_resource type="Theme" id="Theme_vmlts"]
+default_font = ExtResource("2_n1aut")
 default_font_size = 85
 
 [node name="PauseMenu" type="CanvasLayer"]
