@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv5hktdia3esr"]
+
+[ext_resource type="Script" path="res://scripts/Pickups/PickupSpawnPoint.gd" id="1_mpgqp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qayww"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ergr0"]
+material = SubResource("StandardMaterial3D_qayww")
+
+[node name="PickupSpawnPoint" type="Node3D"]
+script = ExtResource("1_mpgqp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428319, 0)
+mesh = SubResource("BoxMesh_ergr0")

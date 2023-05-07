@@ -63,6 +63,7 @@ func update_color(claim:Node3D, car:VehicleBody3D):
 	
 func update_highlight_color(highlight_particles: CPUParticles3D, car: Node):
 	
+	print("Updating highlight color for car!", car)
 	var mat = StandardMaterial3D.new()
 	mat.albedo_color = car.car_color
 	mat.rim_enabled = true
@@ -103,10 +104,14 @@ func _on_area_3d_body_shape_entered(body_rid, body, body_shape_index, local_shap
 		print("Car detected!")
 		if body not in pass_history:
 			pass_history.append(body)
+			
+			body.checkpoints_cleared += 1
+			print("Car has passed ", body.checkpoints_cleared, " checkpoints this lap!")
+			
 			if is_finish:
 				emit_signal("finish_passed")
 			else:
-				emit_signal("checkpoint_passed", self)
+				emit_signal("checkpoint_passed", [self, body])
 		else:
 			print("This car is already logged!")
 

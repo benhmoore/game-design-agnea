@@ -98,14 +98,15 @@ shape = SubResource("BoxShape3D_sse80")
 [node name="LeftHeadlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.97613, 0.217189, 0, -0.217189, 0.97613, -0.329882, 0.898956, -1.29311)
 light_color = Color(1, 1, 0.694118, 1)
-light_energy = 0.8
+light_energy = 5.0
 shadow_enabled = true
 
 [node name="RightHeadlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.97613, 0.217189, 0, -0.217189, 0.97613, 0.313265, 0.898956, -1.29311)
 light_color = Color(1, 1, 0.694118, 1)
-light_energy = 0.8
+light_energy = 5.0
 shadow_enabled = true
+spot_range = 20.0
 
 [node name="RightBreaklight" type="SpotLight3D" parent="."]
 transform = Transform3D(-1, 1.89872e-08, -8.53359e-08, -2.59886e-08, 0.867436, 0.497549, 8.34705e-08, 0.497549, -0.867436, 0.38332, 0.783885, 1.12223)

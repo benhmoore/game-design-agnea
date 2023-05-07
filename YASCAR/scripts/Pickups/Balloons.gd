@@ -5,7 +5,7 @@ enum ControlScheme { ARROWS, WASD }
 
 @onready var bullet_scene:PackedScene = preload("res://components/Pickups/Bullet.tscn")
 
-var inventory:int = 5 
+var inventory:int = 6
 var jump_rate:float = 0.5
 var time_since_last_jump:float = 0.0
 

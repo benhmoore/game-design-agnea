@@ -63,9 +63,14 @@ var meshes: Array[RID]
 var grid: Array[Array]
 
 func _init():
+	call_deferred("_ready")
+
+func _ready():
 	set_notify_transform(true)
-	if !is_inside_tree():
-		call_deferred("build", size, section_size, lod_count)
+	if is_inside_tree():
+		build(size, section_size, lod_count)
+		update_collider_heights()
+
 	
 func _get_configuration_warnings():
 	if !has_material():
@@ -358,7 +363,13 @@ func update_aabb():
 func update_collider_heights():
 	
 	var shape: RID = PhysicsServer3D.body_get_shape(body, 0)
-	var shape_data: Dictionary = PhysicsServer3D.shape_get_data(shape)
+	var shape_data: Dictionary = {}
+	var temp_data = PhysicsServer3D.shape_get_data(shape)
+	if temp_data == null:
+		return
+		
+	shape_data = temp_data
+
 	var heights: PackedFloat32Array = PackedFloat32Array()
 		
 	if has_material():

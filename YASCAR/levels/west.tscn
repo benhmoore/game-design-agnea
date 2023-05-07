@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b425yrxlig251"]
+[gd_scene load_steps=44 format=3]
 
 [ext_resource type="PackedScene" uid="uid://x58t16mfb50h" path="res://components/Environment/Clouds.tscn" id="1_3ov26"]
 [ext_resource type="Script" path="res://addons/terrain_3d/terrain.gd" id="1_lwqy5"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cgaafyrn6co4d" path="res://components/Environment/Buildings/Saloon.tscn" id="17_cak2p"]
 [ext_resource type="PackedScene" uid="uid://bbx0qxytbs64x" path="res://components/Environment/Buildings/Shack.tscn" id="18_y4ptj"]
 [ext_resource type="PackedScene" uid="uid://bai8y4rc2asq6" path="res://components/Environment/Buildings/Shed.tscn" id="19_vo4ej"]
-[ext_resource type="PackedScene" uid="uid://di5r5aipj26li" path="res://components/Pickups/PickupContainer.tscn" id="20_rs3km"]
+[ext_resource type="PackedScene" uid="uid://di5r5aipj26li" path="res://components/Pickups/PickupSpawnPoint.tscn" id="20_rs3km"]
 [ext_resource type="PackedScene" uid="uid://c0xkrhunhvx6s" path="res://components/Environment/Buildings/Outhouse.tscn" id="24_74j51"]
 [ext_resource type="PackedScene" uid="uid://dutrldktsipj7" path="res://components/Environment/Trees/Trunk.tscn" id="24_m5q6h"]
 [ext_resource type="PackedScene" uid="uid://dwrty13po4og7" path="res://components/Environment/Fences/Fence_6.tscn" id="25_qldf2"]
@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://c4gg6ilbvpuvc" path="res://components/Environment/Refuse/Plank.tscn" id="36_ujxyy"]
 [ext_resource type="PackedScene" uid="uid://wtx57of7h3vu" path="res://components/Environment/Refuse/Well.tscn" id="37_muhss"]
 [ext_resource type="PackedScene" uid="uid://cc3enhqe27ic8" path="res://components/Environment/Refuse/Flag.tscn" id="38_v74ja"]
-[ext_resource type="PackedScene" uid="uid://cg0vjkurypf3a" path="res://components/Pickups/PickupSpawnPoint.tscn" id="39_dvc47"]
+[ext_resource type="PackedScene" uid="uid://cg0vjkurypf3a" path="res://components/Pickups/PickupSpawnPoint_old.tscn" id="39_dvc47"]
 [ext_resource type="AudioStream" uid="uid://5cjj5rqkqnnc" path="res://assets/music/western_town.mp3" id="40_lvvep"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06nss"]
@@ -50,13 +50,13 @@ ground_bottom_color = Color(0.270588, 0.231373, 0.184314, 1)
 sun_angle_max = 360.0
 sun_curve = 0.0568396
 
-[sub_resource type="Sky" id="Sky_1hsd2"]
+[sub_resource type="Sky" id="Sky_8qvdt"]
 sky_material = SubResource("ProceduralSkyMaterial_06nss")
 radiance_size = 2
 
 [sub_resource type="Environment" id="Environment_00tan"]
 background_mode = 2
-sky = SubResource("Sky_1hsd2")
+sky = SubResource("Sky_8qvdt")
 ambient_light_source = 3
 tonemap_white = 1.2
 ssao_intensity = 1.0
@@ -89,8 +89,9 @@ cloud_speed = 2.0
 min_spheres_per_cloud = 3
 max_spheres_per_cloud = 6
 
-[node name="Car" parent="." node_paths=PackedStringArray("camera_gimbal") instance=ExtResource("3_nd33f")]
+[node name="Car" parent="." node_paths=PackedStringArray("checkpoint_controller", "camera_gimbal") instance=ExtResource("3_nd33f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+checkpoint_controller = NodePath("../CheckpointController")
 camera_gimbal = NodePath("../CarGimbal")
 
 [node name="CarGimbal" parent="." node_paths=PackedStringArray("vehicle") instance=ExtResource("4_1ocuj")]

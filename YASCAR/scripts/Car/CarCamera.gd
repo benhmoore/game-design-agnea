@@ -77,7 +77,7 @@ func rotate_camera_to_vehicle_velocity(delta: float) -> void:
 		
 	var target_look_at = vehicle.global_transform.origin + (forward_direction * 5)
 	look_at(target_look_at, Vector3.UP)
-#	rotation_degrees.y = lerp_angle(rotation_degrees.y, (target_look_at - global_transform.origin).angle_to(Vector3.FORWARD), rotation_speed * delta)
+	rotation_degrees.y = lerp_angle(rotation_degrees.y, (target_look_at - global_transform.origin).angle_to(Vector3.FORWARD), rotation_speed * delta)
 
 func _on_collision_detected():
 	shake_timer = 0.0

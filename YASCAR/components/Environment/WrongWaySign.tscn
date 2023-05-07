@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://drw1y0scdjnmd"]
+
+[ext_resource type="PackedScene" uid="uid://btggvf5ek1vbm" path="res://assets/models/Environment/WrongWaySign.glb" id="1_l0ww6"]
+
+[node name="WrongWaySign" type="Node3D"]
+
+[node name="WrongWaySign" parent="." instance=ExtResource("1_l0ww6")]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 0, 0)

@@ -9,9 +9,17 @@ var gun:Node3D
 
 var balloons:Node3D
 
+@export var checkpoint_controller:Node3D
+
 # Keeps track of if the car can finish (has passed through all checkpoints
 var can_finish = false
+
 var current_lap = 0
+var total_race_laps = 0
+
+var total_lap_checkpoints = 0
+var checkpoints_cleared = 0
+
 
 # If a speed booster is active, this is set to true, blocking all input except steering
 var acceleration_locked:bool = false
@@ -82,7 +90,10 @@ var breaklights_on: bool = false
 # Acceleration, braking, steering limit, and max speed parameters
 @export var acceleration_force = 150.0
 @export var braking_force = 100.0
-@export var steering_limit = deg_to_rad(10)
+@export var steering_limit = deg_to_rad(12)
+
+var previous_steering_input = 0.0
+
 @export var max_speed = 30.0
 
 # Minimum and maximum FOV for the camera
@@ -109,24 +120,32 @@ var previous_position: Vector3
 
 var prev_linear_velocity = Vector3()
 
-func use_pickup():
-	if pickup == null:
-		print("You don't have a pickup to use!")
-		return
-		
-	
-	pickup.use()
-#	pickup = null
-	
-	
-
 func _ready():
+	
+	if checkpoint_controller:
+		total_race_laps = checkpoint_controller.lap_count
+		var checkpoint_children = checkpoint_controller.get_children()
+		total_lap_checkpoints = 0
+		for child in checkpoint_children:
+			if child.get("is_finish") == null: continue
+			total_lap_checkpoints += 1
+	else:
+		assert(checkpoint_controller != null, "Car is missing a reference to the CheckpointController.")
+	
 	set_car_color(car_color)  # Set the car's color to red
 	engine_player.play()
 	initial_position = transform
 	previous_position = transform.origin
 	
 	collision_detected.connect(camera_gimbal._on_collision_detected)
+
+func use_pickup():
+	if pickup == null:
+		print("You don't have a pickup to use!")
+		return
+		
+	pickup.use()
+#	pickup = null
 
 func toggle_breaklights():
 	var newMaterial = StandardMaterial3D.new()
@@ -194,7 +213,10 @@ func _physics_process(delta):
 
 	# Get input values for acceleration, braking, and steering
 	var accel_input = get_acceleration_input()
-	var steer_input = get_steering_input()
+	var raw_steering_input = get_steering_input()
+	var steer_input = lerp(previous_steering_input, raw_steering_input, delta * 4)
+	if raw_steering_input == 0:
+		steer_input = raw_steering_input
 	
 	if acceleration_locked:
 		accel_input = 1
@@ -246,6 +268,8 @@ func _physics_process(delta):
 		
 	# Update camera FOV based on car's velocity
 	update_camera_fov(delta)
+	
+	previous_steering_input = steer_input
 
 
 func update_airborne_status(delta):

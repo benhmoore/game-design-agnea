@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://di5r5aipj26li"]
+[gd_scene load_steps=4 format=3 uid="uid://cemmqh4gk3erx"]
 
 [ext_resource type="Script" path="res://scripts/Pickups/Pickup.gd" id="1_4e1y2"]
 [ext_resource type="PackedScene" uid="uid://d1e1u24khrgvi" path="res://components/Pickups/MeshScenes/MysteryItemModel.tscn" id="2_ekq2i"]

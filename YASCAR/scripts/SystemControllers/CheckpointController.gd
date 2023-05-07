@@ -21,6 +21,7 @@ func compareCheckpoints(a, b):
 func _ready():
 	for checkpoint in get_children():
 		
+		# Don't include children that are not checkpoints
 		if checkpoint.get("is_finish") == null: continue
 		
 		if checkpoint.is_finish == true:
@@ -52,6 +53,8 @@ func update_status():
 		car.can_finish = can_finish
 		if can_finish:
 			print("Car can finish!", car)
+			
+	
 
 func reset_checkpoints(car):
 	for checkpoint in checkpoints:
@@ -89,9 +92,9 @@ func highlight_next_checkpoint(checkpoint):
 			
 	
 
-func _on_checkpoint_passed(order):
-	print("Checkpoint at the following order passed: ", order)
-	highlight_next_checkpoint(order)
+func _on_checkpoint_passed(params):
+	var checkpoint = params[0]
+	highlight_next_checkpoint(checkpoint)
 	update_status()
 	
 func _on_finish_passed():
@@ -106,6 +109,8 @@ func _on_finish_passed():
 			
 			
 	finish.pass_history.erase(passing_car)
+	passing_car.checkpoints_cleared = 0
+	print("Reset checkpoints_cleared on car.")
 	
 	if passing_car.current_lap == lap_count:
 		emit_signal("car_won", passing_car)
