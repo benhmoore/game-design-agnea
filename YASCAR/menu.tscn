@@ -1,23 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://t78ei4busiyw"]
+[gd_scene load_steps=8 format=3 uid="uid://t78ei4busiyw"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_jijcy"]
-[ext_resource type="Texture2D" uid="uid://ctqbydmjql4va" path="res://desert-landscape_441769-201.png" id="2_4gyjm"]
-[ext_resource type="FontFile" uid="uid://baoo7y60mfyj1" path="res://HVD_Comic_Serif_Pro.otf" id="3_5kkcs"]
 [ext_resource type="Script" path="res://scripts/Options.gd" id="3_o36kn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g1eyj"]
 font_size = 125
 
 [sub_resource type="Theme" id="Theme_wlvqb"]
-default_font = ExtResource("3_5kkcs")
 default_font_size = 75
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8g7m"]
-bg_color = Color(0, 0.741176, 0, 0.545098)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+bg_color = Color(0, 0, 0, 0.396078)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_200r3"]
 bg_color = Color(0, 0, 0, 0.490196)
@@ -42,11 +39,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jijcy")
 
-[node name="Desert-landscape441769-201" type="Sprite2D" parent="."]
-position = Vector2(960, 542.25)
-scale = Vector2(3.0639, 3.32769)
-texture = ExtResource("2_4gyjm")
-
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -56,7 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.721569, 0.333333, 0.117647, 0.835294)
+color = Color(0.25143, 0.0966512, 0.610871, 0.407843)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
