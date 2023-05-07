@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhu2c5injhmf6"]
+[gd_scene load_steps=15 format=3 uid="uid://dhu2c5injhmf6"]
 
 [ext_resource type="Script" path="res://levelSelect.gd" id="1_wkiym"]
 [ext_resource type="FontFile" uid="uid://b0p53hemx0k3w" path="res://HVD_Comic_Serif_Pro.otf" id="2_uu3ny"]
 [ext_resource type="Texture2D" uid="uid://bbvuy8a1ma8i1" path="res://Screenshot 2023-05-06 181429.png" id="3_uikc0"]
 [ext_resource type="Texture2D" uid="uid://ct8xrkqv52i70" path="res://Screenshot 2023-05-06 185850.png" id="4_3hgbx"]
 [ext_resource type="Texture2D" uid="uid://cy27snovgmeej" path="res://Screenshot 2023-05-06 190156.png" id="5_awp8g"]
+[ext_resource type="Texture2D" uid="uid://betqyafqwfwmf" path="res://level_1_preview.png" id="6_ya44y"]
+[ext_resource type="Texture2D" uid="uid://b1gwrfapmf267" path="res://level_2_preview.png" id="7_g8xh7"]
+[ext_resource type="Texture2D" uid="uid://dxdpxu2r8o5q7" path="res://level_3_preview.png" id="8_m2g76"]
 
 [sub_resource type="Theme" id="Theme_idpil"]
 default_font = ExtResource("2_uu3ny")
@@ -144,19 +147,37 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_t7a4e")
 text = "  Level 3  "
 
 [node name="Screenshot2023-05-06181429" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(259.75, 592)
 scale = Vector2(0.643443, 0.712048)
 texture = ExtResource("3_uikc0")
 
 [node name="Screenshot2023-05-06185850" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(960, 594.5)
 scale = Vector2(0.626427, 0.708531)
 texture = ExtResource("4_3hgbx")
 
 [node name="Screenshot2023-05-06190156" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1660, 592)
 scale = Vector2(0.897026, 1)
 texture = ExtResource("5_awp8g")
+
+[node name="Level1Preview" type="Sprite2D" parent="."]
+position = Vector2(266.656, 654.156)
+scale = Vector2(0.440078, 0.390751)
+texture = ExtResource("6_ya44y")
+
+[node name="Level2Preview" type="Sprite2D" parent="."]
+position = Vector2(960, 655)
+scale = Vector2(0.529915, 0.463675)
+texture = ExtResource("7_g8xh7")
+
+[node name="Level3Preview" type="Sprite2D" parent="."]
+position = Vector2(1648, 656)
+scale = Vector2(0.552916, 0.466523)
+texture = ExtResource("8_m2g76")
 
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]

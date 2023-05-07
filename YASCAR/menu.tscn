@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://t78ei4busiyw"]
+[gd_scene load_steps=11 format=3 uid="uid://t78ei4busiyw"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_jijcy"]
 [ext_resource type="Texture2D" uid="uid://bajbxajyamam4" path="res://desert-landscape_441769-201.png" id="2_4gyjm"]
 [ext_resource type="FontFile" uid="uid://b0p53hemx0k3w" path="res://HVD_Comic_Serif_Pro.otf" id="3_5kkcs"]
 [ext_resource type="Script" path="res://scripts/Options.gd" id="3_o36kn"]
+[ext_resource type="Texture2D" uid="uid://2wp42arj1kvf" path="res://splashscreen.png" id="3_op42c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g1eyj"]
 font_size = 125
@@ -43,9 +44,15 @@ grow_vertical = 2
 script = ExtResource("1_jijcy")
 
 [node name="Desert-landscape441769-201" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(960, 542.25)
 scale = Vector2(3.0639, 3.32769)
 texture = ExtResource("2_4gyjm")
+
+[node name="Splashscreen" type="Sprite2D" parent="."]
+position = Vector2(956, 536)
+scale = Vector2(0.869091, 0.771223)
+texture = ExtResource("3_op42c")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
