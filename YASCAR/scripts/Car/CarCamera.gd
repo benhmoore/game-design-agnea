@@ -72,7 +72,10 @@ func rotate_camera_to_vehicle_velocity(delta: float) -> void:
 	var lerp_factor = clamp((vehicle_velocity.length() - speed_threshold) / (max_speed - speed_threshold), 0, 1)
 	var target_direction = forward_direction.lerp(velocity_direction, lerp_factor)
 	
-	var target_look_at = vehicle.global_transform.origin + target_direction
+	if vehicle_velocity.length() < 20.0:
+		target_direction = forward_direction
+		
+	var target_look_at = vehicle.global_transform.origin + (forward_direction * 5)
 	look_at(target_look_at, Vector3.UP)
 #	rotation_degrees.y = lerp_angle(rotation_degrees.y, (target_look_at - global_transform.origin).angle_to(Vector3.FORWARD), rotation_speed * delta)
 

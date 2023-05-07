@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b425yrxlig251"]
+[gd_scene load_steps=43 format=3 uid="uid://b425yrxlig251"]
 
 [ext_resource type="PackedScene" uid="uid://x58t16mfb50h" path="res://components/Environment/Clouds.tscn" id="1_3ov26"]
 [ext_resource type="Script" path="res://addons/terrain_3d/terrain.gd" id="1_lwqy5"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://c4gg6ilbvpuvc" path="res://components/Environment/Refuse/Plank.tscn" id="36_ujxyy"]
 [ext_resource type="PackedScene" uid="uid://wtx57of7h3vu" path="res://components/Environment/Refuse/Well.tscn" id="37_muhss"]
 [ext_resource type="PackedScene" uid="uid://cc3enhqe27ic8" path="res://components/Environment/Refuse/Flag.tscn" id="38_v74ja"]
+[ext_resource type="PackedScene" uid="uid://cg0vjkurypf3a" path="res://components/Pickups/PickupSpawnPoint.tscn" id="39_dvc47"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06nss"]
 sky_top_color = Color(0.541176, 0.72549, 0.992157, 1)
@@ -251,3 +252,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.2221, 0, -30.1217)
 
 [node name="Flag" parent="." instance=ExtResource("38_v74ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.9302, 0.742842, 31.1876)
+
+[node name="PickupSpawnPoint" parent="." instance=ExtResource("39_dvc47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4808, 0.0990486, -7.20321)
+
+[node name="PickupSpawnPoint2" parent="." instance=ExtResource("39_dvc47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.5752, 0, -19.2043)

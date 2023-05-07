@@ -1,7 +1,7 @@
 extends VehicleBody3D
 
+signal car_reset
 signal collision_detected
-
 
 # Pickup inventory
 var pickup:Node3D
@@ -99,6 +99,9 @@ var breaklights_on: bool = false
 # Initial position
 var initial_position: Transform3D
 
+# Has the car passed through at least one checkpoint?
+var car_logged = false
+
 # Upside-down and position change timers
 var upside_down_timer: float = 0.0
 var no_position_change_timer: float = 0.0
@@ -176,6 +179,13 @@ func _physics_process(delta):
 	else:
 		if Input.get_action_strength("use_item_q") > 0:
 			use_pickup()
+			
+	if control_scheme == ControlScheme.ARROWS:
+		if Input.get_action_strength("right_car_reset") > 0:
+			reset_car()
+	else:
+		if Input.get_action_strength("left_reset_car") > 0:
+			reset_car()
 	
 	# Store the previous linear velocity at the beginning of each physics frame
 	prev_linear_velocity = linear_velocity
@@ -333,7 +343,11 @@ func check_car_reset(delta):
 
 
 func reset_car():
-	transform = initial_position
+	if car_logged:
+		emit_signal("car_reset", self)
+	else:
+		transform = initial_position
+	
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 	if car_health <= 0:

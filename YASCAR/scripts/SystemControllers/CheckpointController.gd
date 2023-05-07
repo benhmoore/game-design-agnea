@@ -41,6 +41,9 @@ func update_status():
 				cars.append(car)
 				
 	for car in cars:
+		if not car.is_connected("car_reset", _on_car_reset):
+			car.connect("car_reset", _on_car_reset)
+		car.car_logged = true
 		var can_finish = true
 		for checkpoint in checkpoints:
 			if car not in checkpoint.pass_history:
@@ -59,6 +62,17 @@ func reset_checkpoints(car):
 		
 	# Highlight first checkpoint
 	emit_signal("checkpoint_highlighted", [checkpoints[0].order, car])
+	
+func _on_car_reset(car):
+	var car_reset = false
+	for i in range(len(checkpoints) - 1, -1, -1):
+		if car in checkpoints[i].pass_history:
+			car_reset = true
+			car.global_transform.origin = checkpoints[i].global_transform.origin + Vector3(0, 2, 0)
+			break
+
+	if not car_reset:
+		car.transform = car.initial_position
 
 func highlight_next_checkpoint(checkpoint):
 	

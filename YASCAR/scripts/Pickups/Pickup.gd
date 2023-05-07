@@ -7,10 +7,10 @@ var pickups:Dictionary = {
 		"scene": preload("res://components/Pickups/MeshScenes/SpareTireModel.tscn"),
 		"enabledScene": preload("res://components/Pickups/Tire.tscn")
 	},
-#	"haybale": {
-#		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
-#		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
-#	},
+	"haybale": {
+		"scene": preload("res://components/Pickups/MeshScenes/HayBaleModel.tscn"),
+		"enabledScene": preload("res://components/Pickups/HayBale.tscn")
+	},
 	"oil": {
 		"scene": preload("res://components/Pickups/MeshScenes/OilSlickModel.tscn"),
 		"enabledScene": preload("res://components/Pickups/Oil.tscn")
@@ -51,6 +51,8 @@ var player_node = null
 var current_scale = Vector3.ONE
 var transition_progress = 0.0
 var transition_speed = 10
+
+var attached_to = null
 
 var pickup_delay = 4.0
 var current_pickup_time = 0
@@ -172,6 +174,7 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 		init_pos = transform.origin
 
 		if should_pickup:
+			attached_to = body
 			body.pickup_item(self)
 			state = ItemState.INVENTORY
 			player_node = body
