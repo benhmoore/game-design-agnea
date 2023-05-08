@@ -68,9 +68,6 @@ handle_input_locally = false
 size = Vector2i(958, 1080)
 render_target_update_mode = 4
 
-[node name="HUD" parent="SplitScreen/LeftContainer/SubViewport" instance=ExtResource("1_mecw7")]
-script = ExtResource("3_qtkm7")
-
 [node name="CarGimbal" parent="SplitScreen/LeftContainer/SubViewport" node_paths=PackedStringArray("vehicle") instance=ExtResource("1_553rr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35764, 0.891925, -0.936448)
 vehicle = NodePath("../Left_Car")
@@ -91,9 +88,6 @@ handle_input_locally = false
 size = Vector2i(958, 1080)
 render_target_update_mode = 4
 
-[node name="HUD" parent="SplitScreen/RightContainer/SubViewport" instance=ExtResource("1_mecw7")]
-script = ExtResource("3_qtkm7")
-
 [node name="CarGimbal" parent="SplitScreen/RightContainer/SubViewport" node_paths=PackedStringArray("vehicle") instance=ExtResource("1_553rr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35764, 0.891925, -0.936448)
 vehicle = NodePath("../Right_Car")
@@ -104,6 +98,9 @@ checkpoint_controller = NodePath("../../../../CheckpointController")
 car_color = Color(0.298039, 0.658824, 0.803922, 1)
 camera_gimbal = NodePath("../CarGimbal")
 control_scheme = 0
+
+[node name="HUD" parent="SplitScreen" instance=ExtResource("1_mecw7")]
+script = ExtResource("3_qtkm7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.497247, -0.744628, -0.445281, 0.867609, 0.426763, 0.2552, 2.06965e-09, -0.513227, 0.858253, 0, 6.02766, 0)
@@ -181,5 +178,5 @@ transform = Transform3D(-0.913433, 0, -0.406992, 0, 1, 0, 0.406992, 0, -0.913432
 is_finish = true
 order = 4
 
-[connection signal="car_lapped" from="CheckpointController" to="SplitScreen/LeftContainer/SubViewport/HUD" method="_on_checkpoint_controller_car_lapped"]
-[connection signal="car_won" from="CheckpointController" to="SplitScreen/LeftContainer/SubViewport/HUD" method="_on_checkpoint_controller_car_won"]
+[connection signal="car_lapped" from="CheckpointController" to="SplitScreen/HUD" method="_on_checkpoint_controller_car_lapped"]
+[connection signal="car_won" from="CheckpointController" to="SplitScreen/HUD" method="_on_checkpoint_controller_car_won"]
