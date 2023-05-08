@@ -26,7 +26,6 @@ var total_race_laps = 0
 var total_lap_checkpoints = 0
 var checkpoints_cleared = 0
 
-
 # If a speed booster is active, this is set to true, blocking all input except steering
 var acceleration_locked:bool = false
 
@@ -115,6 +114,7 @@ var previous_steering_input = 0.0
 
 # Initial position
 var initial_position: Transform3D
+var initial_rotation: Vector3
 
 # Has the car passed through at least one checkpoint?
 var car_logged = false
@@ -127,6 +127,8 @@ var previous_position: Vector3
 var prev_linear_velocity = Vector3()
 
 func _ready():
+	
+	initial_rotation = rotation
 	
 	if checkpoint_controller:
 		total_race_laps = checkpoint_controller.lap_count
