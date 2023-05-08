@@ -34,7 +34,6 @@ func use(origin):
 #	car_node.acceleration_force = original_acceleration_force
 #	car_node.max_speed = original_max_speed
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
