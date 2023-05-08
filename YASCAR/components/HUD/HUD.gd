@@ -7,6 +7,7 @@ var lap_count_total = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	lap_count_total = checkpoint_controller.lap_count
 	$Left_Car/HUD_Text.clear()
 	$Right_Car/HUD_Text.clear()
 	$Message/HUD_Text.clear()
