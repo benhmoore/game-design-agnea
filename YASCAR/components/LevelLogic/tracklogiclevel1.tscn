@@ -23,7 +23,7 @@ curve = SubResource("Curve3D_fnmhh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.431152, 0.655762, 0.0510292)
 use_collision = true
 flip_faces = true
-polygon = PackedVector2Array(-3.5, 0, 3.5, 0, 8.5, 0, 4, 0)
+polygon = PackedVector2Array(-3.45, 0, 3.5, 0, 8.75, 0, 3.75, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
@@ -38,7 +38,7 @@ material = SubResource("ShaderMaterial_v8wc8")
 
 [node name="Rrail" type="CSGPolygon3D" parent="."]
 use_collision = true
-polygon = PackedVector2Array(-3.48973, 0.670204, -3.98226, -0.0109823, -3, 0, -3, 0)
+polygon = PackedVector2Array(-3, 0.6, -6, -0.011, -3, 0, -3, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
@@ -53,7 +53,7 @@ material = ExtResource("3_yd2m2")
 
 [node name="Lrail" type="CSGPolygon3D" parent="."]
 use_collision = true
-polygon = PackedVector2Array(8.81515, -0.0130453, 7.94434, 0.661508, 7.5, 0, 7.5, 0)
+polygon = PackedVector2Array(10, -0.013, 8, 0.6, 7.5, 0, 7.5, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
