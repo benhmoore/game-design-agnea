@@ -18,8 +18,6 @@ func remove():
 	
 func use(origin):
 	
-	
-	
 	# Store the current acceleration force and max speed of the car_node
 	original_acceleration_force = car_node.acceleration_force
 	original_max_speed = car_node.max_speed
