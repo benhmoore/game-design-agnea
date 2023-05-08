@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://clt5hqxtjkbmt"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_vawcy"]
+[ext_resource type="Texture2D" uid="uid://ckctc8rlnkjrk" path="res://checkpoint_notice.jpg" id="2_n3hxr"]
+[ext_resource type="FontFile" uid="uid://b0p53hemx0k3w" path="res://HVD_Comic_Serif_Pro.otf" id="3_ftof1"]
+
+[sub_resource type="Theme" id="Theme_k7gee"]
+default_font = ExtResource("3_ftof1")
+default_font_size = 85
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxsbe"]
+bg_color = Color(0, 0.741176, 0, 0.980392)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vawcy")
+
+[node name="CheckpointNotice" type="Sprite2D" parent="."]
+position = Vector2(960.5, 538)
+scale = Vector2(0.736538, 0.6725)
+texture = ExtResource("2_n3hxr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = SubResource("Theme_k7gee")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fxsbe")
+text = "   Continue   "
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
