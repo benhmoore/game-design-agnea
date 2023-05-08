@@ -29,6 +29,8 @@ var total_race_laps = 0
 var total_lap_checkpoints = 0
 var checkpoints_cleared = 0
 
+var time_since_last_honk = 0.0
+
 # If a speed booster is active, this is set to true, blocking all input except steering
 var acceleration_locked:bool = false
 
@@ -156,8 +158,12 @@ func _ready():
 
 func use_pickup():
 	if pickup == null:
-		emit_signal("car_honking")
+		if gun == null and balloons == null:
+			if time_since_last_honk > 2.0:
+				emit_signal("car_honking")
+				time_since_last_honk = 0
 		return
+		
 	
 	emit_signal("car_using_pickup")
 	pickup.use()
@@ -210,9 +216,11 @@ func _physics_process(delta):
 	if control_scheme == ControlScheme.ARROWS:
 		if Input.get_action_strength("use_item_slash") > 0:
 			use_pickup()
+			time_since_last_honk = 0
 	else:
 		if Input.get_action_strength("use_item_q") > 0:
 			use_pickup()
+			time_since_last_honk = 0
 			
 	if control_scheme == ControlScheme.ARROWS:
 		if Input.get_action_strength("right_car_reset") > 0:
@@ -285,6 +293,7 @@ func _physics_process(delta):
 	update_camera_fov(delta)
 	
 	previous_steering_input = steer_input
+	time_since_last_honk += delta
 
 
 func update_airborne_status(delta):

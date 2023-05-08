@@ -99,8 +99,9 @@ car_color = Color(0.298039, 0.658824, 0.803922, 1)
 camera_gimbal = NodePath("../CarGimbal")
 control_scheme = 0
 
-[node name="HUD" parent="SplitScreen" instance=ExtResource("1_mecw7")]
+[node name="HUD" parent="SplitScreen" node_paths=PackedStringArray("checkpoint_controller") instance=ExtResource("1_mecw7")]
 script = ExtResource("3_qtkm7")
+checkpoint_controller = NodePath("../../CheckpointController")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.497247, -0.744628, -0.445281, 0.867609, 0.426763, 0.2552, 2.06965e-09, -0.513227, 0.858253, 0, 6.02766, 0)
