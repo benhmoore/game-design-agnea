@@ -379,7 +379,6 @@ func check_car_reset(delta):
 
 	previous_position = transform.origin
 
-
 func reset_car():
 	if car_logged:
 		emit_signal("car_reset", self)
