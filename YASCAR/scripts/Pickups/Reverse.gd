@@ -38,6 +38,6 @@ func _process(delta):
 			
 			var camera = car.camera_gimbal.get_node("Camera3D")
 			
-			camera.rotation = initial_rot
+			camera.rotation = car.camera_gimbal.initial_camera_rotation
 			
 		queue_free()

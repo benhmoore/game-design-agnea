@@ -91,7 +91,8 @@ func use():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	prone_scale = collider.shape.extents
+	pass
+#	prone_scale = collider.shape.extents
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -122,9 +123,9 @@ func prone_behavior(delta):
 	set_rotation(rot)
 
 	# Reset the collider extents to its original size
-	collider.shape.extents = prone_scale
+#	collider.shape.extents = prone_scale
 	
-	collider.shape.set_margin(0.04)
+#	collider.shape.set_margin(0.04)
 
 func inventory_behavior(delta):
 	time += delta
@@ -139,7 +140,7 @@ func inventory_behavior(delta):
 	set_rotation(rot)
 
 	# Set the collider extents to the inventory size
-	collider.shape.set_margin(3)
+#	collider.shape.set_margin(3)
 	
 	# Swap the mesh if provided
 	if inventory_mesh:

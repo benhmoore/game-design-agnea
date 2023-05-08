@@ -1,16 +1,69 @@
-[gd_scene format=3 uid="uid://bj6032sulvv57"]
+[gd_scene load_steps=2 format=3 uid="uid://bj6032sulvv57"]
+
+[ext_resource type="FontFile" uid="uid://b0p53hemx0k3w" path="res://HVD_Comic_Serif_Pro.otf" id="1_s27ji"]
 
 [node name="HUD" type="CanvasLayer"]
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Right_Car" type="PanelContainer" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -222.0
-offset_top = -162.0
+offset_top = -68.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
+
+[node name="HUD_Text" type="RichTextLabel" parent="Right_Car"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_s27ji")
+theme_override_font_sizes/normal_font_size = 48
+text = "Lap: "
+
+[node name="Left_Car" type="PanelContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -71.0
+offset_right = 222.0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="HUD_Text" type="RichTextLabel" parent="Left_Car"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_s27ji")
+theme_override_font_sizes/normal_font_size = 48
+text = "Lap: "
+
+[node name="Message" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.5
+offset_top = -81.0
+offset_right = 480.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+size_flags_vertical = 10
+
+[node name="HUD_Text" type="RichTextLabel" parent="Message"]
+layout_mode = 2
+offset_right = 961.0
+offset_bottom = 131.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0.807843, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_s27ji")
+theme_override_font_sizes/normal_font_size = 96
+text = "The ____ Car Wins!"
+fit_content = true
+autowrap_mode = 0

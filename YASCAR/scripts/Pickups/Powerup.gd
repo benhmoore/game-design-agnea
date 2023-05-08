@@ -11,14 +11,11 @@ var original_max_fov
 func _ready():
 	pass # Replace with function body.
 
-
 func remove():
 	car_node.pickup = null
 	queue_free()
 	
 func use(origin):
-	
-	
 	
 	# Store the current acceleration force and max speed of the car_node
 	original_acceleration_force = car_node.acceleration_force
@@ -36,7 +33,6 @@ func use(origin):
 #	# Restore the original acceleration force and max speed
 #	car_node.acceleration_force = original_acceleration_force
 #	car_node.max_speed = original_max_speed
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

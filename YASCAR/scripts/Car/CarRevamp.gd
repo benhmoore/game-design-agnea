@@ -7,6 +7,10 @@ signal car_idle
 signal car_breaking
 signal car_moving_forward
 signal car_moving_backward
+signal car_honking
+
+signal car_picking_up_item
+signal car_using_pickup
 
 # Pickup inventory
 var pickup:Node3D
@@ -24,7 +28,6 @@ var total_race_laps = 0
 
 var total_lap_checkpoints = 0
 var checkpoints_cleared = 0
-
 
 # If a speed booster is active, this is set to true, blocking all input except steering
 var acceleration_locked:bool = false
@@ -99,7 +102,7 @@ var breaklights_on: bool = false
 
 var previous_steering_input = 0.0
 
-@export var max_speed = 30.0
+@export var max_speed = 20.0
 
 # Minimum and maximum FOV for the camera
 @export var min_fov = 60.0
@@ -114,6 +117,7 @@ var previous_steering_input = 0.0
 
 # Initial position
 var initial_position: Transform3D
+var initial_rotation: Vector3
 
 # Has the car passed through at least one checkpoint?
 var car_logged = false
@@ -126,6 +130,8 @@ var previous_position: Vector3
 var prev_linear_velocity = Vector3()
 
 func _ready():
+	
+	initial_rotation = rotation
 	
 	if checkpoint_controller:
 		total_race_laps = checkpoint_controller.lap_count
@@ -150,11 +156,11 @@ func _ready():
 
 func use_pickup():
 	if pickup == null:
-		print("You don't have a pickup to use!")
+		emit_signal("car_honking")
 		return
-		
+	
+	emit_signal("car_using_pickup")
 	pickup.use()
-#	pickup = null
 
 func toggle_breaklights():
 	var newMaterial = StandardMaterial3D.new()
@@ -270,7 +276,7 @@ func _physics_process(delta):
 	limit_top_speed()
 	
 	# Show speed particles
-	if linear_velocity.length() > 25:
+	if linear_velocity.length() > 19:
 		speed_particles.emitting = true
 	else:
 		speed_particles.emitting = false
@@ -294,7 +300,7 @@ func update_airborne_status(delta):
 	elif was_airborne:
 		last_airborne_duration = airborne_timer
 		airborne_timer = 0
-		print("Airborne duration: %s seconds, Flips: %d" % [last_airborne_duration, flip_count])
+#		print("Airborne duration: %s seconds, Flips: %d" % [last_airborne_duration, flip_count])
 		flip_count = 0
 
 
@@ -318,7 +324,8 @@ func update_flip_count(delta):
 
 
 func print_car_state():
-	print("Car state changed: ", car_state_labels[car_state])
+	pass
+#	print("Car state changed: ", car_state_labels[car_state])
 
 
 func update_car_state(accel_input: float):
@@ -377,7 +384,6 @@ func check_car_reset(delta):
 		reset_car()
 
 	previous_position = transform.origin
-
 
 func reset_car():
 	if car_logged:
@@ -442,6 +448,8 @@ func pickup_item(item):
 		gun.remove()
 	if balloons != null:
 		balloons.remove()
+		
+	emit_signal("car_picking_up_item")
 		
 	pickup = item
 
