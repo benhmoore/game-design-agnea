@@ -159,7 +159,7 @@ func _ready():
 func use_pickup():
 	if pickup == null:
 		if gun == null and balloons == null:
-			if time_since_last_honk > 2.0:
+			if time_since_last_honk > 0.3:
 				emit_signal("car_honking")
 				time_since_last_honk = 0
 		return
