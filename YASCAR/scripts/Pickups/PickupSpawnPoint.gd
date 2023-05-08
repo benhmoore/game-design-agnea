@@ -10,7 +10,6 @@ var should_spawn = false
 var time_since_pickup = 0.0
 
 func spawn_pickup():
-	print("Spawned new pickup")
 	current_pickup = pickup_container_scene.instantiate()
 	current_pickup.global_transform = global_transform
 	current_pickup.attached_to = self
