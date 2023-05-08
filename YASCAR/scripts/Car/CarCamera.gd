@@ -21,6 +21,7 @@ var initial_offset: Vector3
 @export var vehicle: VehicleBody3D
 
 @onready var camera:Camera3D = $Camera3D
+@onready var initial_camera_rotation = camera.rotation
 
 # SmoothDamp variables
 var target_position_velocity: Vector3 = Vector3.ZERO
