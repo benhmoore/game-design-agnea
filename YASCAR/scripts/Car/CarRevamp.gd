@@ -272,7 +272,7 @@ func _physics_process(delta):
 	limit_top_speed()
 	
 	# Show speed particles
-	if linear_velocity.length() > 25:
+	if linear_velocity.length() > 19:
 		speed_particles.emitting = true
 	else:
 		speed_particles.emitting = false
