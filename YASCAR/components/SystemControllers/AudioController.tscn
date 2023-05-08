@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctkgv7nesadq2"]
+
+[ext_resource type="Script" path="res://scripts/SystemControllers/AudioController.gd" id="1_m67pj"]
+[ext_resource type="AudioStream" uid="uid://bbr2fhuwxwj0o" path="res://assets/sounds/engine-6000.mp3" id="2_nthmv"]
+
+[node name="AudioController" type="Node3D"]
+script = ExtResource("1_m67pj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nthmv")
