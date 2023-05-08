@@ -99,7 +99,7 @@ var breaklights_on: bool = false
 
 var previous_steering_input = 0.0
 
-@export var max_speed = 30.0
+@export var max_speed = 20.0
 
 # Minimum and maximum FOV for the camera
 @export var min_fov = 60.0
