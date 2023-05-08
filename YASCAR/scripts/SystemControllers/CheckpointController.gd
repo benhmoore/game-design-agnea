@@ -13,6 +13,8 @@ var cars:Array[VehicleBody3D]
 
 var car_lap:Array[int] # Keep track of the cars' current lap
 
+var car_has_won = false # Stores if any car has won the race
+
 
 func compareCheckpoints(a, b):
 	return a.order < b.order
@@ -99,6 +101,8 @@ func _on_checkpoint_passed(params):
 	highlight_next_checkpoint(checkpoint)
 	update_status()
 	
+	$AudioStreamPlayer2.play()
+	
 func _on_finish_passed():
 	var passing_car = finish.pass_history[-1] # The most recent car to pass the finish line
 	
@@ -115,5 +119,8 @@ func _on_finish_passed():
 	passing_car.checkpoints_cleared = 0
 	print("Reset checkpoints_cleared on car.")
 	
-	if passing_car.current_lap == lap_count:
+	if passing_car.current_lap == lap_count and not car_has_won:
+		car_has_won = true
+		passing_car.win()
+		$AudioStreamPlayer.play()
 		emit_signal("car_won", passing_car)

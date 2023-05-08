@@ -156,6 +156,14 @@ func _ready():
 	
 	collision_detected.connect(camera_gimbal._on_collision_detected)
 
+func win():
+	# Add an impulse to the car to throw it into the air
+	var launch_dir = Vector3(linear_velocity.x, launch_force * 12, linear_velocity.z * 1)
+	apply_impulse(launch_dir)
+	
+	await get_tree().create_timer(1).timeout
+	emit_signal("car_honking")
+
 func use_pickup():
 	if pickup == null:
 		if gun == null and balloons == null:

@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl1ls6p5keote"]
+[gd_scene load_steps=5 format=3 uid="uid://bl1ls6p5keote"]
 
 [ext_resource type="Script" path="res://scripts/SystemControllers/CheckpointController.gd" id="1_ixtfx"]
+[ext_resource type="AudioStream" uid="uid://bkyeirdxbdlqc" path="res://assets/sounds/success.ogg" id="2_ilvtw"]
+[ext_resource type="AudioStream" uid="uid://3q5wg3ppg7wh" path="res://assets/sounds/checkpoint.wav" id="3_q5ibt"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_1j3c2"]
 
@@ -10,3 +12,11 @@ script = ExtResource("1_ixtfx")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("PrismMesh_1j3c2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ilvtw")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q5ibt")
+volume_db = -20.0
