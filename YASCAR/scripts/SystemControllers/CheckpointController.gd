@@ -76,6 +76,8 @@ func _on_car_reset(car):
 
 	if not car_reset:
 		car.transform = car.initial_position
+		
+	car.rotation = car.initial_rotation
 
 func highlight_next_checkpoint(checkpoint):
 	
@@ -103,6 +105,7 @@ func _on_finish_passed():
 	if passing_car.can_finish:
 		if passing_car.current_lap < lap_count:
 			passing_car.current_lap += 1
+			emit_signal("car_lapped", passing_car)
 			
 			# If car has lapped, reset checkpoints
 			reset_checkpoints(passing_car)
@@ -114,5 +117,3 @@ func _on_finish_passed():
 	
 	if passing_car.current_lap == lap_count:
 		emit_signal("car_won", passing_car)
-	else:
-		emit_signal("car_lapped", passing_car)
