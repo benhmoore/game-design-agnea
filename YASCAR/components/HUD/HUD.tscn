@@ -36,13 +36,9 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [node name="HUD_Text" type="RichTextLabel" parent="Left_Car"]
-clip_contents = false
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
-theme_override_constants/text_highlight_h_padding = 0
-theme_override_constants/text_highlight_v_padding = 0
 theme_override_fonts/normal_font = ExtResource("1_s27ji")
 theme_override_font_sizes/normal_font_size = 48
 text = "Lap: "
