@@ -3,6 +3,11 @@ extends VehicleBody3D
 signal car_reset
 signal collision_detected
 
+signal car_idle
+signal car_breaking
+signal car_moving_forward
+signal car_moving_backward
+
 # Pickup inventory
 var pickup:Node3D
 var gun:Node3D
@@ -322,12 +327,16 @@ func update_car_state(accel_input: float):
 	
 	if speed <= idle_speed_threshold and accel_input == 0:
 		car_state = CarState.IDLE
+		emit_signal("car_idle")
 	elif is_car_breaking(accel_input):
 		car_state = CarState.BREAKING
+		emit_signal("car_breaking")
 	elif forward_speed > idle_speed_threshold:
 		car_state = CarState.MOVING_FORWARD
+		emit_signal("car_moving_forward")
 	elif forward_speed < -idle_speed_threshold:
 		car_state = CarState.MOVING_REVERSE
+		emit_signal("car_moving_backward")
 
 
 func is_car_breaking(accel_input: float) -> bool:
