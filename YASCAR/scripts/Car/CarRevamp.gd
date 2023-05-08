@@ -9,6 +9,9 @@ signal car_moving_forward
 signal car_moving_backward
 signal car_honking
 
+signal car_picking_up_item
+signal car_using_pickup
+
 # Pickup inventory
 var pickup:Node3D
 var gun:Node3D
@@ -155,7 +158,8 @@ func use_pickup():
 	if pickup == null:
 		emit_signal("car_honking")
 		return
-		
+	
+	emit_signal("car_using_pickup")
 	pickup.use()
 
 func toggle_breaklights():
@@ -444,6 +448,8 @@ func pickup_item(item):
 		gun.remove()
 	if balloons != null:
 		balloons.remove()
+		
+	emit_signal("car_picking_up_item")
 		
 	pickup = item
 

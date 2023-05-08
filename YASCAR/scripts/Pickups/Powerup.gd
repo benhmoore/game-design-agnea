@@ -11,7 +11,6 @@ var original_max_fov
 func _ready():
 	pass # Replace with function body.
 
-
 func remove():
 	car_node.pickup = null
 	queue_free()
