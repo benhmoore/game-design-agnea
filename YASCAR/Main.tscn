@@ -160,7 +160,7 @@ transform = Transform3D(0.251172, 0, -0.544897, 0, 0.6, 0, 0.544897, 0, 0.251172
 
 [node name="CheckpointController" parent="." instance=ExtResource("7_hkmj3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.074, 3.0364, 0)
-lap_count = 3
+lap_count = 1
 
 [node name="Checkpoint" parent="CheckpointController" instance=ExtResource("6_tdqe2")]
 transform = Transform3D(0.369601, 0, 0.929191, 0, 1, 0, -0.929191, 0, 0.369601, 59.3401, -3.0364, -1.7574)
