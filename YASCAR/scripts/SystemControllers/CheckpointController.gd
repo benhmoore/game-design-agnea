@@ -94,7 +94,13 @@ func highlight_next_checkpoint(checkpoint):
 		if i == len(checkpoints) - 1:
 			emit_signal("checkpoint_highlighted", [finish.order, passing_car])
 			
-	
+func can_car_win(passing_car):
+	var can_finish = true
+	for checkpoint in checkpoints:
+		if passing_car not in checkpoint.pass_history:
+			can_finish = false
+			
+	return can_finish
 
 func _on_checkpoint_passed(params):
 	var checkpoint = params[0]
@@ -106,21 +112,29 @@ func _on_checkpoint_passed(params):
 func _on_finish_passed():
 	var passing_car = finish.pass_history[-1] # The most recent car to pass the finish line
 	
+	var should_reset_checkpoints = false
 	if passing_car.can_finish:
 		if passing_car.current_lap < lap_count:
 			passing_car.current_lap += 1
-			emit_signal("car_lapped", passing_car)
-			
-			# If car has lapped, reset checkpoints
-			reset_checkpoints(passing_car)
-			
-			
-	finish.pass_history.erase(passing_car)
-	passing_car.checkpoints_cleared = 0
-	print("Reset checkpoints_cleared on car.")
+			should_reset_checkpoints = true
+			emit_signal("car_lapped", passing_car)	
 	
 	if passing_car.current_lap == lap_count and not car_has_won:
-		car_has_won = true
-		passing_car.win()
-		$AudioStreamPlayer.play()
-		emit_signal("car_won", passing_car)
+		if can_car_win(passing_car):
+			car_has_won = true
+			passing_car.win()
+			$AudioStreamPlayer.play()
+			passing_car.current_lap = 0
+			print("Car won!")
+			emit_signal("car_won", passing_car)
+		else:
+			print("Prevented win!")
+	else:
+		finish.pass_history.erase(passing_car)
+		passing_car.checkpoints_cleared = 0
+		print("Reset checkpoints_cleared on car.")
+		
+	if should_reset_checkpoints:
+		print("REEEEE")
+		passing_car.can_finish = false
+		reset_checkpoints(passing_car)

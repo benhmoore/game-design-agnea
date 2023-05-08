@@ -18,11 +18,11 @@ func _ready():
 func _on_checkpoint_controller_car_lapped(car):
 	print(car.name, " lapped!")
 	if (car.name == "Left_Car"):
-		lap_count_left += 1
+		lap_count_left = clamp(lap_count_left + 1, 0, lap_count_total)
 		$Left_Car/HUD_Text.clear()
 		$Left_Car/HUD_Text.append_text("Lap: " + str(lap_count_left) + "/" + str(lap_count_total))
 	else:
-		lap_count_right += 1
+		lap_count_right  = clamp(lap_count_right + 1, 0, lap_count_total)
 		$Right_Car/HUD_Text.clear()
 		$Right_Car/HUD_Text.append_text("Lap: " + str(lap_count_right) + "/" + str(lap_count_total))
 
