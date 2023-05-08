@@ -3,9 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm608eulnh1x4"
-path.etc2="res://.godot/imported/WrongWaySign_Untitled.png-add75112694c33039cc55e4a3b67517d.etc2.ctex"
+path.s3tc="res://.godot/imported/WrongWaySign_Untitled.png-add75112694c33039cc55e4a3b67517d.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +13,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assets/models/Environment/WrongWaySign_Untitled.png"
-dest_files=["res://.godot/imported/WrongWaySign_Untitled.png-add75112694c33039cc55e4a3b67517d.etc2.ctex"]
+dest_files=["res://.godot/imported/WrongWaySign_Untitled.png-add75112694c33039cc55e4a3b67517d.s3tc.ctex"]
 
 [params]
 
