@@ -26,8 +26,6 @@ func _ready():
 		highlight_particle.emitting = true
 		highlight_particle.emitting = false
 	
-	print(checkpoint_controller)
-	
 	checkpoint_controller.connect("checkpoint_highlighted", _on_highlight)
 	
 	assert(order != -1, """ERROR: You must provide an order for all checkpoints. 
@@ -39,23 +37,6 @@ func _ready():
 	else:
 		$Finish.visible = false
 		$Checkpoint.visible = true
-
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	time += delta
-#
-#	# Calculate the vertical offset based on a wave function
-#	var offset = sin(time * 2 * PI) * 0.5 + 0.5
-#
-#	# Set the position and rotation of the cube in local space
-#	var pos = Vector3(0, offset * 0.5, 0)
-#	var rot = Vector3(0, time * 3, 0)
-#
-#	claim_statuses[0].transform.origin = claim_status_p0_init_pos + pos
-#	claim_statuses[0].set_rotation(rot)
-#
-#	claim_statuses[1].transform.origin = claim_status_p1_init_pos + pos
-#	claim_statuses[1].set_rotation(rot)
 
 func update_color(claim:Node3D, car:VehicleBody3D):
 	claim.set_color(car.car_color)
@@ -101,7 +82,6 @@ func _on_highlight(params):
 func _on_area_3d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	
 	if body.is_in_group("Vehicle"):
-		print("Car detected!")
 		if body not in pass_history:
 			pass_history.append(body)
 			

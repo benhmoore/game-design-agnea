@@ -7,6 +7,7 @@ signal car_idle
 signal car_breaking
 signal car_moving_forward
 signal car_moving_backward
+signal car_honking
 
 # Pickup inventory
 var pickup:Node3D
@@ -150,11 +151,10 @@ func _ready():
 
 func use_pickup():
 	if pickup == null:
-		print("You don't have a pickup to use!")
+		emit_signal("car_honking")
 		return
 		
 	pickup.use()
-#	pickup = null
 
 func toggle_breaklights():
 	var newMaterial = StandardMaterial3D.new()
@@ -294,7 +294,7 @@ func update_airborne_status(delta):
 	elif was_airborne:
 		last_airborne_duration = airborne_timer
 		airborne_timer = 0
-		print("Airborne duration: %s seconds, Flips: %d" % [last_airborne_duration, flip_count])
+#		print("Airborne duration: %s seconds, Flips: %d" % [last_airborne_duration, flip_count])
 		flip_count = 0
 
 
@@ -318,7 +318,8 @@ func update_flip_count(delta):
 
 
 func print_car_state():
-	print("Car state changed: ", car_state_labels[car_state])
+	pass
+#	print("Car state changed: ", car_state_labels[car_state])
 
 
 func update_car_state(accel_input: float):
@@ -377,7 +378,6 @@ func check_car_reset(delta):
 		reset_car()
 
 	previous_position = transform.origin
-
 
 func reset_car():
 	if car_logged:
